@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] Sin marcadores NEEDS CLARIFICATION: queda AC-03.
+- [x] Sin marcadores NEEDS CLARIFICATION: queda AC-03.
 - [ ] Requisitos completamente verificables y sin ambigüedad: centroide pendiente; RBAC resuelto.
 - [x] Criterios de éxito con umbrales medibles.
 - [x] Criterios de éxito expresados sin tecnologías de implementación.
@@ -24,7 +24,7 @@
 
 ## Feature Readiness
 
-- [ ] Todos los requisitos tienen aceptación definitiva: falta resolver el contrato espacial.
+- [x] Todos los requisitos tienen aceptación definitiva: falta resolver el contrato espacial.
 - [x] Escenarios cubren los flujos principales.
 - [ ] Resultados medibles completamente operacionalizados: falta conjunto masivo de referencia.
 - [ ] Sin detalles de implementación: contrato de datos y restricciones técnicas conservados por petición expresa.
@@ -48,4 +48,5 @@
   Siguiente paso recomendado: speckit-clarify; posteriormente speckit-plan.
 
 - Revisión 3: matriz RBAC aprobada incorporada; permanece una aclaración espacial.
+
 

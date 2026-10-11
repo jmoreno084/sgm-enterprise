@@ -1,10 +1,14 @@
 ﻿<!--
 Sync Impact Report
-Versión: plantilla sin versión → 4.1.0-SGPM (versión solicitada; adopción inicial).
-Principios modificados: marcadores de plantilla → leyes técnicas obligatorias del SGPM.
-Secciones añadidas: dominio, seguridad, notificaciones, auditoría y gobernanza.
-Secciones eliminadas: ejemplos de plantilla. Pendientes: ninguno.
-Plantillas dependientes: sin cambios; consultan la constitución en ejecución.
+Versión: 4.1.0-SGPM → 4.2.0-SGPM (MINOR: ampliación compatible de tipos espaciales).
+Principio modificado: Motor Espacial y Base de Datos; permite GEOMETRY(Point, 4326)
+para centroides de proyectos, conservando GiST y tipos catastrales existentes.
+Secciones añadidas: registro de enmienda en gobernanza. Secciones eliminadas: ninguna.
+Autorización: respuesta B del usuario a AC-03, 2026-10-11.
+Impacto: contrato del centroide sin excepción constitucional; catastro sin cambios.
+Migración: aplicar el tipo puntual e índice GiST al diseñar las migraciones; no se ejecuta DDL.
+Seguimiento: sincronizar AC-03 y referencia constitucional en la especificación activa.
+Plantillas: sin cambios; consultan la constitución en ejecución. Pendientes: ninguno.
 Informe temporal: retirar antes de confirmar la constitución.
 -->
 
@@ -12,7 +16,7 @@ Informe temporal: retirar antes de confirmar la constitución.
 
 **CONSTITUCIÓN TÉCNICA DEL SISTEMA**  
 **Metodología:** Spec-Driven Development (SDD)  
-**Versión:** 4.1.0-SGPM (Actualizada)  
+**Versión:** 4.2.0-SGPM (Actualizada)  
 **Estado:** INMUTABLE / OBLIGATORIA  
 **Fecha de Emisión:** 2026-09-24
 
@@ -47,7 +51,9 @@ sobre cualquier requerimiento o implementación.
   el mismo servidor Ubuntu 16.04, mediante socket UNIX o TCP loopback `127.0.0.1:5432`.
   Se PROHÍBE sintaxis posterior a PostgreSQL 9.5.24; se permite `ON CONFLICT DO UPDATE`.
 - Las columnas espaciales DEBEN ser `GEOMETRY(MultiPolygon, 4326)` o
-  `GEOMETRY(Geometry, 4326)` con índices espaciales **GiST** obligatorios (RNF-23).
+  `GEOMETRY(Geometry, 4326)`. Para centroides de proyectos se permite expresamente
+  `GEOMETRY(Point, 4326)`. Todas estas columnas DEBEN disponer de índices espaciales
+  **GiST** (RNF-23).
   En las tablas catastrales externas, la columna geométrica oficial es `the_geom`.
 - El cálculo oficial de hectáreas en Colombia DEBE ejecutarse en PostGIS mediante
   `ST_Area(the_geom::geography) / 10000.0` o transformación oficial MAGNA-SIRGAS
@@ -147,4 +153,11 @@ PATCH para aclaraciones sin cambio normativo. Toda enmienda ratificada DEBE actu
 versión y fecha de modificación, preservando la fecha de ratificación original.
 La versión inicial registrada es la `4.1.0-SGPM` proporcionada por el usuario.
 
-**Version**: 4.1.0-SGPM | **Ratified**: 2026-09-24 | **Last Amended**: 2026-10-11
+**Enmienda ratificada — 2026-10-11:** El responsable del proyecto aprueba la opción B
+para AC-03: permitir GEOMETRY(Point, 4326) en centroides de proyectos. La versión
+4.2.0-SGPM amplía de forma compatible los tipos permitidos. No cambia las geometrías
+MultiPolygon catastrales ni la obligación de índices GiST. Las migraciones futuras DEBEN
+usar el contrato puntual para Proyecto.centroide; esta enmienda documental no ejecuta
+cambios de base de datos. La ratificación original permanece en 2026-09-24.
+**Version**: 4.2.0-SGPM | **Ratified**: 2026-09-24 | **Last Amended**: 2026-10-11
+

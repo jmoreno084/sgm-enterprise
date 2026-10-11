@@ -4,14 +4,26 @@
 
 **Created**: 2026-10-11
 
-**Status**: APROBADO por el usuario como documento de entrada; validación de consistencia pendiente de una aclaración (AC-03, centroide).
+**Status**: APROBADO; aclaraciones AC-01, AC-02 y AC-03 resueltas y documentadas. Listo para planificación con las dependencias operativas registradas.
 
 **Versión de requisitos**: 4.1.0-SGPM (Actualizada).
 
 **Input**: Especificaciones formales del usuario para los ocho módulos del SGPM,
 con esquema canónico, fuentes catastrales externas de 30 atributos y RNF-01 a RNF-20.
 Metodología Spec-Driven Development (SDD). Rige la
-[constitución 4.1.0-SGPM](../../.specify/memory/constitution.md).
+[constitución 4.2.0-SGPM](../../.specify/memory/constitution.md).
+
+## Clarifications
+
+### Session 2026-10-11
+
+- Q: ¿Cómo se despachan las notificaciones del SGPM? → A: Exclusivamente por POST HTTPS al servicio corporativo sendEmail.php, mediante LibCurlModel/cURL, sin SMTP local; incluye recuperación, bienvenida, reportes programados y alertas de auditoría.
+- Q: ¿Debe el SGPM exponer validación topológica de expedientes oficiales? → A: No; la sincronización externa garantiza la calidad. No hay endpoints de validación, reparación ni edición de límites oficiales. Se mantienen RN-06, RN-12 y RN-13.
+- Q: ¿Cuál es el contrato definitivo de las fuentes catastrales? → A: Misma base, 30 campos idénticos, fechas DATE, the_geom MultiPolygon 4326 NOT NULL con GiST y sgpm_user con SELECT exclusivamente sobre ambas tablas.
+- Q: ¿Cuál es la infraestructura de ejecución? → A: Un host Ubuntu 16.04 LTS de 64 bits, Apache/2.4.18 con HTTPS en 443, PHP 7.0.33 y PostgreSQL 9.5.24 con PostGIS 2.2 o superior dentro de la rama 2.x, por TCP 127.0.0.1:5432.
+- Q: ¿Cómo se garantiza RN-12 incluso con concurrencia? → A: Restricción uq_proyecto_expediente UNIQUE (proyecto_id, codigo_expediente), con rechazo de duplicados independientemente del tipo o filiación.
+
+- Q: ¿Qué tipo debe usar el centroide del proyecto para resolver el conflicto con la constitución? → A: B; enmendar la constitución para permitir GEOMETRY(Point, 4326), ratificado en 4.2.0-SGPM con índice GiST.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -280,7 +292,7 @@ solo son consultables por el Administrador. El diseño debe conservar esa atribu
 
 El esquema siguiente conserva los nombres, tipos, nulabilidad y reglas suministrados.
 Es un contrato de datos solicitado por el usuario, no una migración ejecutable.
-Los conflictos se identifican al final antes de traducir este contrato al diseño físico.
+Las decisiones de consistencia resueltas se registran antes de traducir el contrato al diseño físico.
 
 #### usuario
 
@@ -331,7 +343,7 @@ Unidad territorial y administrativa; pertenece a una única empresa (RN-01).
 | mineral_principal | VARCHAR(100) | No | Mineral objetivo. |
 | fecha_inicio | DATE | Sí | Inicio de labores o constitución. |
 | fecha_fin | DATE | Sí | Fin estimado o real. |
-| centroide | GEOMETRY(Point, 4326) | Sí | Centroide geodésico calculado en PostGIS; tipo pendiente por conflicto constitucional. |
+| centroide | GEOMETRY(Point, 4326) | Sí | Centroide geodésico calculado en PostGIS, permitido por constitución 4.2.0-SGPM; índice GiST obligatorio. |
 | observaciones | TEXT | Sí | Notas técnicas. |
 | creado_por | INTEGER FK | Sí | usuario(id), creador. |
 | modificado_por | INTEGER FK | Sí | usuario(id), último modificador. |
@@ -384,7 +396,7 @@ Vinculación de expedientes propios o vecinos con exclusividad RN-12.
 | empresa_vecina_id | INTEGER FK | Sí | Empresa Vecina(id) compartida; obligatorio si VECINO y con vínculo al mismo proyecto. |
 | fecha_asociacion | TIMESTAMP | No | Fecha de registro. |
 
-Restricción inmutable: `UNIQUE (proyecto_id, codigo_expediente)`.
+Restricción inmutable: `CONSTRAINT uq_proyecto_expediente UNIQUE (proyecto_id, codigo_expediente)`. Un duplicado es una violación de unicidad, no una violación de clave foránea; se traduce a HTTP 409 y mensaje amigable sin exponer la excepción del motor.
 El código debe existir en la fuente correspondiente al tipo (RN-06). VECINO requiere una
 vecina del mismo proyecto; PROPIO exige ausencia de atribución vecina. Los títulos y
 solicitudes de un mismo código tampoco pueden duplicarse dentro del proyecto (RN-12).
@@ -423,10 +435,10 @@ de solo lectura. Ambas comparten exactamente estos 30 campos estandarizados:
 | 6 | ETAPA | VARCHAR(100) |
 | 7 | SOLICITANTES_O_TITULARES | TEXT |
 | 8 | MINERALES | TEXT |
-| 9 | FECHA_DE_SOLICITUD | DATE / TIMESTAMP |
-| 10 | FECHA_DE_EXPEDICION | DATE / TIMESTAMP |
-| 11 | FECHA_DE_ANIVERSARIO | DATE / TIMESTAMP |
-| 12 | FECHA_DE_EXPIRACION | DATE / TIMESTAMP |
+| 9 | FECHA_DE_SOLICITUD | DATE |
+| 10 | FECHA_DE_EXPEDICION | DATE |
+| 11 | FECHA_DE_ANIVERSARIO | DATE |
+| 12 | FECHA_DE_EXPIRACION | DATE |
 | 13 | PUBLICADO_EN_RUCOM | VARCHAR(50) |
 | 14 | PAR | VARCHAR(100) |
 | 15 | TITLE_TYPE_CODE | VARCHAR(50) |
@@ -443,10 +455,10 @@ de solo lectura. Ambas comparten exactamente estos 30 campos estandarizados:
 | 26 | TERMINATION_TYPE_CODE | VARCHAR(50) |
 | 27 | ACTIVE_TENURE_STATUS_IND | VARCHAR(10) |
 | 28 | ACTIVE_APPLICATION_STATUS_IND | VARCHAR(10) |
-| 29 | FECHA_PROCESO | DATE / TIMESTAMP |
-| 30 | the_geom | GEOMETRY(MultiPolygon, 4326), índice espacial GiST |
+| 29 | FECHA_PROCESO | DATE |
+| 30 | the_geom | GEOMETRY(MultiPolygon, 4326) NOT NULL, índice espacial GiST |
 
-No se presupone nulabilidad adicional para los campos externos cuyo contrato no la define.
+CODIGO_EXPEDIENTE y the_geom son NOT NULL; los otros 28 campos admiten NULL conforme al contrato SQL aclarado. Las cinco fechas catastrales son DATE.
 
 ### Requerimientos no funcionales y restricciones obligatorias
 
@@ -457,8 +469,8 @@ nuevas de implementación.
 | Código | Requisito | Criterio de aceptación |
 | --- | --- | --- |
 | RNF-01 | Compatibilidad backend | PHP 7.0.33 estricto; cero características PHP 7.1+. |
-| RNF-02 | Base de datos | PostgreSQL 9.5.24 con PostGIS instalado. |
-| RNF-03 | Servidor y SO | Ubuntu 16.04 LTS, Apache/2.4.18 y HTTPS configurado. |
+| RNF-02 | Base de datos | PostgreSQL 9.5.24 con PostGIS 2.2+ dentro de la rama 2.x. |
+| RNF-03 | Servidor y SO | Host único Ubuntu 16.04 LTS de 64 bits, Apache/2.4.18 y HTTPS nativo en 443. |
 | RNF-04 | Codificación | UTF-8 integral en base de datos, JSON y vistas. |
 | RNF-05 | Consultas | Consultas estándar en menos de 3 segundos. |
 | RNF-06 | Capas masivas | Renderizado en menos de 8 segundos; conjunto masivo de referencia a fijar en planificación. |
@@ -469,7 +481,7 @@ nuevas de implementación.
 | RNF-11 | Seguridad web | Tokens CSRF, protección XSS y SQLi mediante PDO. |
 | RNF-12 | Transporte | HTTPS forzado con certificado SSL/TLS en Apache 2.4. |
 | RNF-13 | RBAC | Acceso estricto según matriz de cuatro roles aprobada; Administrador global y demás roles limitados a su empresa. |
-| RNF-14 | Notificaciones | https://sigmin.automatizzar.com/admin_emails/sendEmail.php |
+| RNF-14 | Notificaciones | POST HTTPS a https://sigmin.automatizzar.com/admin_emails/sendEmail.php mediante LibCurlModel; sin SMTP local. |
 | RNF-15 | Responsividad | Operación en escritorio, tablet y móvil. |
 | RNF-16 | Marco visual | Bootstrap 4.6. |
 | RNF-17 | Errores | Alertas claras sin trazas de código fuente. |
@@ -483,11 +495,114 @@ RNF-01–20 no elimina esas obligaciones ni autoriza renumerarlas.
 El envío corporativo se realiza con LibCurlModel/cURL y USERKEY, APIKEY, email, asunto,
 mensaje; el contrato no incluye valores secretos. Todo PHP inicia con strict_types=1.
 
-### Aclaraciones de consistencia pendientes
+**Contrato de notificaciones aclarado:**
+
+Todas las notificaciones (recuperación de contraseña, bienvenida, reportes programados y
+alertas de auditoría) utilizan POST al endpoint corporativo. No se instala ni gestiona SMTP
+local. USERKEY y APIKEY se obtienen de variables de entorno Apache/Ubuntu y se exponen
+como constantes seguras en config/config.php; nunca se incorporan valores al repositorio.
+La periodicidad de reportes y los disparadores de alertas se concretarán en planificación,
+sin conceder acceso a datos fuera de la matriz RBAC aprobada.
+
+Código de referencia obligatorio de invocación (documentación, no código ejecutado):
+
+```php
+<?php
+declare(strict_types=1);
+
+$url = "https://sigmin.automatizzar.com/admin_emails/sendEmail.php";
+$connCurl = new LibCurlModel;
+$resultado = $connCurl->curl_download($url, array(
+    "USERKEY" => $USERKEY,
+    "APIKEY"  => $APIKEY,
+    "email"   => $emailDestino,
+    "asunto"  => $asunto,
+    "mensaje" => $mensaje
+));
+```
+
+Modelo de referencia obligatorio compatible con PHP 7.0.33:
+
+```php
+<?php
+declare(strict_types=1);
+
+class LibCurlModel {
+    /**
+     * Ejecuta una petición HTTP POST mediante cURL compatible con PHP 7.0.33
+     * @param string $url
+     * @param array $params
+     * @return string
+     */
+    public function curl_download(string $url, array $params = []): string {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'SGPM-System-Ubuntu16/1.0');
+
+        $response = curl_exec($ch);
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            throw new Exception("Error en LibCurlModel: " . $error);
+        }
+        curl_close($ch);
+        return (string)$response;
+    }
+}
+```
+
+La excepción técnica queda encapsulada por el backend y no se presenta al usuario.
+El retorno de una cadena no demuestra entrega del correo: la planificación debe precisar
+la interpretación de estados HTTP y respuesta de negocio del servicio, no aportada aún.
+No se invoca el servicio real en esta fase documental.
+
+**Consumo espacial sin validación redundante:**
+
+La sincronización externa de catastro ANM captura, sanea y depura las geometrías.
+El SGPM consume y orquesta datos; no expone endpoints de ST_IsValid, ST_MakeValid ni
+comprobación manual de traslapes, ni permite modificar límites legales oficiales.
+Esto no elimina la validación de existencia RN-06, exclusividad RN-12 ni cálculo geodésico
+RN-13. La importación de capas de trabajo y las herramientas de medición siguen disponibles.
+La aplicación no ejecuta validaciones topológicas redundantes en cada petición.
+
+**Fuentes externas y despliegue aclarados:**
+
+sgpm_user dispone exclusivamente de SELECT sobre geo_titulos_mineros y
+geo_solicitudes_mineras. El sincronizador usa un acceso independiente. Ambas fuentes
+conservan los 30 campos descritos; permiten consulta unificada mediante UNION ALL,
+preservando la identificación de la fuente y tipo de expediente. Ambas disponen de
+índice USING GIST (the_geom).
+
+Apache/2.4.18 tiene mod_rewrite, mod_ssl y mod_headers activos, certificado válido y
+HTTPS nativo en 443, además de redirección 301/HSTS constitucional. PHP 7.0.33 dispone
+de php7.0-pgsql, php7.0-curl, php7.0-json, php7.0-mbstring, php7.0-xml y php7.0-zip.
+PostgreSQL 9.5.24 y PostGIS 2.2+ (rama 2.x) escuchan en 127.0.0.1:5432 dentro del mismo
+host Ubuntu 16.04 LTS de 64 bits. La latencia PHP–PostgreSQL objetivo es menor de 1 ms;
+se verifica en el host de aceptación y no se presume garantizada por la topología.
+
+**Aceptación de las decisiones aclaradas:**
+
+- Una notificación de cada categoría utiliza POST corporativo y los cinco parámetros
+  obligatorios, sin SMTP; ante fallo o timeout no se muestra éxito de entrega ni trazas.
+- Ningún rol puede alterar límites oficiales ni escribir en las fuentes externas; una
+  petición de consulta no ejecuta reparación o validación topológica redundante.
+- Las dos fuentes tienen 30 columnas con tipos coincidentes, cinco fechas DATE,
+  the_geom NOT NULL y GiST; sgpm_user no puede INSERT, UPDATE ni DELETE en ellas.
+- Dos asociaciones simultáneas del mismo código y proyecto dejan un único vínculo y
+  la otra solicitud recibe conflicto 409; cambiar tipo o filiación no elude la unicidad.
+- Se verifica el host único, módulos, extensiones y versiones y se mide la latencia local.
+
+### Aclaraciones de consistencia resueltas
 
 - **AC-01 — Vecinas (RESUELTA, 2026-10-11):** El usuario aprueba identidad compartida y vínculo N:M por proyecto con color por vínculo; el contrato anterior queda reemplazado por las dos entidades descritas.
 - **AC-02 — RBAC (RESUELTA, 2026-10-11):** Administrador global con permisos de superusuario y administración de asignaciones; Gerente e Inversionista consultan proyectos y vecinas, exportan y consultan auditoría solo de su empresa; Geólogo consulta y edita proyectos y vecinas solo de su empresa.
-- **AC-03 — Centroide:** [NEEDS CLARIFICATION: ¿Se usa GEOMETRY(Geometry, 4326) con valor restringido a punto, compatible con la constitución, o se solicita una enmienda que permita GEOMETRY(Point, 4326)?]
+- **AC-03 — Centroide (RESUELTA, 2026-10-11):** El usuario selecciona B: enmienda constitucional ratificada a 4.2.0-SGPM para permitir GEOMETRY(Point, 4326) en centroides de proyectos con GiST obligatorio.
 
 ## Success Criteria *(mandatory)*
 
@@ -544,5 +659,7 @@ mensaje; el contrato no incluye valores secretos. Todo PHP inicia con strict_typ
   La desactivación conserva historial. No se presupone borrado en cascada de auditoría.
 - El conflicto espacial pendiente requiere respuesta antes de
   declarar la especificación lista para planificación definitiva.
+
+
 
 
