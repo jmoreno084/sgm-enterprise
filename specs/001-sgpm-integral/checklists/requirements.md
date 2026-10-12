@@ -1,8 +1,9 @@
 ﻿# Specification Quality Checklist: Gestión integral SGPM
 
-**Purpose**: Validar completitud y calidad antes de planificación.
+**Purpose**: Validar completitud y calidad para planificación y generación de tareas.
 **Created**: 2026-10-11
 **Feature**: [spec.md](../spec.md)
+**Revisión vigente**: Planificación 2026-10-11; constitución 4.2.0-SGPM.
 
 ## Content Quality
 
@@ -13,8 +14,8 @@
 
 ## Requirement Completeness
 
-- [x] Sin marcadores NEEDS CLARIFICATION: queda AC-03.
-- [ ] Requisitos completamente verificables y sin ambigüedad: centroide pendiente; RBAC resuelto.
+- [x] Sin marcadores NEEDS CLARIFICATION: AC-01, AC-02 y AC-03 resueltas.
+- [x] Requisitos verificables y sin ambigüedades bloqueantes; dependencias de conformidad externa documentadas.
 - [x] Criterios de éxito con umbrales medibles.
 - [x] Criterios de éxito expresados sin tecnologías de implementación.
 - [x] Escenarios de aceptación definidos para cada capacidad funcional agrupada.
@@ -24,29 +25,26 @@
 
 ## Feature Readiness
 
-- [x] Todos los requisitos tienen aceptación definitiva: falta resolver el contrato espacial.
+- [x] Todos los requisitos tienen criterios de aceptación, incluido el contrato espacial ratificado.
 - [x] Escenarios cubren los flujos principales.
-- [ ] Resultados medibles completamente operacionalizados: falta conjunto masivo de referencia.
+- [x] Protocolo medible definido: conjunto estándar/masivo, equipo, red, complejidad y50 usuarios.
 - [ ] Sin detalles de implementación: contrato de datos y restricciones técnicas conservados por petición expresa.
 
 ## Notes
 
-- Revisión 1: detectados conflictos de reutilización RN-04, tipos geométricos y matriz RBAC ausente.
-- Revisión 2: AC-01 resuelta con respuesta del usuario: identidad compartida y vínculo N:M
-  con color por proyecto; actualizado el contrato de entidades y exclusividad del vínculo.
-- AC-02 resuelta por el usuario: Administrador global; Gerente/Inversionista consultan, exportan y consultan auditoría de su empresa; Geólogo consulta y edita proyectos/vecinas de su empresa. Matriz y escenarios incorporados.
-- AC-03: «¿Se usa GEOMETRY(Geometry, 4326) con valor restringido a punto [...] o se solicita
-  una enmienda que permita GEOMETRY(Point, 4326)?» No se modifica la constitución aquí.
-- RNF-06/SC-003: «conjunto masivo de referencia a fijar en planificación»; se conserva
-  el umbral de ocho segundos sin declarar validado un volumen no especificado.
-- Los rangos RF-02 a RF-08 recibidos no desglosan cada subcódigo; se mantienen agrupados
-  y se relacionan con escenarios, sin inventar numeración oficial.
-- «Los detalles tecnológicos [...] se conservan porque son requisitos explícitos del
-  usuario y de la constitución»: excepción deliberada a los dos ítems genéricos de
-  ausencia de implementación. No se elimina información aprobada para marcar la lista.
-- No se declara lista para planificación definitiva hasta resolver AC-03.
-  Siguiente paso recomendado: speckit-clarify; posteriormente speckit-plan.
-
-- Revisión 3: matriz RBAC aprobada incorporada; permanece una aclaración espacial.
-
-
+- Historial: AC-01 identidad vecina compartida y vínculo con color por proyecto; AC-02
+  Administrador global y matriz empresarial aprobada; AC-03 opción B ratificada en
+  constitución4.2.0-SGPM para permitir Point4326 con GiST. No quedan conflictos pendientes.
+- Se corrigieron dos textos obsoletos del spec que todavía describían AC-03/fechas como
+  pendientes; el contrato catastral aclarado fija cinco fechas DATE y the_geom NOT NULL.
+- Resultado12/16→14/16. Los dos ítems no marcados son excepciones deliberadas de formato:
+  el usuario suministró un contrato técnico obligatorio; no se elimina para cumplir una
+  regla genérica de ausencia de detalles técnicos. No son incumplimientos constitucionales.
+- RNF-06/SC-003: referencia5000 polígonos/500000 vértices y protocolo en quickstart.md,
+  con50 sesiones, tamaños de datos y entorno definidos. No se afirman mediciones ejecutadas.
+- Rangos RF recibidos sin desglose individual permanecen agrupados y trazados a capacidades,
+  escenarios y artefactos; no se inventa numeración oficial de subrequisitos.
+- Conformidad de correo real requiere perfil verificado de respuesta; compatibilidad de
+  vendor requiere lint y smoke sobre PHP7.0.33. Son verificaciones de implementación y
+  aceptación, explicitadas en research.md y contratos, no supuestos ya satisfechos.
+- Listo para speckit-tasks. No se ha implementado aplicación ni desplegado durante plan.

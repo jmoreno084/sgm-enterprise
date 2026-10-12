@@ -200,8 +200,7 @@ comparar la bitácora con los valores anteriores y posteriores.
   el mismo código puede asociarse a proyectos diferentes.
 - Actualización catastral que retire un expediente ya asociado: conservar la asociación
   histórica, señalar fuente no disponible y rechazar nuevas asociaciones inexistentes.
-- Geometrías ausentes o inválidas: permitir consultar atributos e informar que no pueden
-  dibujarse o medirse; no inventar coordenadas ni áreas.
+- Si una incidencia externa impide dibujar geometrías, conservar la consulta de atributos y comunicar la incidencia; no validar ni reparar topología en cada petición. El contrato catastral normal exige the_geom NOT NULL.
 - AREA_HA ausente: calcular geodésicamente si existe geometría válida; si no, mostrar
   área no disponible. Cero oficial se distingue de valor ausente.
 - Archivos corruptos o de formato no admitido: rechazar con mensaje comprensible sin
@@ -310,7 +309,7 @@ Cuenta de acceso seguro y trazable.
 
 Roles formales: Administrador, Gerente, Geólogo, Inversionista. Relación N:M con empresas
 mediante `empresa_usuarios`, con rol asignado por empresa. Su contrato físico se define
-en planificación conforme a la matriz de permisos aprobada que sigue.
+en planificación conforme a la matriz de permisos aprobada anterior.
 
 #### empresa
 
@@ -473,7 +472,7 @@ nuevas de implementación.
 | RNF-03 | Servidor y SO | Host único Ubuntu 16.04 LTS de 64 bits, Apache/2.4.18 y HTTPS nativo en 443. |
 | RNF-04 | Codificación | UTF-8 integral en base de datos, JSON y vistas. |
 | RNF-05 | Consultas | Consultas estándar en menos de 3 segundos. |
-| RNF-06 | Capas masivas | Renderizado en menos de 8 segundos; conjunto masivo de referencia a fijar en planificación. |
+| RNF-06 | Capas masivas | Renderizado en menos de 8 segundos; referencia de planificación: 5000 polígonos y hasta 500000 vértices, protocolo en quickstart.md. |
 | RNF-07 | Mapa | Hasta 500 polígonos cargan en menos de 5 segundos. |
 | RNF-08 | Concurrencia | Al menos 50 usuarios concurrentes. |
 | RNF-09 | Tooltips | Aparición en menos de 200 ms. |
@@ -613,7 +612,7 @@ se verifica en el host de aceptación y no se presume garantizada por la topolog
 - **SC-002**: Cada carga de hasta 500 polígonos del conjunto de aceptación queda visible
   y utilizable en menos de 5 segundos.
 - **SC-003**: Cada capa masiva del conjunto de referencia queda renderizada en menos de
-  8 segundos; el tamaño de referencia debe fijarse antes de ejecutar la aceptación.
+  8 segundos; referencia fijada en planificación: 5000 polígonos y hasta 500000 vértices, con protocolo reproducible en quickstart.md.
 - **SC-004**: El sistema atiende al menos 50 usuarios concurrentes manteniendo los
   umbrales de consulta y visualización en el entorno de aceptación documentado.
 - **SC-005**: Todas las etiquetas de expedientes de prueba aparecen en menos de 200 ms
@@ -644,22 +643,14 @@ se verifica en el host de aceptación y no se presume garantizada por la topolog
   y credenciales/licencias válidas cuando corresponda; no se inventan valores de claves.
 - Para estado de usuario/empresa se adopta provisionalmente VARCHAR(20) con ACTIVO/INACTIVO,
   una de las alternativas dadas. Se preserva la alternativa original en las tablas.
-- Nombres físicos consistentes, elección JSON/JSONB y DATE/TIMESTAMP donde se ofrecen
-  alternativas se resolverán en planificación contra el contrato catastral real.
+- La planificación fija nombres físicos, JSONB interno y fechas catastrales DATE conforme al contrato aclarado.
 - Se asume provisionalmente azul para títulos propios, verde para solicitudes propias
   y violeta para expedientes vecinos; la leyenda debe hacer explícita la correspondencia.
 - No se dispone de elevaciones: KML 3D no implica inventar alturas. Sin altitud fuente,
   se asume representación a nivel del terreno y se documenta esa limitación en la exportación.
 - La importación agrega capas de trabajo; no constituye ingreso de expedientes oficiales
   ni autoriza escribir en las tablas externas. No se presupone persistencia de capas importadas.
-- Para reproducir tiempos se fijarán en planificación equipo cliente, red, complejidad
-  geométrica, volumen masivo y mezcla de acciones concurrentes. Esta dependencia queda
-  registrada; no se declara RNF-06 validado sin ese conjunto.
+- El protocolo de equipo cliente, red, complejidad geométrica, volumen masivo y mezcla concurrente queda fijado en [quickstart.md](quickstart.md); definir el protocolo no implica que RNF-06 haya pasado una prueba real.
 - El borrado no puede dejar referencias inválidas; por defecto se rechaza si hay dependencias.
   La desactivación conserva historial. No se presupone borrado en cascada de auditoría.
-- El conflicto espacial pendiente requiere respuesta antes de
-  declarar la especificación lista para planificación definitiva.
-
-
-
-
+- El conflicto espacial quedó resuelto por AC-03 y constitución 4.2.0-SGPM; no quedan aclaraciones bloqueantes.
