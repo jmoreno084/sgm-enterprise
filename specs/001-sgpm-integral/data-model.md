@@ -341,8 +341,20 @@ Token de un solo uso; bloquear registro durante verificación/consumo y cambiar 
 misma transacción. Incrementar auth_version, invalidar otros tokens pendientes y sesiones.
 Respuesta de solicitud uniforme para correos existentes/inexistentes. Límite inicial de
 recuperación 3 solicitudes por correo/IP cada15min; login10 intentos por IP/correo cada15min.
-Contadores temporales en tabla interna limites_acceso(clave_hash PK, inicio_ventana,
-intentos, bloqueado_hasta) sin almacenar correo plano adicional.
+### limites_acceso
+
+| Campo | Tipo y restricciones | Regla |
+| --- | --- | --- |
+| clave_hash | CHAR(64) PRIMARY KEY | SHA-256 de la operación y la clave de limitación; sin correo plano. |
+| inicio_ventana | TIMESTAMP NOT NULL | Inicio de la ventana de 15 minutos, en UTC. |
+| intentos | INTEGER NOT NULL DEFAULT 0 CHECK (intentos >= 0) | Contador incrementado atómicamente. |
+| bloqueado_hasta | TIMESTAMP NULL | Fin del bloqueo temporal, en UTC. |
+
+Mantener contadores independientes por IP y por correo normalizado, separados entre
+login y recuperación. Permitir como máximo 10 intentos de login o 3 solicitudes de
+recuperación por ventana de 15 minutos; rechazar los siguientes con HTTP 429 hasta
+finalizar la ventana. Actualizar los contadores en una transacción con bloqueo de fila
+para evitar superar el límite mediante solicitudes concurrentes.
 
 ### notificaciones_outbox
 
