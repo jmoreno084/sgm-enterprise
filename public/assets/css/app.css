@@ -1,0 +1,8 @@
+html { font-size: 16px; }
+body { color: #233243; background: #f6f8fa; }
+:focus { outline: 3px solid #6542a6; outline-offset: 2px; }
+.sgpm-main { max-width: 1440px; margin: auto; padding: 1rem; }
+.sgpm-map { height: 65vh; min-height: 320px; }
+[hidden] { display: none !important; }
+.table-responsive { overflow-x: auto; }
+

@@ -1,0 +1,35 @@
+{
+  "php": "7.0.33",
+  "dependencies": [
+    {
+      "name": "setasign/tfpdf",
+      "tag": "v1.33",
+      "origin": "https://github.com/Setasign/tFPDF",
+      "archive": "ops/dependency-sources/tfpdf-v1.33.zip",
+      "sha256": "05a2629821eac4d7548d5aba84892c5a1c5dc03a1147e475085cd4d152861e67",
+      "license": "LGPL-2.1",
+      "license_files": [
+        "tFPDF-1.33/font/unifont/DejaVu_LICENSE.txt"
+      ],
+      "php_requirement": null,
+      "runtime_verified": false,
+      "installed": false,
+      "patches": []
+    },
+    {
+      "name": "gasparesganga/php-shapefile",
+      "tag": "v3.4.1",
+      "origin": "https://github.com/gasparesganga/php-shapefile",
+      "archive": "ops/dependency-sources/php-shapefile-v3.4.1.zip",
+      "sha256": "6f73a91be958df5eb126ed9bc196ff43651f3ea4811d3a9525d622bb3a682672",
+      "license": "MIT",
+      "license_files": [
+        "php-shapefile-3.4.1/LICENSE"
+      ],
+      "php_requirement": ">=5.4.0",
+      "runtime_verified": false,
+      "installed": false,
+      "patches": []
+    }
+  ]
+}
