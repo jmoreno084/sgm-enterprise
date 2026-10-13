@@ -1,6 +1,6 @@
-﻿# Modelo de datos — SGPM integral
+# Modelo de datos — SGPM integral
 
-**Fecha:** 2026-10-11. **Constitución:** 4.2.0-SGPM.
+**Fecha:** 2026-10-11. **Constitución:** 5.0.0-SGPM.
 Contrato de diseño, sin migraciones ejecutadas. El bloque canónico conserva todos los
 campos de la especificación; las decisiones físicas y campos técnicos posteriores lo
 concretan sin reemplazar requisitos funcionales.
@@ -158,7 +158,7 @@ usuario cuando no existe identidad autenticada.
 #### Fuentes catastrales externas
 
 `geo_titulos_mineros` y `geo_solicitudes_mineras` residen en la misma base PostgreSQL
-9.5.24; un proceso independiente las sincroniza externamente. La aplicación tiene acceso
+9.5.25; un proceso independiente las sincroniza externamente. La aplicación tiene acceso
 de solo lectura. Ambas comparten exactamente estos 30 campos estandarizados:
 
 | N.º | Campo | Tipo y regla |

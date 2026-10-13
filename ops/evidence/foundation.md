@@ -35,3 +35,37 @@ Cerrar T020 únicamente con resultados conformes; después continuar con T021.
 
 Las dos excepciones de requirements.md fueron aprobadas por el usuario; no se
 modificaron sus casillas. No hay extensions.yml ni hooks posteriores registrados.
+
+## Diagnostico Docker al reanudar implement - 2026-10-12
+
+Comprobaciones de solo lectura:
+- mi-app-php: PHP 7.0.33-0ubuntu0.16.04.16 y Apache 2.4.18 (Ubuntu).
+- pdo_pgsql, curl, mbstring, XMLWriter, openssl y fileinfo disponibles; zip ausente.
+- /var/www/html monta D:/Docker_Proyectos/sgm-enterprise/app, no este repositorio.
+  /var/www/html/tests/run.php no existe en el contenedor.
+- mi-postgis: SHOW server_version devuelve 9.5.25; postgis_lib_version() devuelve 2.5.5.
+  T020 exige PostgreSQL 9.5.24/PostGIS 2.2.x.
+- La aplicacion lee SGPM_*, no DB_*. Configuration solo admite loopback/socket;
+  host=db seria rechazado por la validacion vigente.
+
+T020 no se ejecuto en los contenedores: faltan montaje y entorno conforme.
+No se modificaron contenedores, roles, fuentes ni datos. T020 sigue pendiente;
+T021-T120 siguen bloqueadas por fundamentos. No hay extensions.yml.
+Preparar un entorno independiente con versiones del plan, zip, repositorio montado,
+DocumentRoot public/ y configuracion SGPM_* con base aislada y roles separados.
+Resolver la compatibilidad de host=db con constitucion/configuracion antes de usarlo.
+No reutilizar el directorio de datos existente para cambiar versiones del motor.
+
+## Reanudacion verificada - 2026-10-13
+
+El diagnostico anterior se conserva como historico. Con la constitucion 5.0.0-SGPM,
+PostgreSQL 9.5.25 y PostGIS 2.5.5 son las versiones requeridas. El runtime actual tiene
+zip; el bloqueo anterior por esa extension ya no se reproduce. Se reconocen los
+componentes numericos PHP 7.0.33 sin rechazar el sufijo de distribucion Ubuntu.
+
+ops/docker/test-foundation.ps1 aplica migraciones y pruebas en una base temporal
+aislada en memoria. PHP monta este repositorio y comparte loopback con PostgreSQL.
+FoundationIntegrityTest pasa: T020 completada, con privilegios, restricciones,
+auditoria y rollback efectivos. enterprise y sus contenedores no se modificaron.
+La configuracion y los contenedores temporales se eliminaron tras las pruebas.
+Resultados ampliados de US1: ops/evidence/us1.md.

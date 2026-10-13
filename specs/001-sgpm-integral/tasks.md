@@ -1,10 +1,10 @@
-﻿# Tasks: Gestión integral de proyectos mineros SGPM
+# Tasks: Gestión integral de proyectos mineros SGPM
 
 **Input**: Diseño de `specs/001-sgpm-integral/`.
 **Prerequisites**: [plan](plan.md), [spec](spec.md), [research](research.md),
 [modelo](data-model.md), [HTTP](contracts/http-api.md), [correo](contracts/email-service.md),
 [mapa/exportaciones](contracts/map-and-exports.md) y [quickstart](quickstart.md).
-**Fecha**: 2026-10-11. Constitución4.2.0-SGPM; requisitos de origen4.1.0-SGPM.
+**Fecha**: 2026-10-11. Constitución5.0.0-SGPM; requisitos de origen4.1.0-SGPM.
 
 **Tests**: Verificaciones significativas de permisos, integridad y aceptación exigidas
 por SC-006/007/008 y escenarios de spec, concretadas en plan/quickstart. Preparar casos
@@ -37,7 +37,7 @@ Nunca escribir fuentes oficiales ni crear endpoints de validación/reparación t
 - [X] T003 [P] Preparar manifiesto PHP y auditor en `ops/dependencies-php.json`, `ops/patches/README.md` y `bin/check-compatibility.php`: tFPDFv1.33/php-shapefilev3.4.1, licencias/checksums, lint PHP7.0.33 y strict_types también vendor con parches reproducibles; sin resolver dependencias en producción.
 - [X] T004 [P] Preparar Bootstrap4.6.2 CSS/Leaflet1.9.4 en `public/assets/vendor/manifest.json` y `public/assets/css/app.css`; fijar origen/licencia/checksum, techo ES2015 y no incluir bootstrap.js/jQuery/Popper ni build productivo.
 - [X] T005 [P] Escribir referencia Apache2.4.18 en `ops/apache/sgpm.conf`: HTTPS443, rewrite/ssl/headers,301/HSTS,nosniff y DocumentRoot public; config/storage/logs/bin/vendor privados; no activar configuración ni desplegar.
-- [X] T006 [P] Documentar Ubuntu16.04/PHP7.0.33/PostgreSQL9.5.24/PostGIS2.2.x, extensiones y roles DB en `ops/acceptance-environment.md`; fuentes fixture preparadas con propietario de pruebas y mismo entorno seguro para Apache/CLI, según Q0.
+- [X] T006 [P] Documentar Ubuntu16.04/PHP7.0.33/PostgreSQL9.5.25/PostGIS2.5.5, extensiones y roles DB en `ops/acceptance-environment.md`; fuentes fixture preparadas con propietario de pruebas y mismo entorno seguro para Apache/CLI, según Q0.
 
 **Checkpoint**: Estructura y configuración revisables sin secretos.
 
@@ -58,7 +58,7 @@ Nunca escribir fuentes oficiales ni crear endpoints de validación/reparación t
 - [X] T017 Implementar layout/escape contextual/cliente HTTP común en `views/layout.php`, `views/components/alerts.php`, `public/assets/js/modules/http.js` y `public/assets/js/modules/ui.js`; CSRF, errores/cargando/vacío, grilla Bootstrap/teclado y nada de innerHTML con atributos no confiables.
 - [X] T018 Construir runner/fixtures aisladas en `tests/run.php`, `tests/fixtures/acceptance.php`, `tests/fixtures/external-cadastre.sql` y `bin/seed-fixtures.php`; A/B/cuatro roles/fuentes de 30 campos, guardia SGPM_ENV=test/base explícita y propietario de fuentes fixture separado; nunca modificar catastro real. Contrato literal de campos (campo | tipo | nulo/regla; las concreciones del modelo resuelven alternativas): «| 1 | CODIGO_EXPEDIENTE | VARCHAR(100) UNIQUE NOT NULL |»; «| 2 | MODALIDAD | VARCHAR(255) |»; «| 3 | TITULO_ESTADO | VARCHAR(100) |»; «| 4 | AREA_HA | NUMERIC(14, 4) |»; «| 5 | CLASIFICACION_MINERIA | VARCHAR(100) |»; «| 6 | ETAPA | VARCHAR(100) |»; «| 7 | SOLICITANTES_O_TITULARES | TEXT |»; «| 8 | MINERALES | TEXT |»; «| 9 | FECHA_DE_SOLICITUD | DATE |»; «| 10 | FECHA_DE_EXPEDICION | DATE |»; «| 11 | FECHA_DE_ANIVERSARIO | DATE |»; «| 12 | FECHA_DE_EXPIRACION | DATE |»; «| 13 | PUBLICADO_EN_RUCOM | VARCHAR(50) |»; «| 14 | PAR | VARCHAR(100) |»; «| 15 | TITLE_TYPE_CODE | VARCHAR(50) |»; «| 16 | TENURE_STATUS_CODE | VARCHAR(50) |»; «| 17 | MINING_CLASSIFICATION_CODE | VARCHAR(50) |»; «| 18 | TENURE_STAGE_CODE | VARCHAR(50) |»; «| 19 | CENTROID_COORDINATE | VARCHAR(100) |»; «| 20 | TENURE_ID | VARCHAR(100) |»; «| 21 | OBJECTID | INTEGER |»; «| 22 | MUNICIPIOS | VARCHAR(255) |»; «| 23 | DEPARTAMENTOS | VARCHAR(255) |»; «| 24 | MINERALES_INACTIVOS | TEXT |»; «| 25 | TIPO_TERMINACION | VARCHAR(100) |»; «| 26 | TERMINATION_TYPE_CODE | VARCHAR(50) |»; «| 27 | ACTIVE_TENURE_STATUS_IND | VARCHAR(10) |»; «| 28 | ACTIVE_APPLICATION_STATUS_IND | VARCHAR(10) |»; «| 29 | FECHA_PROCESO | DATE |»; «| 30 | the_geom | GEOMETRY(MultiPolygon, 4326) NOT NULL, índice espacial GiST |».
 - [X] T019 Implementar migrador PDO y Administrador inicial CLI en `bin/migrate.php` y `bin/bootstrap-admin.php`; migrador separado, contexto sistema auditado y clave por entrada protegida, sin bypass HTTP; migraciones no reemplazan ni adquieren propiedad de fuentes externas.
-- [ ] T020 Verificar fundamentos en `tests/integration/FoundationIntegrityTest.php`: rollback si auditoría falla, runtime sin mutación/DDL de bitácora ni escritura catastral; migraciones con propietario de pruebas, sin conceder UPDATE sobre fuentes para locks.
+- [X] T020 Verificar fundamentos en `tests/integration/FoundationIntegrityTest.php`: rollback si auditoría falla, runtime sin mutación/DDL de bitácora ni escritura catastral; migraciones con propietario de pruebas, sin conceder UPDATE sobre fuentes para locks.
 
 **Checkpoint**: Guardias y auditoría activas; todas las historias dependen de esta fase.
 
@@ -69,22 +69,22 @@ Nunca escribir fuentes oficiales ni crear endpoints de validación/reparación t
 
 ### Tests for User Story 1
 
-- [ ] T021 [US1] Preparar contratos sesión/usuario/membresías y recuperación en `tests/contract/AuthContractTest.php` y `tests/integration/RecoveryTest.php`;401/403/404/429, último Administrador, token30min/consumo único y revocación en siguiente petición.
+- [X] T021 [US1] Preparar contratos sesión/usuario/membresías y recuperación en `tests/contract/AuthContractTest.php` y `tests/integration/RecoveryTest.php`;401/403/404/429, último Administrador, token30min/consumo único y revocación en siguiente petición.
 
 ### Implementation for User Story 1
 
-- [ ] T022 [US1] Crear recuperación/limites_acceso/outbox e índices en `migrations/006_auth_notifications.sql`; token hashSHA256 único,30min, enums/estados/deduplicación del modelo y contadores sin correo plano adicional; no auditar payloads operacionales ni SMTP. Contrato literal de campos (campo | tipo | nulo/regla; las concreciones del modelo resuelven alternativas): «| id | SERIAL PK | Identificador. |»; «| usuario_id | INTEGER FK NOT NULL | usuario, RESTRICT. |»; «| token_hash | CHAR(64) NOT NULL UNIQUE | SHA-256 de token aleatorio32bytes; nunca token plano. |»; «| creado_en | TIMESTAMP NOT NULL | UTC. |»; «| expira_en | TIMESTAMP NOT NULL | Creación+30min. |»; «| consumido_en | TIMESTAMP NULL | NULL hasta consumo exitoso. |»; notificaciones_outbox: «| id | SERIAL PK | Identificador. |»; «| tipo | VARCHAR(30) NOT NULL | RECUPERACION, BIENVENIDA, REPORTE, ALERTA_AUDITORIA. |»; «| usuario_destino_id | INTEGER FK NOT NULL | Usuario registrado, RESTRICT. |»; «| empresa_id_contexto | INTEGER NULL | Ámbito autorizado al enviar; NULL solo global. |»; «| payload_cifrado | TEXT NOT NULL | Cuerpo/asunto privado cifrado; nunca en logs. |»; «| estado | VARCHAR(20) NOT NULL | PENDIENTE, PROCESANDO, ACEPTADO, FALLIDO, INDETERMINADO. |»; «| deduplicacion | VARCHAR(255) NOT NULL UNIQUE | Evento/tipo/destinatario/intervalo. |»; «| creado_en, disponible_en | TIMESTAMP NOT NULL | UTC. |»; «| expira_en | TIMESTAMP NULL | Recuperación vence con token; otras24h por defecto. |»; «| procesado_en | TIMESTAMP NULL | Finalización local. |»; «| http_status | INTEGER NULL | Metadato, no prueba de entrega. |»; «| error_codigo | VARCHAR(50) NULL | Código interno saneado. |». Crear `limites_acceso` con los tipos y restricciones definidos en `data-model.md`; mantener contadores independientes por operación/IP y operación/correo, sin correo plano, y garantizar incrementos atómicos.
-- [ ] T023 [US1] Implementar DTO/repository usuario en `src/Modules/Usuarios/UserRepository.php`; correo trim/lowercase único, documento/nombre/estado, version, paginación y exclusión de hash/tokens en respuestas.
-- [ ] T024 [US1] Implementar bcrypt/login/logout/auth_version en `src/Auth/AuthenticationService.php` y `src/Auth/PasswordPolicy.php`; costo10, mínimo12 caracteres/máximo72 bytes, ultimo_acceso tras éxito, rotación/invalidez sesión y eventos LOGIN/LOGOUT por append cerrado.
-- [ ] T025 [US1] Implementar CRUD/protección concurrente último Administrador en `src/Modules/Usuarios/UserService.php`; actividad/rol global solo Administrador, usuarios con historial se desactivan por RESTRICT, auth_version cambia con clave/actividad/rol global, auditoría transaccional.
-- [ ] T026 [US1] Implementar membresías N:M en `src/Modules/Usuarios/MembershipRepository.php` y `src/Modules/Usuarios/MembershipService.php`; solo Administrador asigna/revoca, par único, rol por empresa/version/contexto histórico y ningún permiso heredado de empresa ajena.
-- [ ] T027 [US1] Implementar recuperación/límites en `src/Auth/RecoveryService.php` y `src/Auth/RateLimiter.php`: random_bytes32/SHA256/30min, consumo bajo lock+cambio clave, invalidar tokens/sesiones; login10/IP-correo/15min y recuperación3/15min,202 uniforme/429 límite.
-- [ ] T028 [US1] Implementar cifrado/outbox en `src/Infrastructure/PayloadCipher.php` y `src/Jobs/NotificationRepository.php`: AES-256-CBC+HMAC-SHA256 encrypt-then-MAC,IV aleatorio/claves independientes, PENDIENTE/deduplicación y limpieza de payload al terminar/expirar; sin GCM moderno.
-- [ ] T029 [US1] Implementar referencia corporativa en `src/Infrastructure/LibCurlModel.php`, `src/Infrastructure/CorporateEmailAdapter.php` y `config/email-response.example.php`; POST fijo/cinco parámetros/TLS peer-hostname/timeouts10-30/retorno string+HTTP status, perfil positivo/negativo/desconocido sin inventar JSON ni declarar ENTREGADO.
-- [ ] T030 [US1] Implementar worker local en `src/Jobs/NotificationWorker.php` y `bin/worker.php`: SKIP LOCKED, confirmar PROCESANDO antes de red, revalidar destinatario/expiración, fallo ambiguo/crash→INDETERMINADO sin reenvío automático; no bloquear sesión del usuario.
-- [ ] T031 [US1] Integrar bienvenida/recuperación tras commit en `src/Modules/Usuarios/UserNotifications.php` y `src/Auth/RecoveryNotifications.php`; bienvenida sin password, token temporal cifrado y correo actual de usuario registrado, ningún secreto en logs/snapshots.
-- [ ] T032 [US1] Exponer GET/POST/DELETE sesion y POST recuperaciones/confirmar en `src/Http/AuthController.php` y `src/Http/routes/auth.php`; envelope/CSRF anónimo/202uniforme/401 y errores amigables según contrato.
-- [ ] T033 [US1] Exponer CRUD usuario y membresías empresariales en `src/Modules/Usuarios/UserController.php`, `src/Modules/Usuarios/MembershipController.php` y `src/Http/routes/users.php`; validar rol A, version, campos y no devolver hash/auth_version/tokens.
+- [X] T022 [US1] Crear recuperación/limites_acceso/outbox e índices en `migrations/006_auth_notifications.sql`; token hashSHA256 único,30min, enums/estados/deduplicación del modelo y contadores sin correo plano adicional; no auditar payloads operacionales ni SMTP. Contrato literal de campos (campo | tipo | nulo/regla; las concreciones del modelo resuelven alternativas): «| id | SERIAL PK | Identificador. |»; «| usuario_id | INTEGER FK NOT NULL | usuario, RESTRICT. |»; «| token_hash | CHAR(64) NOT NULL UNIQUE | SHA-256 de token aleatorio32bytes; nunca token plano. |»; «| creado_en | TIMESTAMP NOT NULL | UTC. |»; «| expira_en | TIMESTAMP NOT NULL | Creación+30min. |»; «| consumido_en | TIMESTAMP NULL | NULL hasta consumo exitoso. |»; notificaciones_outbox: «| id | SERIAL PK | Identificador. |»; «| tipo | VARCHAR(30) NOT NULL | RECUPERACION, BIENVENIDA, REPORTE, ALERTA_AUDITORIA. |»; «| usuario_destino_id | INTEGER FK NOT NULL | Usuario registrado, RESTRICT. |»; «| empresa_id_contexto | INTEGER NULL | Ámbito autorizado al enviar; NULL solo global. |»; «| payload_cifrado | TEXT NOT NULL | Cuerpo/asunto privado cifrado; nunca en logs. |»; «| estado | VARCHAR(20) NOT NULL | PENDIENTE, PROCESANDO, ACEPTADO, FALLIDO, INDETERMINADO. |»; «| deduplicacion | VARCHAR(255) NOT NULL UNIQUE | Evento/tipo/destinatario/intervalo. |»; «| creado_en, disponible_en | TIMESTAMP NOT NULL | UTC. |»; «| expira_en | TIMESTAMP NULL | Recuperación vence con token; otras24h por defecto. |»; «| procesado_en | TIMESTAMP NULL | Finalización local. |»; «| http_status | INTEGER NULL | Metadato, no prueba de entrega. |»; «| error_codigo | VARCHAR(50) NULL | Código interno saneado. |». Crear `limites_acceso` con los tipos y restricciones definidos en `data-model.md`; mantener contadores independientes por operación/IP y operación/correo, sin correo plano, y garantizar incrementos atómicos.
+- [X] T023 [US1] Implementar DTO/repository usuario en `src/Modules/Usuarios/UserRepository.php`; correo trim/lowercase único, documento/nombre/estado, version, paginación y exclusión de hash/tokens en respuestas.
+- [X] T024 [US1] Implementar bcrypt/login/logout/auth_version en `src/Auth/AuthenticationService.php` y `src/Auth/PasswordPolicy.php`; costo10, mínimo12 caracteres/máximo72 bytes, ultimo_acceso tras éxito, rotación/invalidez sesión y eventos LOGIN/LOGOUT por append cerrado.
+- [X] T025 [US1] Implementar CRUD/protección concurrente último Administrador en `src/Modules/Usuarios/UserService.php`; actividad/rol global solo Administrador, usuarios con historial se desactivan por RESTRICT, auth_version cambia con clave/actividad/rol global, auditoría transaccional.
+- [X] T026 [US1] Implementar membresías N:M en `src/Modules/Usuarios/MembershipRepository.php` y `src/Modules/Usuarios/MembershipService.php`; solo Administrador asigna/revoca, par único, rol por empresa/version/contexto histórico y ningún permiso heredado de empresa ajena.
+- [X] T027 [US1] Implementar recuperación/límites en `src/Auth/RecoveryService.php` y `src/Auth/RateLimiter.php`: random_bytes32/SHA256/30min, consumo bajo lock+cambio clave, invalidar tokens/sesiones; login10/IP-correo/15min y recuperación3/15min,202 uniforme/429 límite.
+- [X] T028 [US1] Implementar cifrado/outbox en `src/Infrastructure/PayloadCipher.php` y `src/Jobs/NotificationRepository.php`: AES-256-CBC+HMAC-SHA256 encrypt-then-MAC,IV aleatorio/claves independientes, PENDIENTE/deduplicación y limpieza de payload al terminar/expirar; sin GCM moderno.
+- [X] T029 [US1] Implementar referencia corporativa en `src/Infrastructure/LibCurlModel.php`, `src/Infrastructure/CorporateEmailAdapter.php` y `config/email-response.example.php`; POST fijo/cinco parámetros/TLS peer-hostname/timeouts10-30/retorno string+HTTP status, perfil positivo/negativo/desconocido sin inventar JSON ni declarar ENTREGADO.
+- [X] T030 [US1] Implementar worker local en `src/Jobs/NotificationWorker.php` y `bin/worker.php`: SKIP LOCKED, confirmar PROCESANDO antes de red, revalidar destinatario/expiración, fallo ambiguo/crash→INDETERMINADO sin reenvío automático; no bloquear sesión del usuario.
+- [X] T031 [US1] Integrar bienvenida/recuperación tras commit en `src/Modules/Usuarios/UserNotifications.php` y `src/Auth/RecoveryNotifications.php`; bienvenida sin password, token temporal cifrado y correo actual de usuario registrado, ningún secreto en logs/snapshots.
+- [X] T032 [US1] Exponer GET/POST/DELETE sesion y POST recuperaciones/confirmar en `src/Http/AuthController.php` y `src/Http/routes/auth.php`; envelope/CSRF anónimo/202uniforme/401 y errores amigables según contrato.
+- [X] T033 [US1] Exponer CRUD usuario y membresías empresariales en `src/Modules/Usuarios/UserController.php`, `src/Modules/Usuarios/MembershipController.php` y `src/Http/routes/users.php`; validar rol A, version, campos y no devolver hash/auth_version/tokens.
 - [ ] T034 [P] [US1] Implementar UI usuarios/membresías en `views/usuarios/index.php`, `views/usuarios/form.php` y `public/assets/js/modules/users.js`; solo Administrador, campos canónicos/estado/rol por empresa y409 amigable, después de T033.
 - [ ] T035 [P] [US1] Implementar login/recuperación en `views/auth/login.php`, `views/auth/recovery.php` y `public/assets/js/modules/auth.js`; token anónimo/errores uniformes/foco/labels, no renderizar secretos después del envío, después de T032.
 - [ ] T036 [US1] Ejecutar Q1/Q2/Q8 de acceso/roles/doble; completar `tests/contract/EmailContractTest.php`, `tests/fixtures/email-double.php` y `tests/integration/AuthRbacTest.php` con500/timeout/cuerpo desconocido/sin reenvío; guardar `ops/evidence/us1.md` sin afirmar conformidad de correo real.
@@ -247,7 +247,7 @@ no necesita visor/reportes. Captura activa desde T014.
 
 **Purpose**: Validación integral/paquete revisable, sin despliegue automático.
 
-- [ ] T110 Ejecutar compatibilidad todoPHP7.0.33/strict_types/SQL9.5.24-PostGIS2.2/JS≤ES2015 con `bin/check-compatibility.php` y guardar `ops/evidence/compatibility.md`; rechazar features posteriores y vendor no auditado.
+- [ ] T110 Ejecutar compatibilidad todoPHP7.0.33/strict_types/SQL9.5.25-PostGIS2.5.5/JS≤ES2015 con `bin/check-compatibility.php` y guardar `ops/evidence/compatibility.md`; rechazar features posteriores y vendor no auditado.
 - [ ] T111 Completar censo de rutas/RBAC en `tests/contract/RouteAuthorizationMatrixTest.php` y `ops/evidence/authorization.md`; cada endpoint/objeto/lista/mapa/Identify/job/descarga/auditoría con cuatro roles,A/B/inactivo/revocado, no soloUI.
 - [ ] T112 Ejecutar CSRF/XSS/SQLi/archivos privados/transporte en `tests/contract/WebSecurityTest.php` y `ops/evidence/security.md`; HTTPS/301/HSTS/certificado/headers y no config-storage-logs-bin-vendorporHTTP, errores sin trazas/secretos.
 - [ ] T113 Ejecutar teclado/errores/vacíos/UTF-8 a360/768/1440 en `tests/browser/responsive-scenarios.md` y `ops/evidence/responsive.md`; corregir solo fallos observados de vistas/módulos correspondientes.
@@ -413,6 +413,19 @@ pruebas, despliegues o migraciones productivas.
 
 T001–T019: archivos implementados; evidencia local en `ops/evidence/foundation.md`.
 T020 pendiente: la prueba de integración se detuvo por ausencia de PHP 7.0.33 en el runtime activo.
-No se ha certificado ejecución en PostgreSQL 9.5.24/PostGIS 2.2.x ni desplegado.
+No se ha certificado ejecución en PostgreSQL 9.5.25/PostGIS 2.5.5 ni desplegado.
 T021–T120 no iniciadas: dependen de la puerta de fundamentos.
 Las dos excepciones del checklist fueron aprobadas; sus casillas se conservaron.
+
+## Implementation status - 2026-10-13
+
+Constitucion vigente: 5.0.0-SGPM; PostgreSQL 9.5.25/PostGIS 2.5.5.
+T020 aprobada en base Docker efimera independiente; T021-T033 implementadas y
+verificadas con pruebas de contrato, integracion, concurrencia y HTTP local.
+T034/T035: pantallas implementadas; falta revision visual en navegador sobre HTTPS.
+T036 pendiente: las pruebas locales no certifican Q1/Q2/Q8 completos en HTTPS ni
+el doble HTTP del proveedor. No se invoco correo real ni se desplego la aplicacion.
+T037-T120 no iniciadas: se conserva la puerta de entrega de US1.
+Runner reproducible: ops/docker/test-foundation.ps1. Usa imagenes locales, base
+en memoria, roles/credenciales efimeros y loopback compartido, sin host=db.
+Resultados y limites: ops/evidence/us1.md. El registro del 2026-10-12 es historico.

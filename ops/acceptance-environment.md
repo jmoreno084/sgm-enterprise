@@ -1,6 +1,6 @@
 # Entorno de aceptación
 Objetivo obligatorio: Ubuntu 16.04 LTS 64 bits, Apache 2.4.18 (rewrite/ssl/headers),
-PHP 7.0.33 (módulo o FPM), PostgreSQL 9.5.24/PostGIS 2.2.x local:5432.
+PHP 7.0.33 (módulo o FPM), PostgreSQL 9.5.25/PostGIS 2.5.5 local:5432.
 Extensiones: PDO/pdo_pgsql, curl, json, mbstring, DOM/XMLWriter, zip, openssl, fileinfo.
 Comprobar php -v/-m, apache2 -v, apache2ctl -M y SELECT version(), PostGIS_Full_Version().
 No sustituir estas evidencias por pruebas en PHP 8.
@@ -42,3 +42,15 @@ Fuentes100000 filas; 500 polígonos/50000 vértices y 5000/500000.
 Registrar todas las muestras, máximo y p95; no aprobar incumplimientos ocultos.
 Ver quickstart Q0–Q11. No se ha provisionado, desplegado o medido este entorno.
 
+
+## Runner local Docker - 2026-10-13
+
+Ejecutar ./ops/docker/test-foundation.ps1 desde PowerShell. Usa las imagenes locales
+observadas en mi-app-php y mi-postgis y monta este repositorio en modo lectura.
+Crea PostgreSQL en tmpfs sin puertos publicados ni volumen persistente; PHP comparte
+su espacio de red y conecta por 127.0.0.1:5432, sin cambiar el DSN permitido.
+Prepara sgpm_acceptance, propietarios separados, migrador y runtime; las credenciales
+son efimeras y no se escriben en el repositorio. config/config.php debe estar ausente;
+el runner crea una copia temporal del ejemplo y la retira al finalizar.
+Ejecuta migraciones, fixtures, contratos/integracion y compatibilidad. No despliega
+la aplicacion ni certifica HTTPS, revision visual o conformidad de correo real.

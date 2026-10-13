@@ -1,0 +1,101 @@
+param(
+    [string]$PhpContainer = 'mi-app-php',
+    [string]$DatabaseContainer = 'mi-postgis'
+)
+$ErrorActionPreference = 'Stop'
+$repoRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
+$testContainer = 'sgpm-foundation-' + [Guid]::NewGuid().ToString('N').Substring(0, 12)
+$configPath = Join-Path $repoRoot 'config/config.php'
+if (Test-Path -LiteralPath $configPath) {
+    throw 'El runner requiere config/config.php ausente para no usar una configuracion existente.'
+}
+function Invoke-DockerChecked([string[]]$DockerArguments) {
+    & docker @DockerArguments
+    if ($LASTEXITCODE -ne 0) { throw "Docker fallo (exit $LASTEXITCODE)." }
+}
+function Invoke-TestSql([string]$Sql) {
+    $Sql | & docker exec -i $testContainer psql -U postgres -d sgpm_acceptance -v ON_ERROR_STOP=1
+    if ($LASTEXITCODE -ne 0) { throw 'Fallo SQL en base temporal de pruebas.' }
+}
+$phpImage = & docker inspect $PhpContainer --format '{{.Image}}'
+if ($LASTEXITCODE -ne 0) { throw 'No se encontro la imagen PHP local.' }
+$dbImage = & docker inspect $DatabaseContainer --format '{{.Image}}'
+if ($LASTEXITCODE -ne 0) { throw 'No se encontro la imagen PostGIS local.' }
+$environment = @{
+    POSTGRES_PASSWORD = [Guid]::NewGuid().ToString('N')
+    SGPM_ENV = 'test'
+    SGPM_DSN = 'pgsql:host=127.0.0.1;port=5432;dbname=sgpm_acceptance'
+    SGPM_TEST_DATABASE = 'sgpm_acceptance'
+    SGPM_DB_USER = 'sgpm_user'
+    SGPM_DB_PASSWORD = [Guid]::NewGuid().ToString('N')
+    SGPM_MIGRATION_DB_USER = 'sgpm_migrator'
+    SGPM_MIGRATION_DB_PASSWORD = [Guid]::NewGuid().ToString('N')
+    SGPM_FIXTURE_DB_USER = 'sgpm_fixture'
+    SGPM_FIXTURE_DB_PASSWORD = [Guid]::NewGuid().ToString('N')
+    SGPM_BASE_URL = 'https://sgpm.example.invalid'
+    SGPM_EMAIL_MODE = 'double'
+    SGPM_FIXTURE_PASSWORD = [Guid]::NewGuid().ToString('N')
+}
+foreach ($key in @('SGPM_ENCRYPTION_KEY', 'SGPM_MAC_KEY')) {
+    $bytes = New-Object byte[] 32
+    $random = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+    try { $random.GetBytes($bytes) } finally { $random.Dispose() }
+    $environment[$key] = [Convert]::ToBase64String($bytes)
+}
+$previousEnvironment = @{}
+foreach ($key in $environment.Keys) {
+    $previousEnvironment[$key] = [Environment]::GetEnvironmentVariable($key, 'Process')
+    [Environment]::SetEnvironmentVariable($key, $environment[$key], 'Process')
+}
+$createdConfig = $false
+$createdContainer = $false
+function Invoke-TestPhp([string[]]$PhpArguments) {
+    $dockerArguments = @('run', '--rm', '--pull=never', '--network', "container:$testContainer",
+        '--mount', "type=bind,source=$repoRoot,target=/workspace,readonly",
+        '--workdir', '/workspace', '--entrypoint', 'php')
+    foreach ($key in $environment.Keys) {
+        if ($key -like 'SGPM_*') { $dockerArguments += @('--env', $key) }
+    }
+    $dockerArguments += @($phpImage) + $PhpArguments
+    Invoke-DockerChecked $dockerArguments
+}
+try {
+    Copy-Item -LiteralPath (Join-Path $repoRoot 'config/config.example.php') -Destination $configPath
+    $createdConfig = $true
+    Invoke-DockerChecked @('run', '-d', '--pull=never', '--name', $testContainer,
+        '--env', 'POSTGRES_PASSWORD', '--env', 'POSTGRES_DB=sgpm_acceptance',
+        '--tmpfs', '/var/lib/postgresql/data:rw', $dbImage)
+    $createdContainer = $true
+    $ready = $false
+    for ($attempt = 0; $attempt -lt 30; $attempt++) {
+        & docker exec $testContainer pg_isready -h 127.0.0.1 -U postgres -d sgpm_acceptance *> $null
+        if ($LASTEXITCODE -eq 0) { $ready = $true; break }
+        Start-Sleep -Seconds 1
+    }
+    if (!$ready) { throw 'PostgreSQL temporal no esta disponible.' }
+    Invoke-TestSql 'CREATE EXTENSION IF NOT EXISTS postgis;'
+    Invoke-TestSql ([System.IO.File]::ReadAllText((Join-Path $repoRoot 'ops/database/fixture-roles.sql')))
+    Invoke-TestSql @"
+CREATE ROLE sgpm_fixture LOGIN PASSWORD '$($environment.SGPM_FIXTURE_DB_PASSWORD)';
+GRANT sgpm_fixture_owner TO sgpm_fixture;
+"@
+    Invoke-TestPhp @('bin/seed-fixtures.php', '--external')
+    Invoke-TestSql ([System.IO.File]::ReadAllText((Join-Path $repoRoot 'ops/database/roles.sql')))
+    Invoke-TestSql @"
+ALTER ROLE sgpm_user PASSWORD '$($environment.SGPM_DB_PASSWORD)';
+CREATE ROLE sgpm_migrator LOGIN PASSWORD '$($environment.SGPM_MIGRATION_DB_PASSWORD)';
+GRANT sgpm_owner TO sgpm_migrator;
+GRANT CREATE ON DATABASE sgpm_acceptance TO sgpm_owner;
+"@
+    Invoke-TestPhp @('bin/migrate.php', '--env=test')
+    Invoke-TestSql ([System.IO.File]::ReadAllText((Join-Path $repoRoot 'ops/database/grants-runtime.sql')))
+    Invoke-TestPhp @('bin/seed-fixtures.php', '--profile=sgpm-acceptance')
+    Invoke-TestPhp @('tests/run.php', '--integration', '--contract')
+    Invoke-TestPhp @('bin/check-compatibility.php')
+} finally {
+    if ($createdContainer) { & docker rm -f $testContainer | Out-Null }
+    if ($createdConfig) { Remove-Item -LiteralPath $configPath }
+    foreach ($key in $previousEnvironment.Keys) {
+        [Environment]::SetEnvironmentVariable($key, $previousEnvironment[$key], 'Process')
+    }
+}

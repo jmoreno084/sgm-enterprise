@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 return function ($assert) {
-    if (PHP_VERSION !== '7.0.33') {
+    if ((PHP_MAJOR_VERSION !== 7 || PHP_MINOR_VERSION !== 0 || PHP_RELEASE_VERSION !== 33)) {
         throw new RuntimeException('Entorno pendiente: se requiere PHP 7.0.33; disponible ' . PHP_VERSION . '.');
     }
     if (!extension_loaded('pdo_pgsql')) { throw new RuntimeException('Entorno pendiente: falta pdo_pgsql.'); }
@@ -13,8 +13,8 @@ return function ($assert) {
     $config->assertTestDatabase();
     $assert($config->get('db_user') === 'sgpm_user', 'Prueba requiere rol runtime sgpm_user.');
     $db = new Sgpm\Infrastructure\Database($config);
-    $assert($db->execute('SHOW server_version')->fetchColumn() === '9.5.24', 'PostgreSQL 9.5.24 requerido.');
-    $assert(strpos($db->execute('SELECT public.postgis_lib_version()')->fetchColumn(), '2.2.') === 0, 'PostGIS 2.2.x requerido.');
+    $assert($db->execute('SHOW server_version')->fetchColumn() === '9.5.25', 'PostgreSQL 9.5.25 requerido.');
+    $assert($db->execute('SELECT public.postgis_lib_version()')->fetchColumn() === '2.5.5', 'PostGIS 2.5.5 requerido.');
     $assert($db->execute('SELECT current_user')->fetchColumn() === 'sgpm_user', 'Rol runtime correcto.');
     $assert(!$db->execute("SELECT pg_has_role(current_user,'sgpm_owner','MEMBER')")->fetchColumn(), 'Runtime no pertenece al propietario.');
     foreach (array('INSERT','UPDATE','DELETE','TRUNCATE','TRIGGER') as $privilege) {

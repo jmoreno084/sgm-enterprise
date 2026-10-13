@@ -1,9 +1,9 @@
 # SGPM
-Aplicación mononodo conforme a la constitución 4.2.0-SGPM.
+Aplicación mononodo conforme a la constitución 5.0.0-SGPM.
 
 ## Ejecución
 El único DocumentRoot permitido es `public/`. El entorno de aceptación es Ubuntu
-16.04, Apache 2.4.18, PHP 7.0.33, PostgreSQL 9.5.24 y PostGIS 2.2.x.
+16.04, Apache 2.4.18, PHP 7.0.33, PostgreSQL 9.5.25 y PostGIS 2.5.5.
 Copiar `config/config.example.php` a `config/config.php` y configurar las variables
 indicadas; no guardar secretos en Git. Apache y CLI deben recibir el mismo entorno.
 
@@ -13,4 +13,25 @@ indicadas; no guardar secretos en Git. Apache y CLI deben recibir el mismo entor
 Las migraciones se ejecutan exclusivamente por CLI con una cuenta migradora separada.
 Ver [entorno](ops/acceptance-environment.md) y [tareas](specs/001-sgpm-integral/tasks.md).
 No se ha desplegado ni configurado un servidor productivo.
+
+## Validación Docker aislada
+
+Desde PowerShell, con `mi-app-php` y `mi-postgis` disponibles:
+
+```powershell
+.\ops\docker\test-foundation.ps1
+```
+
+El runner usa las imágenes locales de esos contenedores y monta este repositorio en
+modo lectura. Crea PostgreSQL temporal en memoria, sin publicar puertos ni utilizar
+el volumen de `enterprise`. PHP comparte su espacio de red y usa `127.0.0.1:5432`;
+no se admite `host=db`. Genera credenciales efímeras y roles separados, aplica
+migraciones, carga fixtures, ejecuta `tests/run.php --integration --contract` y
+verifica compatibilidad PHP. Elimina su contenedor y configuración al terminar.
+Requiere que `config/config.php` no exista; no sustituye configuraciones existentes.
+
+Estado y alcance: [fundamentos](ops/evidence/foundation.md) y
+[acceso US1](ops/evidence/us1.md). Las pantallas `/login`, `/recuperar`, `/usuarios`
+y `/` requieren validación visual y HTTPS en aceptación. Los contratos HTTP locales
+no certifican TLS ni correo real.
 

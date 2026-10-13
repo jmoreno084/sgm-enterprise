@@ -4,7 +4,7 @@ require dirname(__DIR__) . '/src/bootstrap.php';
 
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit(1); }
 try {
-    if (PHP_VERSION !== '7.0.33') { throw new RuntimeException('Migración requiere PHP 7.0.33.'); }
+    if ((PHP_MAJOR_VERSION !== 7 || PHP_MINOR_VERSION !== 0 || PHP_RELEASE_VERSION !== 33)) { throw new RuntimeException('Migración requiere PHP 7.0.33.'); }
     $root = dirname(__DIR__);
     $file = $root . '/config/config.php';
     if (!is_file($file)) { throw new RuntimeException('Configura config/config.php fuera de public.'); }
@@ -22,8 +22,8 @@ try {
     $db = new Sgpm\Infrastructure\Database($config);
     $version = $db->execute('SHOW server_version')->fetchColumn();
     $postgis = $db->execute('SELECT public.postgis_lib_version()')->fetchColumn();
-    if ($version !== '9.5.24' || strpos($postgis, '2.2.') !== 0) {
-        throw new RuntimeException('Se requiere PostgreSQL 9.5.24 y PostGIS 2.2.x.');
+    if ($version !== '9.5.25' || $postgis !== '2.5.5') {
+        throw new RuntimeException('Se requiere PostgreSQL 9.5.25 y PostGIS 2.5.5.');
     }
     $db->execute('SET ROLE sgpm_owner');
     $db->execute('SELECT pg_advisory_lock(534750, 1)');

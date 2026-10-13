@@ -1,13 +1,13 @@
-﻿# Investigación y decisiones — SGPM integral
+# Investigación y decisiones — SGPM integral
 
-**Fecha:** 2026-10-11. **Constitución:** 4.2.0-SGPM. **Requisitos de origen:** 4.1.0-SGPM.
+**Fecha:** 2026-10-11. **Constitución:** 5.0.0-SGPM. **Requisitos de origen:** 4.1.0-SGPM.
 La investigación verifica alternativas dentro del stack obligatorio; no autoriza cambiarlo.
 Se consultaron fuentes oficiales y se revisó la especificación local. No se invocó el
 servicio real de correo ni se probó el servidor de destino.
 
 ## R01 — Arquitectura y entrega
 
-**Decisión:** Monolito modular PHP 7.0.33, Apache/2.4.18 y PostgreSQL 9.5.24/PostGIS 2.2.x
+**Decisión:** Monolito modular PHP 7.0.33, Apache/2.4.18 y PostgreSQL 9.5.25/PostGIS 2.5.5
 sobre el único host Ubuntu 16.04 de 64 bits. Controlador frontal y HTML servido por PHP;
 interactividad mediante módulos nativos ES2015 sin transpilación. Dependencias estáticas
 preconstruidas, versionadas por checksum en el paquete de entrega. Composer, si se usa
@@ -165,7 +165,7 @@ GiST y cálculo PostGIS usando proyección métrica equivalente sobre geometría
 Área oficial AREA_HA, o ST_Area(the_geom::geography)/10000.0. No añadir endpoint de
 validación, reparación o edición de límites ni ST_IsValid/ST_MakeValid por petición.
 Turf provee análisis/centroides visuales; no reemplaza el centroide oficial persistido.
-ST_Area geográfica en PostGIS2.2 puede usar GeographicLib si PROJ >=4.9.0; comprobar
+ST_Area geográfica en PostGIS2.5.5 puede usar GeographicLib si PROJ >=4.9.0; comprobar
 versiones instaladas sin suponer que la distribución reúne ese requisito.
 [ST_Area PostGIS2.2](https://postgis.net/docs/manual-2.2/ST_Area.html).
 

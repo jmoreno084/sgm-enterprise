@@ -3,7 +3,7 @@ declare(strict_types=1);
 require dirname(__DIR__) . '/src/bootstrap.php';
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit(1); }
 try {
-    if (PHP_VERSION !== '7.0.33') { throw new RuntimeException('Se requiere PHP7.0.33.'); }
+    if ((PHP_MAJOR_VERSION !== 7 || PHP_MINOR_VERSION !== 0 || PHP_RELEASE_VERSION !== 33)) { throw new RuntimeException('Se requiere PHP7.0.33.'); }
     $values = require dirname(__DIR__) . '/config/config.php';
     $external = in_array('--external', $argv, true);
     if ($external) {

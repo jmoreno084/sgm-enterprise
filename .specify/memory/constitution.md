@@ -1,22 +1,25 @@
-﻿<!--
+<!--
 Sync Impact Report
-Versión: 4.1.0-SGPM → 4.2.0-SGPM (MINOR: ampliación compatible de tipos espaciales).
-Principio modificado: Motor Espacial y Base de Datos; permite GEOMETRY(Point, 4326)
-para centroides de proyectos, conservando GiST y tipos catastrales existentes.
-Secciones añadidas: registro de enmienda en gobernanza. Secciones eliminadas: ninguna.
-Autorización: respuesta B del usuario a AC-03, 2026-10-11.
-Impacto: contrato del centroide sin excepción constitucional; catastro sin cambios.
-Migración: aplicar el tipo puntual e índice GiST al diseñar las migraciones; no se ejecuta DDL.
-Seguimiento: sincronizar AC-03 y referencia constitucional en la especificación activa.
-Plantillas: sin cambios; consultan la constitución en ejecución. Pendientes: ninguno.
-Informe temporal: retirar antes de confirmar la constitución.
+Version: 4.2.0-SGPM -> 5.0.0-SGPM.
+MAJOR: sustitucion de la version obligatoria PostgreSQL y fijacion exacta de PostGIS.
+Principio modificado: Motor Espacial y Base de Datos.
+PostgreSQL 9.5.24/PostGIS 2.x -> PostgreSQL 9.5.25/PostGIS 2.5.5.
+Motivo: indisponibilidad de versiones anteriores indicada por el responsable.
+Autorizacion: instruccion del usuario del 2026-10-12: ahora deben ser estas versiones.
+Secciones anadidas/eliminadas: ninguna; registro de enmienda agregado a Governance.
+Seguimiento: sincronizar spec, plan, research, data-model, quickstart, tasks,
+README, ops/acceptance-environment.md y FoundationIntegrityTest.php.
+Conservar evidencia historica; repetir compatibilidad/integracion antes de cerrar T020.
+La conexion local y las demas restricciones siguen vigentes.
+No se modifican plantillas, codigo, pruebas, contenedores ni datos en este paso.
+Placeholders pendientes: ninguno. Informe temporal: retirar antes del commit.
 -->
 
 # Sistema de Gestión de Proyectos Mineros (SGPM) Constitution
 
 **CONSTITUCIÓN TÉCNICA DEL SISTEMA**  
 **Metodología:** Spec-Driven Development (SDD)  
-**Versión:** 4.2.0-SGPM (Actualizada)  
+**Versión:** 5.0.0-SGPM (Actualizada)
 **Estado:** INMUTABLE / OBLIGATORIA  
 **Fecha de Emisión:** 2026-09-24
 
@@ -47,9 +50,9 @@ sobre cualquier requerimiento o implementación.
 
 ### Motor Espacial y Base de Datos
 
-- La base de datos DEBE ser **PostgreSQL 9.5.24** con **PostGIS 2.x**, coexistente en
+- La base de datos DEBE ser **PostgreSQL 9.5.25** con **PostGIS 2.5.5**, coexistente en
   el mismo servidor Ubuntu 16.04, mediante socket UNIX o TCP loopback `127.0.0.1:5432`.
-  Se PROHÍBE sintaxis posterior a PostgreSQL 9.5.24; se permite `ON CONFLICT DO UPDATE`.
+  Se PROHÍBE sintaxis posterior a PostgreSQL 9.5.25; se permite `ON CONFLICT DO UPDATE`.
 - Las columnas espaciales DEBEN ser `GEOMETRY(MultiPolygon, 4326)` o
   `GEOMETRY(Geometry, 4326)`. Para centroides de proyectos se permite expresamente
   `GEOMETRY(Point, 4326)`. Todas estas columnas DEBEN disponer de índices espaciales
@@ -159,5 +162,20 @@ para AC-03: permitir GEOMETRY(Point, 4326) en centroides de proyectos. La versi�
 MultiPolygon catastrales ni la obligación de índices GiST. Las migraciones futuras DEBEN
 usar el contrato puntual para Proyecto.centroide; esta enmienda documental no ejecuta
 cambios de base de datos. La ratificación original permanece en 2026-09-24.
-**Version**: 4.2.0-SGPM | **Ratified**: 2026-09-24 | **Last Amended**: 2026-10-11
+**Enmienda ratificada — 2026-10-12:** El responsable del proyecto establece
+PostgreSQL 9.5.25 y PostGIS 2.5.5 por problemas de disponibilidad de las versiones
+anteriores. La version 5.0.0-SGPM sustituye la exigencia de PostgreSQL 9.5.24 y fija
+PostGIS 2.5.5 como version exacta. Se conserva la prohibicion de SQL posterior a
+PostgreSQL 9.5 y el acceso exclusivo mediante PDO. Esta enmienda no modifica PHP,
+Apache, sistema operativo, conexion local, tipos espaciales, GiST ni reglas de negocio.
+
+La migracion documental DEBE sincronizar especificacion, plan, investigacion, modelo,
+quickstart, tareas y guias de aceptacion con estas versiones. Las validaciones de runtime
+DEBEN comprobar PostgreSQL 9.5.25 y PostGIS 2.5.5. El codigo existente DEBE volver a
+validarse; esta enmienda no certifica compatibilidad ni cierra tareas pendientes.
+Las evidencias anteriores DEBEN conservarse como historicas y complementarse con
+resultados nuevos. Los cambios de infraestructura DEBEN preservar los datos existentes
+y ejecutar fixtures unicamente en una base aislada de pruebas.
+
+**Version**: 5.0.0-SGPM | **Ratified**: 2026-09-24 | **Last Amended**: 2026-10-12
 

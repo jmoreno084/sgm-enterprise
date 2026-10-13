@@ -4,7 +4,7 @@ require dirname(__DIR__) . '/src/bootstrap.php';
 
 $sourceOnly = in_array('--source-only', $argv, true);
 $failures = array();
-if (!$sourceOnly && PHP_VERSION !== '7.0.33') {
+if (!$sourceOnly && (PHP_MAJOR_VERSION !== 7 || PHP_MINOR_VERSION !== 0 || PHP_RELEASE_VERSION !== 33)) {
     $failures[] = 'Se requiere PHP 7.0.33; runtime actual: ' . PHP_VERSION;
 }
 if (!$sourceOnly) {

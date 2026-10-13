@@ -1,0 +1,14 @@
+.git/
+.agents/
+.env
+.env.*
+config/config.php
+config/email-response.php
+node_modules/
+coverage/
+logs/
+storage/
+*.log*
+*.tmp
+Dockerfile*
+.dockerignore

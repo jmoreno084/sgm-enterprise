@@ -1,4 +1,4 @@
-﻿# Feature Specification: Gestión integral de proyectos mineros SGPM
+# Feature Specification: Gestión integral de proyectos mineros SGPM
 
 **Feature Branch**: Sin rama creada; no hay hook de creación configurado.
 
@@ -11,7 +11,7 @@
 **Input**: Especificaciones formales del usuario para los ocho módulos del SGPM,
 con esquema canónico, fuentes catastrales externas de 30 atributos y RNF-01 a RNF-20.
 Metodología Spec-Driven Development (SDD). Rige la
-[constitución 4.2.0-SGPM](../../.specify/memory/constitution.md).
+[constitución 5.0.0-SGPM](../../.specify/memory/constitution.md).
 
 ## Clarifications
 
@@ -20,7 +20,7 @@ Metodología Spec-Driven Development (SDD). Rige la
 - Q: ¿Cómo se despachan las notificaciones del SGPM? → A: Exclusivamente por POST HTTPS al servicio corporativo sendEmail.php, mediante LibCurlModel/cURL, sin SMTP local; incluye recuperación, bienvenida, reportes programados y alertas de auditoría.
 - Q: ¿Debe el SGPM exponer validación topológica de expedientes oficiales? → A: No; la sincronización externa garantiza la calidad. No hay endpoints de validación, reparación ni edición de límites oficiales. Se mantienen RN-06, RN-12 y RN-13.
 - Q: ¿Cuál es el contrato definitivo de las fuentes catastrales? → A: Misma base, 30 campos idénticos, fechas DATE, the_geom MultiPolygon 4326 NOT NULL con GiST y sgpm_user con SELECT exclusivamente sobre ambas tablas.
-- Q: ¿Cuál es la infraestructura de ejecución? → A: Un host Ubuntu 16.04 LTS de 64 bits, Apache/2.4.18 con HTTPS en 443, PHP 7.0.33 y PostgreSQL 9.5.24 con PostGIS 2.2 o superior dentro de la rama 2.x, por TCP 127.0.0.1:5432.
+- Q: ¿Cuál es la infraestructura de ejecución? → A: Un host Ubuntu 16.04 LTS de 64 bits, Apache/2.4.18 con HTTPS en 443, PHP 7.0.33 y PostgreSQL 9.5.25 con PostGIS 2.5.5, por TCP 127.0.0.1:5432.
 - Q: ¿Cómo se garantiza RN-12 incluso con concurrencia? → A: Restricción uq_proyecto_expediente UNIQUE (proyecto_id, codigo_expediente), con rechazo de duplicados independientemente del tipo o filiación.
 
 - Q: ¿Qué tipo debe usar el centroide del proyecto para resolver el conflicto con la constitución? → A: B; enmendar la constitución para permitir GEOMETRY(Point, 4326), ratificado en 4.2.0-SGPM con índice GiST.
@@ -421,7 +421,7 @@ usuario cuando no existe identidad autenticada.
 #### Fuentes catastrales externas
 
 `geo_titulos_mineros` y `geo_solicitudes_mineras` residen en la misma base PostgreSQL
-9.5.24; un proceso independiente las sincroniza externamente. La aplicación tiene acceso
+9.5.25; un proceso independiente las sincroniza externamente. La aplicación tiene acceso
 de solo lectura. Ambas comparten exactamente estos 30 campos estandarizados:
 
 | N.º | Campo | Tipo y regla |
@@ -468,7 +468,7 @@ nuevas de implementación.
 | Código | Requisito | Criterio de aceptación |
 | --- | --- | --- |
 | RNF-01 | Compatibilidad backend | PHP 7.0.33 estricto; cero características PHP 7.1+. |
-| RNF-02 | Base de datos | PostgreSQL 9.5.24 con PostGIS 2.2+ dentro de la rama 2.x. |
+| RNF-02 | Base de datos | PostgreSQL 9.5.25 con PostGIS 2.5.5. |
 | RNF-03 | Servidor y SO | Host único Ubuntu 16.04 LTS de 64 bits, Apache/2.4.18 y HTTPS nativo en 443. |
 | RNF-04 | Codificación | UTF-8 integral en base de datos, JSON y vistas. |
 | RNF-05 | Consultas | Consultas estándar en menos de 3 segundos. |
@@ -581,7 +581,7 @@ preservando la identificación de la fuente y tipo de expediente. Ambas disponen
 Apache/2.4.18 tiene mod_rewrite, mod_ssl y mod_headers activos, certificado válido y
 HTTPS nativo en 443, además de redirección 301/HSTS constitucional. PHP 7.0.33 dispone
 de php7.0-pgsql, php7.0-curl, php7.0-json, php7.0-mbstring, php7.0-xml y php7.0-zip.
-PostgreSQL 9.5.24 y PostGIS 2.2+ (rama 2.x) escuchan en 127.0.0.1:5432 dentro del mismo
+PostgreSQL 9.5.25 y PostGIS 2.5.5 escuchan en 127.0.0.1:5432 dentro del mismo
 host Ubuntu 16.04 LTS de 64 bits. La latencia PHP–PostgreSQL objetivo es menor de 1 ms;
 se verifica en el host de aceptación y no se presume garantizada por la topología.
 

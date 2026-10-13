@@ -1,10 +1,10 @@
-﻿# Implementation Plan: Gestión integral de proyectos mineros SGPM
+# Implementation Plan: Gestión integral de proyectos mineros SGPM
 
 **Branch**: `plan` (rama Git observada) | **Date**: 2026-10-11 | **Spec**: [spec.md](spec.md)
 
 **Feature directory**: `specs/001-sgpm-integral`. El helper reporta `001-sgpm-integral`
 como identificador de feature; no se renombra ni crea una rama durante esta planificación.
-**Input**: Requisitos 4.1.0-SGPM, decisiones de clarify y constitución vigente 4.2.0-SGPM.
+**Input**: Requisitos 4.1.0-SGPM, decisiones de clarify y constitución vigente 5.0.0-SGPM.
 
 ## Summary
 
@@ -18,26 +18,26 @@ catastro de solo lectura y de una restricción única por proyecto/código. Trig
 auditoría transaccional con ámbito empresarial histórico. Un ejecutor CLI local procesa
 exportaciones y correo corporativo por HTTPS; no hay SMTP ni servicios distribuidos.
 
-El repositorio contiene actualmente artefactos SDD y scripts, sin aplicación implementada.
+Estado del diseño original (2026-10-11): artefactos SDD y scripts, sin aplicación implementada.
 Los directorios de código y comandos del quickstart son el objetivo para la fase implement,
 no archivos ejecutables que esta fase haya creado. No se genera tasks.md en este comando.
 
 ## Technical Context
 
 **Language/Version**: PHP7.0.33 estricto; JavaScript propio ES6/ECMAScript2015, módulos
-nativos, sin async/await, optional chaining ni sintaxis posterior; SQL PostgreSQL9.5.24.
+nativos, sin async/await, optional chaining ni sintaxis posterior; SQL PostgreSQL9.5.25.
 
 **Primary Dependencies**: Apache2.4.18; Bootstrap4.6.2 CSS; Leaflet1.9.4, esri-leaflet,
 GoogleMutant, Leaflet.draw, Leaflet.Control.Measure, Turf; tFPDFv1.33 y adaptador
 php-shapefile v3.4.1 con artefactos exactos auditados antes de integrarlos. JS distribuido sin
 build en producción; XLSX con ZipArchive/XMLWriter, CSV/GeoJSON/KML con PHP nativo.
 
-**Storage**: PostgreSQL9.5.24 y PostGIS2.2.x en 127.0.0.1:5432; acceso exclusivo PDO pgsql.
+**Storage**: PostgreSQL9.5.25 y PostGIS2.5.5 en 127.0.0.1:5432; acceso exclusivo PDO pgsql.
 Fuentes externas de 30 columnas solo SELECT; tablas internas propias en esquema sgpm.
 Archivos privados temporales de exportación, logs diarios y sesiones fuera del DocumentRoot.
 
 **Testing**: Lint con binario real PHP7.0.33; runner CLI PHP sin dependencia de PHPUnit
-moderno; integración en PostgreSQL9.5.24/PostGIS2.2; pruebas de contrato HTTP, doble de
+moderno; integración en PostgreSQL9.5.25/PostGIS2.5.5; pruebas de contrato HTTP, doble de
 correo local y navegadores de escritorio/tablet/móvil. Pruebas de carga desde equipo
 externo a producción; ninguna herramienta de build es requisito de ejecución del servidor.
 
@@ -68,7 +68,7 @@ no despliegue o rendimiento verificados.*
 
 | Ley / obligación | Evidencia del diseño | Antes | Después |
 | --- | --- | --- | --- |
-| Ley I: host y versiones | Contexto y quickstart; PHP7.0/Apache2.4.18/PostgreSQL9.5.24/PostGIS2.x | PASS | PASS |
+| Ley I: host y versiones | Contexto y quickstart; PHP7.0/Apache2.4.18/PostgreSQL9.5.25/PostGIS2.5.5 | PASS | PASS |
 | PDO exclusivo y SQL compatible | Repositorios PDO; sin pgsql2shp ni conexiones alternas | PASS | PASS |
 | VanillaJS/Bootstrap4.6 | CSS Bootstrap y módulos ES2015; sin bootstrap.js/jQuery ni build productivo | PASS | PASS |
 | Geometrías4326/GiST y enmienda4.2 | Catastro MultiPolygon; centroide Point con GiST | PASS | PASS |
@@ -206,3 +206,14 @@ obligatorios y pruebas de acceso directo verifican el contrato RBAC definido.
 - Rendimiento depende de geometría, red y equipo: se mide, no se da por logrado.
 
 **Resultado fase1:** diseño y contratos completos; siguiente comando speckit-tasks.
+
+## Actualizacion de implementacion - 2026-10-13
+
+Versiones sincronizadas con constitucion 5.0.0-SGPM: PostgreSQL 9.5.25 y PostGIS 2.5.5.
+Fundamentos y backend de US1 implementados; las secciones de estructura propuesta y
+comandos futuros anteriores corresponden al diseno original. Ver tasks.md para estado.
+Para validacion Docker local, ops/docker/test-foundation.ps1 utiliza las imagenes
+existentes y una base aislada efimera en memoria. PHP comparte el espacio de red de
+PostgreSQL temporal para mantener el DSN 127.0.0.1:5432. No se permite host=db en la
+configuracion vigente, ni se ha modificado la topologia o los datos de enterprise.
+La validacion visual/HTTPS de US1 sigue pendiente; no se declara entrega completa.

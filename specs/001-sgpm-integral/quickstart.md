@@ -1,17 +1,17 @@
-﻿# Quickstart de validación — SGPM integral
+# Quickstart de validación — SGPM integral
 
-**Fecha:** 2026-10-11. Diseño de ejecución para fase implement; hoy existen documentos,
-no los binarios de aplicación referidos. Los comandos que usan bin/, tests/ o config/
-son interfaces que deben entregarse al implementar tasks; no se han ejecutado ni se afirma
-que las pruebas pasen en este workspace. No usar estos pasos contra datos productivos.
+**Fecha de diseño:** 2026-10-11. **Actualización:** 2026-10-13, constitución 5.0.0-SGPM.
+Fundamentos y backend de acceso implementados; resultados en `ops/evidence/us1.md`.
+Las secciones de módulos posteriores siguen siendo escenarios de aceptación futuros.
+No usar estos pasos contra datos productivos.
 
 Referencias: [plan](plan.md), [modelo](data-model.md), [HTTP](contracts/http-api.md),
 [correo](contracts/email-service.md), [mapa/exportaciones](contracts/map-and-exports.md).
 
 ## Q0 — Preparación del entorno de aceptación
 
-Usar un host de pruebas Ubuntu16.04LTS64bit con Apache2.4.18, PHP7.0.33 y PostgreSQL9.5.24
-con PostGIS2.2.x; no aceptar que PHP8 valide compatibilidad7.0. Apache tiene rewrite/ssl/headers,
+Usar un host de pruebas Ubuntu16.04LTS64bit con Apache2.4.18, PHP7.0.33 y PostgreSQL9.5.25
+con PostGIS2.5.5; no aceptar que PHP8 valide compatibilidad7.0. Apache tiene rewrite/ssl/headers,
 HTTPS443, redirección301 y HSTS. No instalar ni habilitar SMTP. DocumentRoot apunta a public.
 
 Comprobaciones ejecutables del entorno, sin cambiar datos:
@@ -41,21 +41,26 @@ no es dueño ni miembro del dueño. Las migraciones internas no crean/reemplazan
 El runner rechaza ejecutar fixtures destructivas si SGPM_ENV no es test o el nombre DB
 no corresponde a una base de pruebas explícitamente configurada.
 
-Comandos objetivo tras implementar las herramientas:
+Comandos implementados (con configuración de pruebas preparada):
 
 ```sh
 export SGPM_ENV=test
 php bin/migrate.php --env=test
 php bin/seed-fixtures.php --profile=sgpm-acceptance
-php tests/run.php --suite=compatibility
-php tests/run.php --suite=integration
-php tests/run.php --suite=contract
+php bin/check-compatibility.php
+php tests/run.php --integration --contract
 ```
+
+En Windows, `./ops/docker/test-foundation.ps1` prepara un entorno temporal separado
+con las imágenes locales de `mi-app-php` y `mi-postgis`. PHP comparte el espacio de
+red del PostgreSQL temporal y usa `127.0.0.1`, sin `host=db`. No utiliza la base
+enterprise ni su volumen. Los comandos `--suite=...` de escenarios futuros todavía
+no están implementados; el runner los rechaza expresamente.
 
 Migración usa credenciales de migrador separadas; todas las consultas de aplicación y
 herramientas PHP acceden por PDO. El CLI emite resumen sin credenciales y código de salida
-no cero ante error. El seed entrega una empresa A, una B, cuatro roles, identidades vecinas
-compartidas, expedientes TITULO/SOLICITUD y manifest de geometrías/tamaños/checksums.
+no cero ante error. El seed actual entrega empresas A/B y cuatro roles. Los conjuntos
+de vecinas, expedientes vinculados y rendimiento se completan en sus tareas posteriores.
 
 Compatibilidad valida todos los archivos PHP con php -l del7.0.33, strict_types al inicio,
 ausencia de sintaxis posterior y exportaciones smoke de vendor. JS propio y distribuciones

@@ -5,7 +5,7 @@ require dirname(__DIR__) . '/src/bootstrap.php';
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit(1); }
 $hidden = false;
 try {
-    if (PHP_VERSION !== '7.0.33' || DIRECTORY_SEPARATOR === '\\') {
+    if ((PHP_MAJOR_VERSION !== 7 || PHP_MINOR_VERSION !== 0 || PHP_RELEASE_VERSION !== 33) || DIRECTORY_SEPARATOR === '\\') {
         throw new RuntimeException('Usa el CLI PHP7.0.33 en Ubuntu con terminal protegida.');
     }
     $tty = fopen('/dev/tty', 'r+');
