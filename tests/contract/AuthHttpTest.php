@@ -80,6 +80,10 @@ return function ($assert) {
         $assert($result['status']===200,'Recuperacion funciona desde HTTP sin actor de sistema CLI.');
         $result=$call('POST','/api/v1/recuperaciones/confirmar',array('token'=>$payload['token'],'password'=>'clave HTTP restablecida','confirmacion'=>'clave HTTP restablecida'));
         $assert($result['status']===400,'Token HTTP no reutilizable.');
+        $admin=(new Sgpm\Modules\Usuarios\UserRepository($db))->credentials('admin@example.invalid');
+        $service=new Sgpm\Modules\Usuarios\UserService($db,new Sgpm\Jobs\NotificationRepository($db,new Sgpm\Infrastructure\PayloadCipher($config)));
+        $service->update((int)$admin['id'],array('version'=>(int)$admin['version'],'password'=>getenv('SGPM_FIXTURE_PASSWORD')),
+            array('usuario_id'=>(int)$admin['id'],'ip'=>'127.0.0.9','request_id'=>bin2hex(random_bytes(16))));
     } finally {
         proc_terminate($process); proc_close($process); unlink($log);
     }

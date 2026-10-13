@@ -429,3 +429,15 @@ T037-T120 no iniciadas: se conserva la puerta de entrega de US1.
 Runner reproducible: ops/docker/test-foundation.ps1. Usa imagenes locales, base
 en memoria, roles/credenciales efimeros y loopback compartido, sin host=db.
 Resultados y limites: ops/evidence/us1.md. El registro del 2026-10-12 es historico.
+
+## Reanudacion HTTPS - 2026-10-13
+
+14 suites PASS, 0 FAIL; 74 PHP compatibles con 7.0.33. Apache temporal verifica
+HTTPS/301/HSTS/cookie Secure; el doble TLS/HTTP cubre cinco parametros, UTF-8,
+500/timeout/respuesta interrumpida y clasificacion sin proveedor real.
+Entorno revisable: ./ops/docker/test-foundation.ps1 -KeepAcceptance;
+https://localhost:18443/login, solo loopback, base independiente y certificado de prueba.
+Finalizar: ./ops/docker/stop-acceptance.ps1. Credenciales efimeras excluidas de Git.
+T034-T036 siguen pendientes exclusivamente de completar su revision visual/JS y
+aceptacion de acceso; CUA no tiene iab/chrome disponibles en esta sesion.
+Guion: tests/browser/us1-scenarios.md. No se marcan casillas sin evidencia visual.

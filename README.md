@@ -32,6 +32,26 @@ Requiere que `config/config.php` no exista; no sustituye configuraciones existen
 
 Estado y alcance: [fundamentos](ops/evidence/foundation.md) y
 [acceso US1](ops/evidence/us1.md). Las pantallas `/login`, `/recuperar`, `/usuarios`
-y `/` requieren validación visual y HTTPS en aceptación. Los contratos HTTP locales
-no certifican TLS ni correo real.
+y `/` requieren validación visual en aceptación. Las pruebas locales no certifican
+el entorno productivo ni el contrato real de correo.
+
+Para revisar las pantallas en HTTPS local, ejecutar:
+
+```powershell
+.\ops\docker\test-foundation.ps1 -KeepAcceptance
+```
+
+Después de pasar las pruebas, queda disponible `https://localhost:18443/login`,
+publicado solo en loopback. Se usa un certificado temporal de pruebas, sin instalar
+confianza global. Las credenciales de fixture y nombres de contenedores quedan en
+`storage/acceptance/local.json`, ignorado por Git. Seguir el
+[recorrido visual US1](tests/browser/us1-scenarios.md). Para terminar:
+
+```powershell
+.\ops\docker\stop-acceptance.ps1
+```
+
+Las pruebas automáticas HTTPS validan el certificado con una CA de fixture explícita,
+301, HSTS y cookies Secure. El doble de correo usa TLS/HTTP local, nunca el proveedor
+real. La revisión visual y el comportamiento JavaScript requieren un navegador.
 

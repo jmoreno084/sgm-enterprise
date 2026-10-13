@@ -45,7 +45,7 @@ UserConcurrencyTest, AuthContractTest, AuthHttpTest y EmailContractTest.
   Transporte sustituido por doble en memoria para verificar URL y cinco parámetros;
   no se invoca el proveedor real. Perfil de fixture no certifica formato corporativo.
 
-## Estado y límites
+## Estado y límites — registro anterior a la validación HTTPS
 
 T020–T033 cerradas. T034/T035 tienen vistas y módulos implementados, pendientes de
 revisión visual/teclado en navegador. T036 sigue pendiente: Q1/Q2/Q8 requieren
@@ -61,3 +61,39 @@ No hay extensions.yml ni hooks de implementación registrados.
 
 Las validaciones de vendor PHP, mapas, exportaciones, rendimiento y correo real
 pertenecen a tareas posteriores y no se declaran aprobadas por estos resultados.
+
+## Validación HTTPS y doble HTTP — 2026-10-13
+
+Se preparó Apache 2.4.18 temporal con certificado de fixture para localhost.
+La CA se entrega explícitamente a cURL; no se deshabilitan VERIFYHOST/VERIFYPEER
+ni se instala confianza global. El transporte público de correo conserva la URL fija;
+una subclase de pruebas reutiliza la transferencia real contra el doble local.
+
+Resultados de la nueva ejecución:
+
+- 14 suites PASS, 0 FAIL; se añaden AuthHttpsTest y EmailHttpContractTest.
+- Compatibilidad PHP: exit 0, 74 archivos con PHP 7.0.33, lint y strict_types.
+- AuthHttpsTest: certificado verificado, 301 HTTP→HTTPS, HSTS/nosniff,
+  formularios/activos disponibles, rutas privadas inaccesibles, cookie Secure
+  usada por el motor de cookies de cURL, login/logout y autorización efectivos.
+- EmailHttpContractTest: POST real form-urlencoded, cinco parámetros, acentos y
+  caracteres especiales; positivo, negativo, desconocido, vacío, HTTP 500,
+  timeout real y respuesta interrumpida. Nombre de host incorrecto rechazado por TLS.
+- Se corrigió la simulación de respuesta parcial para forzar el envío antes del
+  cierre: sin flush Apache completaba una respuesta válida, sin error de transporte.
+- AuthHttpTest restablece la clave de fixture para no alterar pruebas posteriores.
+- Acceso desde Windows: `curl.exe --cacert storage/acceptance/server.crt ...`
+  devuelve HTTPS 200 y ssl_verify_result=0, sin omitir verificación del certificado.
+
+El modo `-KeepAcceptance` deja una base independiente y un servidor HTTPS de pruebas
+en localhost:18080/18443. `storage/acceptance/local.json`, el certificado copiado y
+config/config.php están ignorados por Git (comprobado con git check-ignore).
+No se modificaron los contenedores preexistentes ni enterprise.
+`ops/docker/stop-acceptance.ps1` valida nombres/etiquetas antes de retirar el entorno.
+
+**Bloqueo restante:** no hay navegador controlable en la sesión. El inventario CUA
+devuelve navegadores vacíos y la creación en iab/chrome devuelve Browser is not available.
+T034/T035 y el cierre integral T036 siguen pendientes de revisión visual y JavaScript;
+guion preparado en tests/browser/us1-scenarios.md. No se afirma aceptación visual,
+teclado, responsive o conformidad corporativa real. Las tareas siguientes conservan
+su dependencia de entrega US1. No hay extensions.yml ni hooks registrados.

@@ -53,4 +53,14 @@ Prepara sgpm_acceptance, propietarios separados, migrador y runtime; las credenc
 son efimeras y no se escriben en el repositorio. config/config.php debe estar ausente;
 el runner crea una copia temporal del ejemplo y la retira al finalizar.
 Ejecuta migraciones, fixtures, contratos/integracion y compatibilidad. No despliega
-la aplicacion ni certifica HTTPS, revision visual o conformidad de correo real.
+la aplicacion productiva ni certifica revision visual o conformidad de correo real.
+
+## HTTPS local revisable
+
+El runner valida Apache HTTPS con CA de fixture explicita, 301, HSTS y sesiones
+Secure, sin desactivar la validacion TLS. El doble de correo realiza POST real
+solo contra localhost. -KeepAcceptance mantiene el entorno en
+https://localhost:18443/login; no instala confianza global del certificado.
+Credenciales efimeras: storage/acceptance/local.json (ignorado por Git).
+Retirar con ./ops/docker/stop-acceptance.ps1. La revision visual requiere navegador;
+ver tests/browser/us1-scenarios.md. TLS productivo y correo real no se certifican aqui.
