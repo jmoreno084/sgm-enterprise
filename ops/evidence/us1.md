@@ -91,9 +91,54 @@ config/config.php están ignorados por Git (comprobado con git check-ignore).
 No se modificaron los contenedores preexistentes ni enterprise.
 `ops/docker/stop-acceptance.ps1` valida nombres/etiquetas antes de retirar el entorno.
 
-**Bloqueo restante:** no hay navegador controlable en la sesión. El inventario CUA
+**Bloqueo del intento anterior a Playwright:** no hay navegador controlable en la sesión. El inventario CUA
 devuelve navegadores vacíos y la creación en iab/chrome devuelve Browser is not available.
 T034/T035 y el cierre integral T036 siguen pendientes de revisión visual y JavaScript;
 guion preparado en tests/browser/us1-scenarios.md. No se afirma aceptación visual,
 teclado, responsive o conformidad corporativa real. Las tareas siguientes conservan
 su dependencia de entrega US1. No hay extensions.yml ni hooks registrados.
+
+## Cierre de aceptación US1 con Playwright — 2026-10-13
+
+Se retomó el entorno temporal ya registrado, verificando etiquetas
+`sgpm.acceptance=true` y URL fija `https://localhost:18443`. Playwright Python
+1.59.0 y Chromium 147.0.7727.15 (Windows, headless) accedieron con TLS verificado
+y opciones predeterminadas. No se usó ignore_https_errors ni cambios de confianza
+desde el agente. El bloqueo de certificado del intento anterior quedó resuelto.
+
+`python tests/browser/us1-playwright.py`: **52 PASS, 0 FAIL**, exit 0;
+19 capturas PNG y versiones en `ops/evidence/us1-browser/`.
+Resultados individuales en [results.json](us1-browser/results.json);
+runner en [us1-playwright.py](../../tests/browser/us1-playwright.py).
+
+| Guion | Resultado observado |
+| --- | --- |
+| 1, 10 | Login y recuperación a 360/768/1440; etiquetas, orden Tab, foco visible y enlaces. Todos los controles habilitados de usuarios/membresías alcanzables por Tab. Documento sin overflow; tabla con scroll interno a 360. |
+| 2 | Clave incorrecta: 401, mensaje amigable enfocado, clave vacía. |
+| 3 | Administrador carga usuarios y empresas; paginación real siguiente/anterior con más de 25 filas; nombre y documento acentuados conservados. |
+| 4 | Usuario creado por formulario; correo con espacios/mayúsculas: 409 y un solo registro. |
+| 5 | Dos pestañas: primera edición 200, segunda 409; primera edición conservada. |
+| 6 | GEOLOGO asignado en A, duplicado 409, rol editado/restaurado y revocado 204. Siguiente petición de sesión pierde A y nunca recibe B. |
+| 7 | Geólogo: página usuarios y APIs administrativas de usuarios/membresías 403. Logout: usuarios requiere autenticación (401). |
+| 8 | Recuperación conocida/desconocida: 202 y mensaje idéntico, sin secretos visibles; tres solicitudes por IP y cuarta 429. |
+| 9 | Token de outbox cifrado de fixture leído solo en memoria; fragmento retirado, error limpia ambos campos y enfoca mensaje; éxito redirige con clave vacía, nueva clave autentica y reutilización 400. |
+| 10 | Filtro sin coincidencias muestra estado vacío; cero excepciones JavaScript no capturadas. |
+
+Se revisaron visualmente las capturas de login, usuarios, recuperación y errores:
+textos legibles, foco visible y distribución conforme en los anchos indicados.
+No se requirieron cambios de código de aplicación. Las capturas contienen solo
+datos de fixture; no se guardaron passwords, hashes de contraseña ni tokens.
+
+Los intentos de desarrollo del runner detectaron navegación al mismo documento
+con fragmento y contadores compartidos por la IP puente de Docker. Se corrigió
+el runner para abrir el enlace como documento nuevo y preparar ventanas por la IP
+real auditada, exclusivamente en la base desechable. La ejecución final tiene
+52 comprobaciones aprobadas; los intentos previos no se cuentan como aprobación.
+
+T034/T035 quedan verificadas visualmente y con JavaScript. T036 queda completada
+para el alcance de acceso/roles/correo doble de US1, junto con las 14 suites PASS
+y compatibilidad PHP previamente registradas arriba; esas suites no se repitieron
+en esta ejecución porque no cambió la aplicación. Q2/Q8 de proyectos, mapas,
+exportaciones, alertas y programación corresponden a historias posteriores.
+T118 y la conformidad real del proveedor siguen pendientes; no se envió correo
+real, no hubo despliegue y no se modificó enterprise.

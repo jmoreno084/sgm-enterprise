@@ -85,9 +85,9 @@ Nunca escribir fuentes oficiales ni crear endpoints de validación/reparación t
 - [X] T031 [US1] Integrar bienvenida/recuperación tras commit en `src/Modules/Usuarios/UserNotifications.php` y `src/Auth/RecoveryNotifications.php`; bienvenida sin password, token temporal cifrado y correo actual de usuario registrado, ningún secreto en logs/snapshots.
 - [X] T032 [US1] Exponer GET/POST/DELETE sesion y POST recuperaciones/confirmar en `src/Http/AuthController.php` y `src/Http/routes/auth.php`; envelope/CSRF anónimo/202uniforme/401 y errores amigables según contrato.
 - [X] T033 [US1] Exponer CRUD usuario y membresías empresariales en `src/Modules/Usuarios/UserController.php`, `src/Modules/Usuarios/MembershipController.php` y `src/Http/routes/users.php`; validar rol A, version, campos y no devolver hash/auth_version/tokens.
-- [ ] T034 [P] [US1] Implementar UI usuarios/membresías en `views/usuarios/index.php`, `views/usuarios/form.php` y `public/assets/js/modules/users.js`; solo Administrador, campos canónicos/estado/rol por empresa y409 amigable, después de T033.
-- [ ] T035 [P] [US1] Implementar login/recuperación en `views/auth/login.php`, `views/auth/recovery.php` y `public/assets/js/modules/auth.js`; token anónimo/errores uniformes/foco/labels, no renderizar secretos después del envío, después de T032.
-- [ ] T036 [US1] Ejecutar Q1/Q2/Q8 de acceso/roles/doble; completar `tests/contract/EmailContractTest.php`, `tests/fixtures/email-double.php` y `tests/integration/AuthRbacTest.php` con500/timeout/cuerpo desconocido/sin reenvío; guardar `ops/evidence/us1.md` sin afirmar conformidad de correo real.
+- [X] T034 [P] [US1] Implementar UI usuarios/membresías en `views/usuarios/index.php`, `views/usuarios/form.php` y `public/assets/js/modules/users.js`; solo Administrador, campos canónicos/estado/rol por empresa y409 amigable, después de T033.
+- [X] T035 [P] [US1] Implementar login/recuperación en `views/auth/login.php`, `views/auth/recovery.php` y `public/assets/js/modules/auth.js`; token anónimo/errores uniformes/foco/labels, no renderizar secretos después del envío, después de T032.
+- [X] T036 [US1] Ejecutar Q1/Q2/Q8 de acceso/roles/doble; completar `tests/contract/EmailContractTest.php`, `tests/fixtures/email-double.php` y `tests/integration/AuthRbacTest.php` con500/timeout/cuerpo desconocido/sin reenvío; guardar `ops/evidence/us1.md` sin afirmar conformidad de correo real.
 
 **Checkpoint**: US1 utilizable con empresas fixture, sin requerir proyectos ni mapa.
 
@@ -441,3 +441,15 @@ Finalizar: ./ops/docker/stop-acceptance.ps1. Credenciales efimeras excluidas de 
 T034-T036 siguen pendientes exclusivamente de completar su revision visual/JS y
 aceptacion de acceso; CUA no tiene iab/chrome disponibles en esta sesion.
 Guion: tests/browser/us1-scenarios.md. No se marcan casillas sin evidencia visual.
+
+## Cierre HTTPS/Playwright US1 — 2026-10-13
+
+T034–T036 completadas: guion de navegador 1–10 ejecutado con Playwright Python
+1.59.0 y Chromium 147.0.7727.15, TLS verificado, **52 PASS, 0 FAIL**, 19 capturas.
+Revisión visual/teclado a 360/768/1440; duplicados/concurrencia409, RBAC403,
+revocación inmediata, logout401 y recuperación202/400/429 comprobados.
+Evidencia: ops/evidence/us1.md y ops/evidence/us1-browser/results.json.
+Runner: tests/browser/us1-playwright.py. Las 14 suites PHP y el doble TLS/HTTP
+previamente aprobados completan el alcance US1 de T036. Los estados pendientes
+anteriores son históricos. T037–T120 siguen sin ejecutar; T118 no se certifica
+con dobles ni con esta revisión. No se desplegó ni se envió correo real.

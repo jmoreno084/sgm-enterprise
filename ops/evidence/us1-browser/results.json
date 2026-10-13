@@ -1,0 +1,262 @@
+[
+  {
+    "check": "HTTPS trusted with default certificate validation",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Login labels 360",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Login no horizontal overflow 360",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Login Tab order 360",
+    "pass": true,
+    "detail": "['Saltar al contenido', 'correo', 'password', 'Ingresar', 'Recuperar acceso']"
+  },
+  {
+    "check": "Login labels 768",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Login no horizontal overflow 768",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Login Tab order 768",
+    "pass": true,
+    "detail": "['Saltar al contenido', 'correo', 'password', 'Ingresar', 'Recuperar acceso']"
+  },
+  {
+    "check": "Login labels 1440",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Login no horizontal overflow 1440",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Login Tab order 1440",
+    "pass": true,
+    "detail": "['Saltar al contenido', 'correo', 'password', 'Ingresar', 'Recuperar acceso']"
+  },
+  {
+    "check": "Recovery link accessible by keyboard",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery Tab order 360",
+    "pass": true,
+    "detail": "['Saltar al contenido', 'correo', 'Continuar', 'Ingresar']"
+  },
+  {
+    "check": "Recovery no horizontal overflow 360",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery Tab order 768",
+    "pass": true,
+    "detail": "['Saltar al contenido', 'correo', 'Continuar', 'Ingresar']"
+  },
+  {
+    "check": "Recovery no horizontal overflow 768",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery Tab order 1440",
+    "pass": true,
+    "detail": "['Saltar al contenido', 'correo', 'Continuar', 'Ingresar']"
+  },
+  {
+    "check": "Recovery no horizontal overflow 1440",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Wrong password: 401, friendly focused error and cleared password",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Admin users and companies loaded",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Pagination next and previous",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Create test user",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Accented name and document round trip",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Normalized duplicate email returns friendly 409 without duplicate",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "First concurrent edit saved",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Stale edit 409 preserves first edit",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Assign GEOLOGO in Empresa A",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Duplicate membership 409",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Edit membership role",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Restore GEOLOGO role",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Geologist authorized only in A, no B inheritance",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Geologist users API forbidden",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Geologist memberships API forbidden",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Geologist users page forbidden",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Revocation removes A on next authenticated request",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Logout requires authentication on users",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Users no horizontal overflow 360",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Users keyboard focus 360",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Users no horizontal overflow 768",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Users keyboard focus 768",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Users no horizontal overflow 1440",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Users keyboard focus 1440",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "All enabled users and membership controls reachable with Tab",
+    "pass": true,
+    "detail": "75 controls"
+  },
+  {
+    "check": "Filtered empty state",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery known/unknown identical 202 message",
+    "pass": true,
+    "detail": "[202, 202]"
+  },
+  {
+    "check": "Recovery does not render secrets",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery fragment removed from address bar",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery error clears both keys and focuses message",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery success redirects with empty key",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "New password works",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery token single use",
+    "pass": true,
+    "detail": ""
+  },
+  {
+    "check": "Recovery three per IP window then 429",
+    "pass": true,
+    "detail": "[202, 429]"
+  },
+  {
+    "check": "No uncaught JavaScript errors",
+    "pass": true,
+    "detail": ""
+  }
+]

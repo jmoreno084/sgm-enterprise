@@ -1,0 +1,27 @@
+PASS Login HTML sobre HTTPS verificado
+PASS Sesion anonima y CSRF
+PASS POST sin CSRF rechazado
+PASS Clave incorrecta 401 amigable
+PASS Administrador autentica
+PASS Pantalla de usuarios autorizada
+PASS Empresas A y B disponibles
+PASS Creacion de usuario de verificacion
+PASS Duplicado normalizado 409
+PASS UTF-8 conservado
+PASS Edicion versionada
+PASS Concurrencia obsoleta 409
+PASS Asignacion GEOLOGO en A
+PASS Membresia duplicada 409
+PASS Geologo autentica
+PASS RBAC administrativo 403
+PASS Acceso solo A sin herencia B
+PASS Revocacion efectiva siguiente peticion
+PASS Recuperacion uniforme 202
+PASS Recuperacion cambia clave
+PASS Token de un solo uso
+PASS Nueva clave autentica
+PASS Logout invalida autorizacion
+PASS Usuario de verificacion desactivado sin borrar historial
+PASS Runtime separado de metadatos migradores
+PASS Correo double sin credenciales reales
+Resultado: 26 PASS, 0 FAIL.
