@@ -1,0 +1,216 @@
+{
+  "runs": [
+    {
+      "cache": "cold-controlled",
+      "round": 1,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 3250.3813999937847,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "source_total": 500,
+        "tooltip_ms": [],
+        "load_ms": 1701.7000000029802
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "pass": true
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 1,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 43848.69899999467,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "source_total": 5000,
+        "tooltip_ms": [],
+        "load_ms": 42864.09999999404
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "pass": false
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 2,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 3259.0737999998964,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "source_total": 500,
+        "tooltip_ms": [],
+        "load_ms": 1766.199999988079
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "pass": true
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 2,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 44015.42120000522,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "source_total": 5000,
+        "tooltip_ms": [],
+        "load_ms": 43093.30000001192
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "pass": false
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 3,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 3164.734400008456,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "source_total": 500,
+        "tooltip_ms": [],
+        "load_ms": 1626.8999999910593
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "pass": true
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 3,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 43955.908699994325,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "source_total": 5000,
+        "tooltip_ms": [],
+        "load_ms": 42997.59999999404
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "pass": false
+    },
+    {
+      "cache": "warm",
+      "round": 1,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 2629.4210000050953,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "source_total": 500,
+        "tooltip_ms": [],
+        "load_ms": 1622.2999999970198
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 1,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 43816.979499999434,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "source_total": 5000,
+        "tooltip_ms": [],
+        "load_ms": 42806.20000000298
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "pass": false
+    },
+    {
+      "cache": "warm",
+      "round": 2,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 2638.0952999898,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "source_total": 500,
+        "tooltip_ms": [],
+        "load_ms": 1697.2000000029802
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 2,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 43667.68430000229,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "source_total": 5000,
+        "tooltip_ms": [],
+        "load_ms": 42755.40000000596
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "pass": false
+    },
+    {
+      "cache": "warm",
+      "round": 3,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 2622.9422000033082,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "source_total": 500,
+        "tooltip_ms": [],
+        "load_ms": 1674.2999999970198
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 3,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 28689.948100000038,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "source_total": 5000,
+        "tooltip_ms": [],
+        "load_ms": 27748.5
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "pass": false
+    }
+  ],
+  "errors": [],
+  "tls_verified": true,
+  "network": {
+    "mbps": 20,
+    "rtt_ms": 50,
+    "method": "CDP"
+  },
+  "database_cache": "retained; cold-controlled refers to browser only"
+}

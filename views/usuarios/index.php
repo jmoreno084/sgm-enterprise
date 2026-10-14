@@ -3,6 +3,7 @@ declare(strict_types=1);
 $title='Usuarios y membresías';
 $render=function ($escape) {
 ?>
+<nav aria-label="Secciones"><a href="/">Inicio</a> · <a href="/empresas">Empresas y proyectos</a></nav>
 <h1>Usuarios y membresías</h1><button id="logout" type="button" class="btn btn-outline-secondary mb-3">Cerrar sesión</button>
 <p id="users-status" role="status" aria-live="polite" tabindex="-1"></p>
 <?php require __DIR__.'/form.php'; ?>

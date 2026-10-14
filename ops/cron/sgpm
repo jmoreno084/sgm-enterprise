@@ -1,0 +1,5 @@
+# Ejemplo para revisión; instalar manualmente con entorno/secretos fuera del repositorio.
+# Cuenta de servicio con acceso a storage privado; no ejecutar cron vía HTTP.
+# /etc/sgpm/environment debe pertenecer al servicio, modo 0600, y definir SGPM_*.
+* * * * * sgpm /bin/sh -c '. /etc/sgpm/environment && cd /srv/sgpm && /usr/bin/php bin/scheduler.php --production' >> /var/log/sgpm-scheduler.log 2>&1
+* * * * * sgpm /bin/sh -c '. /etc/sgpm/environment && cd /srv/sgpm && /usr/bin/php bin/worker.php --production' >> /var/log/sgpm-worker.log 2>&1

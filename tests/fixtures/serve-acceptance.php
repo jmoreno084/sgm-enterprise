@@ -4,6 +4,13 @@ require dirname(__DIR__,2).'/src/bootstrap.php';
 require __DIR__.'/LocalApache.php';
 
 if (PHP_SAPI!=='cli' || getenv('SGPM_ENV')!=='test') { http_response_code(404); exit(1); }
+if (getenv('SGPM_STORAGE_FIXTURE_VOLUME')==='1') {
+    foreach (array('storage','logs') as $name) {
+        $storage=dirname(__DIR__,2).'/'.$name;
+        if (glob($storage.'/*')) { throw new RuntimeException('Se requiere volumen privado fixture vacío.'); }
+        chown($storage,'www-data'); chmod($storage,0700);
+    }
+}
 $server=new SgpmLocalApache();
 try {
     $server->start(true);

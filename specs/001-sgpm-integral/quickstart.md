@@ -256,6 +256,14 @@ reducir conjunto, omitir polígonos ni cambiar requisitos para declarar aprobaci
 
 Cada suite genera exit code, resumen, versión de entorno y request_ids sin secretos.
 Conservar reporte de compatibilidad, matriz RBAC, concurrencia, snapshots saneados,
-lectura de30 atributos, archivos de muestra y resultados de carga. La aceptación productiva
-requiere además perfil real de correo y claves/proveedores autorizados. Este quickstart
-no registra pruebas ejecutadas: especifica cómo reproducirlas cuando exista la aplicación.
+lectura de30 atributos, archivos de muestra y resultados de carga.
+
+Estado registrado de aceptación: suite limpia de backend 41 PASS/0 FAIL;
+Playwright integral 83 PASS/0 fallos JS; tres rondas API frías y una caliente de 50
+sesiones sin errores; quedan rondas calientes por completar. Playwright con el perfil
+principal pasa 500 y 5000 polígonos; las 12 muestras del mapa en cliente acotado a 4 CPU/8 GiB SSD pasan 500/5000. Q11 pasó: tres rondas API frías y tres calientes conformes en SSD, y 12 muestras Playwright de mapa. Se conserva una ronda caliente no conforme junto con su repetición aprobada. No se certifica el objetivo completo.
+
+T092 (Google/contraste de fuentes reales) y T118 (contrato real de correo) permanecen
+pendientes por falta de clave autorizada y documentación del proveedor. El correo sigue
+en doble. Ver `ops/evidence/acceptance.md` y `ops/evidence/performance.md`. La aceptación
+productiva necesita también esas evidencias externas y ejecución final de regresión.

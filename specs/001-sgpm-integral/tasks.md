@@ -98,21 +98,21 @@ Nunca escribir fuentes oficiales ni crear endpoints de validación/reparación t
 
 ### Tests for User Story 2
 
-- [ ] T037 [US2] Preparar contratos empresas/proyectos y asociaciones en `tests/contract/ProjectsContractTest.php` y `tests/integration/ProjectFilesTest.php`; NIT/código duplicado, fuente ausente/tipo incorrecto, ámbito, versión obsoleta y borrado RESTRICT.
+- [X] T037 [US2] Preparar contratos empresas/proyectos y asociaciones en `tests/contract/ProjectsContractTest.php` y `tests/integration/ProjectFilesTest.php`; NIT/código duplicado, fuente ausente/tipo incorrecto, ámbito, versión obsoleta y borrado RESTRICT.
 
 ### Implementation for User Story 2
 
-- [ ] T038 [US2] Implementar repository empresarial en `src/Modules/Empresas/CompanyRepository.php`; campos canónicos, version/NIT único, A global y demás solo membresías activas, sin datos ajenos.
-- [ ] T039 [US2] Implementar CRUD/estado y logos en `src/Modules/Empresas/CompanyService.php` y `src/Modules/Empresas/LogoStorage.php`; solo Administrador escribe, PNG/JPEG<=5MiB, tipo/nombre seguro/privado/no ejecución y409 con dependencias.
-- [ ] T040 [US2] Implementar repository proyectos en `src/Modules/Proyectos/ProjectRepository.php`; empresa única/no transferible por PUT, nombre/estado/mineral requeridos, filtros propios, autores de servidor y version.
-- [ ] T041 [US2] Implementar servicio/control optimista en `src/Modules/Proyectos/ProjectService.php`; «CHECK fecha_fin >= fecha_inicio cuando ambas existen», autores/estado, Geólogo solo empresa propia, reactivaciónA y no aceptar centroide del cliente.
-- [ ] T042 [US2] Implementar vinculación/desvinculación/filiación en `src/Modules/Proyectos/ExpedienteRepository.php` y `src/Modules/Proyectos/ExpedienteService.php`; fuente fija/INSERT condicionado/PDO, vecina del mismo proyecto,23505 uq_proyecto_expediente→409 tras rollback, código/tipo inmutables y sin locks UPDATE catastrales.
-- [ ] T043 [US2] Implementar centroide en `src/Modules/Proyectos/CentroidService.php`: unir geometrías PROPIO disponibles, proyectar3116/calcular/volver4326, Point/GiST,NULL si no hay fuentes; no topología redundante ni medición visual como área oficial.
-- [ ] T044 [US2] Exponer CRUD empresa y logo en `src/Modules/Empresas/CompanyController.php` y `src/Http/routes/companies.php`; filtros/autorización/version/HTTP del contrato y nunca path de almacenamiento recibido.
-- [ ] T045 [US2] Exponer CRUD proyectos y GET/POST/PUT/DELETE expedientes en `src/Modules/Proyectos/ProjectController.php`, `src/Modules/Proyectos/ExpedienteController.php` y `src/Http/routes/projects.php`; CSRF/version/201/204/400/404/409.
-- [ ] T046 [P] [US2] Implementar UI empresas/logo en `views/empresas/index.php`, `views/empresas/form.php` y `public/assets/js/modules/companies.js`; campos canónicos/NIT duplicado/lectura no administradores, después de T044.
-- [ ] T047 [P] [US2] Implementar UI proyectos/asociación propia por código y tipo en `views/proyectos/index.php`, `views/proyectos/form.php`, `views/proyectos/expedientes.php` y `public/assets/js/modules/projects.js`; permisos y fuente ausente/duplicados claros, sin depender de buscadorUS3, después de T045.
-- [ ] T048 [US2] Ejecutar Q2/Q3/Q4 y completar `tests/integration/ProjectConcurrencyTest.php`; carreras propio/vecino fixture dejan una201/otra409/única fila, código permitido en otro proyecto y fallo auditoría revierte; guardar `ops/evidence/us2.md`.
+- [X] T038 [US2] Implementar repository empresarial en `src/Modules/Empresas/CompanyRepository.php`; campos canónicos, version/NIT único, A global y demás solo membresías activas, sin datos ajenos.
+- [X] T039 [US2] Implementar CRUD/estado y logos en `src/Modules/Empresas/CompanyService.php` y `src/Modules/Empresas/LogoStorage.php`; solo Administrador escribe, PNG/JPEG<=5MiB, tipo/nombre seguro/privado/no ejecución y409 con dependencias.
+- [X] T040 [US2] Implementar repository proyectos en `src/Modules/Proyectos/ProjectRepository.php`; empresa única/no transferible por PUT, nombre/estado/mineral requeridos, filtros propios, autores de servidor y version.
+- [X] T041 [US2] Implementar servicio/control optimista en `src/Modules/Proyectos/ProjectService.php`; «CHECK fecha_fin >= fecha_inicio cuando ambas existen», autores/estado, Geólogo solo empresa propia, reactivaciónA y no aceptar centroide del cliente.
+- [X] T042 [US2] Implementar vinculación/desvinculación/filiación en `src/Modules/Proyectos/ExpedienteRepository.php` y `src/Modules/Proyectos/ExpedienteService.php`; fuente fija/INSERT condicionado/PDO, vecina del mismo proyecto,23505 uq_proyecto_expediente→409 tras rollback, código/tipo inmutables y sin locks UPDATE catastrales.
+- [X] T043 [US2] Implementar centroide en `src/Modules/Proyectos/CentroidService.php`: unir geometrías PROPIO disponibles, proyectar3116/calcular/volver4326, Point/GiST,NULL si no hay fuentes; no topología redundante ni medición visual como área oficial.
+- [X] T044 [US2] Exponer CRUD empresa y logo en `src/Modules/Empresas/CompanyController.php` y `src/Http/routes/companies.php`; filtros/autorización/version/HTTP del contrato y nunca path de almacenamiento recibido.
+- [X] T045 [US2] Exponer CRUD proyectos y GET/POST/PUT/DELETE expedientes en `src/Modules/Proyectos/ProjectController.php`, `src/Modules/Proyectos/ExpedienteController.php` y `src/Http/routes/projects.php`; CSRF/version/201/204/400/404/409.
+- [X] T046 [P] [US2] Implementar UI empresas/logo en `views/empresas/index.php`, `views/empresas/form.php` y `public/assets/js/modules/companies.js`; campos canónicos/NIT duplicado/lectura no administradores, después de T044.
+- [X] T047 [P] [US2] Implementar UI proyectos/asociación propia por código y tipo en `views/proyectos/index.php`, `views/proyectos/form.php`, `views/proyectos/expedientes.php` y `public/assets/js/modules/projects.js`; permisos y fuente ausente/duplicados claros, sin depender de buscadorUS3, después de T045.
+- [X] T048 [US2] Ejecutar Q2/Q3/Q4 y completar `tests/integration/ProjectConcurrencyTest.php`; carreras propio/vecino fixture dejan una201/otra409/única fila, código permitido en otro proyecto y fallo auditoría revierte; guardar `ops/evidence/us2.md`.
 
 **Checkpoint**: CRUD y asociación propia funcionan; vínculos fixture permiten RN-12 sin US4 UI.
 
@@ -123,16 +123,16 @@ Nunca escribir fuentes oficiales ni crear endpoints de validación/reparación t
 
 ### Tests for User Story 3
 
-- [ ] T049 [US3] Preparar contrato de cinco filtros/ficha30 campos en `tests/contract/CadastreContractTest.php`; tipo TITULO/SOLICITUD, fechasDATE/UTF-8/NULL/GeoJSON, código en ambas fuentes y resultado vacío.
+- [X] T049 [US3] Preparar contrato de cinco filtros/ficha30 campos en `tests/contract/CadastreContractTest.php`; tipo TITULO/SOLICITUD, fechasDATE/UTF-8/NULL/GeoJSON, código en ambas fuentes y resultado vacío.
 
 ### Implementation for User Story 3
 
-- [ ] T050 [US3] Implementar inspección/adaptador canónico en `src/Modules/Catastro/CadastreSchema.php` y `bin/check-cadastre.php`; verificar30 columnas/tipos/código único/the_geom NOT NULL/GiST y nombres físicos quoted/normalizados; rechazar incompatibilidad sin ALTER ni índices externos por runtime.
-- [ ] T051 [US3] Implementar repository de consulta en `src/Modules/Catastro/CadastreRepository.php`; cinco filtros whitelist/binding, UNION ALL discriminando fuente, paginación25/máximo100 y ficha completa; nada de SQL/tabla/orden del usuario ni escritura catastral.
-- [ ] T052 [US3] Exponer GET catastro y catastro/{tipo}/{codigo} en `src/Modules/Catastro/CadastreController.php` y `src/Http/routes/cadastre.php`; sesión activa, atributos oficiales sin filiaciones privadas ajenas.
-- [ ] T053 [US3] Implementar buscador/ficha en `views/catastro/index.php`, `views/catastro/detail.php` y `public/assets/js/modules/cadastre.js`; cinco filtros/paginación/30 atributos/NULL explícito/escape.
-- [ ] T054 [US3] Verificar SELECT exclusivo/retiro externo en `tests/integration/CadastreReadOnlyTest.php`; propietario fixture modifica solo DB de pruebas, runtime INSERT/UPDATE/DELETE denegados, vínculo histórico permanece y nueva asociación retirada400.
-- [ ] T055 [US3] Ejecutar Q3 y verificar superficie sin endpoints topológicos/escritura oficial en `tests/contract/CadastreSurfaceTest.php`; guardar `ops/evidence/us3.md` con cotejo de30 atributos/filtros.
+- [X] T050 [US3] Implementar inspección/adaptador canónico en `src/Modules/Catastro/CadastreSchema.php` y `bin/check-cadastre.php`; verificar30 columnas/tipos/código único/the_geom NOT NULL/GiST y nombres físicos quoted/normalizados; rechazar incompatibilidad sin ALTER ni índices externos por runtime.
+- [X] T051 [US3] Implementar repository de consulta en `src/Modules/Catastro/CadastreRepository.php`; cinco filtros whitelist/binding, UNION ALL discriminando fuente, paginación25/máximo100 y ficha completa; nada de SQL/tabla/orden del usuario ni escritura catastral.
+- [X] T052 [US3] Exponer GET catastro y catastro/{tipo}/{codigo} en `src/Modules/Catastro/CadastreController.php` y `src/Http/routes/cadastre.php`; sesión activa, atributos oficiales sin filiaciones privadas ajenas.
+- [X] T053 [US3] Implementar buscador/ficha en `views/catastro/index.php`, `views/catastro/detail.php` y `public/assets/js/modules/cadastre.js`; cinco filtros/paginación/30 atributos/NULL explícito/escape.
+- [X] T054 [US3] Verificar SELECT exclusivo/retiro externo en `tests/integration/CadastreReadOnlyTest.php`; propietario fixture modifica solo DB de pruebas, runtime INSERT/UPDATE/DELETE denegados, vínculo histórico permanece y nueva asociación retirada400.
+- [X] T055 [US3] Ejecutar Q3 y verificar superficie sin endpoints topológicos/escritura oficial en `tests/contract/CadastreSurfaceTest.php`; guardar `ops/evidence/us3.md` con cotejo de30 atributos/filtros.
 
 **Checkpoint**: Consulta oficial usable sin visor y sin modificar sincronización.
 
@@ -144,17 +144,17 @@ no necesita visor/reportes. Captura activa desde T014.
 
 ### Tests for User Story 7
 
-- [ ] T056 [US7] Preparar pruebas de consulta histórica en `tests/contract/AuditContractTest.php`: Administrador consulta auditoría global; Gerente e Inversionista vinculados a la empresa A consultan únicamente eventos de A y reciben 404 al intentar acceder a eventos de B; Geólogo recibe 403 al consultar auditoría. Verificar que el contexto empresarial se conserva tras borrar la entidad y que las consultas empresariales no revelan eventos globales ni secretos.
+- [X] T056 [US7] Preparar pruebas de consulta histórica en `tests/contract/AuditContractTest.php`: Administrador consulta auditoría global; Gerente e Inversionista vinculados a la empresa A consultan únicamente eventos de A y reciben 404 al intentar acceder a eventos de B; Geólogo recibe 403 al consultar auditoría. Verificar que el contexto empresarial se conserva tras borrar la entidad y que las consultas empresariales no revelan eventos globales ni secretos.
 
 ### Implementation for User Story 7
 
-- [ ] T057 [US7] Implementar consulta de auditoría en `src/Modules/Auditoria/AuditRepository.php`; empresa_id_contexto histórico, filtros fecha/acción/entidad/usuario y orden fecha,id, sin depender de joins a objetos borrados ni permitir mutaciones.
-- [ ] T058 [US7] Exponer GET auditoria globalA y GET empresas/{id}/auditoria paraX en `src/Modules/Auditoria/AuditController.php` y `src/Http/routes/audit.php`; no POST/PUT/DELETE de bitácora ni SQL crudo.
-- [ ] T059 [US7] Implementar alertas de roles/desactivación/borrados agrupadas por minuto en `src/Modules/Auditoria/AuditAlerts.php`, `src/Jobs/AuditAlertProducer.php` y su integración en `bin/worker.php`; Administradores activos/outbox deduplicada/plantilla saneada y sin recursión por jobs/correo; usar US1 y ejecutar el productor antes de reclamar correo, sin esperar al scheduler de US6.
-- [ ] T060 [US7] Implementar filtros/ficha antes-después en `views/auditoria/index.php`, `views/auditoria/detail.php` y `public/assets/js/modules/audit.js`; rol/ámbito y escape de JSON como texto.
-- [ ] T061 [US7] Verificar snapshots/LOGIN-LOGOUT/usuarioRESTRICT/identidad global en `tests/integration/AuditSnapshotsTest.php`; INSERT anteriorNULL/DELETE nuevoNULL, ámbitos intactos y cero password_hash/token/APIKEY/USERKEY.
-- [ ] T062 [US7] Verificar rollback/privilegios en `tests/integration/AuditRollbackTest.php`; fallo forzado solo propietarioDB de pruebas, runtime sin UPDATE/DELETE/TRUNCATE/INSERT directo y mutación maestra revertida completa.
-- [ ] T063 [US7] Ejecutar Q9/alertasQ8 con doble, inspeccionar log diario saneado y guardar `ops/evidence/us7.md`; A/B/global y accesoHTTP directo, sin afirmar envío real.
+- [X] T057 [US7] Implementar consulta de auditoría en `src/Modules/Auditoria/AuditRepository.php`; empresa_id_contexto histórico, filtros fecha/acción/entidad/usuario y orden fecha,id, sin depender de joins a objetos borrados ni permitir mutaciones.
+- [X] T058 [US7] Exponer GET auditoria globalA y GET empresas/{id}/auditoria paraX en `src/Modules/Auditoria/AuditController.php` y `src/Http/routes/audit.php`; no POST/PUT/DELETE de bitácora ni SQL crudo.
+- [X] T059 [US7] Implementar alertas de roles/desactivación/borrados agrupadas por minuto en `src/Modules/Auditoria/AuditAlerts.php`, `src/Jobs/AuditAlertProducer.php` y su integración en `bin/worker.php`; Administradores activos/outbox deduplicada/plantilla saneada y sin recursión por jobs/correo; usar US1 y ejecutar el productor antes de reclamar correo, sin esperar al scheduler de US6.
+- [X] T060 [US7] Implementar filtros/ficha antes-después en `views/auditoria/index.php`, `views/auditoria/detail.php` y `public/assets/js/modules/audit.js`; rol/ámbito y escape de JSON como texto.
+- [X] T061 [US7] Verificar snapshots/LOGIN-LOGOUT/usuarioRESTRICT/identidad global en `tests/integration/AuditSnapshotsTest.php`; INSERT anteriorNULL/DELETE nuevoNULL, ámbitos intactos y cero password_hash/token/APIKEY/USERKEY.
+- [X] T062 [US7] Verificar rollback/privilegios en `tests/integration/AuditRollbackTest.php`; fallo forzado solo propietarioDB de pruebas, runtime sin UPDATE/DELETE/TRUNCATE/INSERT directo y mutación maestra revertida completa.
+- [X] T063 [US7] Ejecutar Q9/alertasQ8 con doble, inspeccionar log diario saneado y guardar `ops/evidence/us7.md`; A/B/global y accesoHTTP directo, sin afirmar envío real.
 
 **Checkpoint**: Captura/consulta/alertas locales conformes; ningún rol funcional edita bitácora.
 
@@ -165,21 +165,21 @@ no necesita visor/reportes. Captura activa desde T014.
 
 ### Tests for User Story 4
 
-- [ ] T064 [US4] Preparar contratos vecinos/aislamiento en `tests/contract/NeighborsContractTest.php`; NIT duplicado/reutilización cross-empresa sin filtraciones/notas por vínculo/global solo Administrador y bajas con expedientes409.
+- [X] T064 [US4] Preparar contratos vecinos/aislamiento en `tests/contract/NeighborsContractTest.php`; NIT duplicado/reutilización cross-empresa sin filtraciones/notas por vínculo/global solo Administrador y bajas con expedientes409.
 
 ### Implementation for User Story 4
 
-- [ ] T065 [P] [US4] Implementar identidad compartida en `src/Modules/Vecinas/NeighborRepository.php`; NIT conocido único/desconocido NULL, no deduplicar nombre y resolver NIT exacto con DTO mínimo sin proyectos ajenos, después de T064.
-- [ ] T066 [P] [US4] Implementar vínculos en `src/Modules/Vecinas/ProjectNeighborRepository.php`; ámbito/version/notas/color/ordinal/patrón y bloqueo de proyecto para asignación, eliminación no afecta otros vínculos, después de T064.
-- [ ] T067 [US4] Implementar `src/Modules/Vecinas/NeighborStylePolicy.php`: ocho tonos literales del modelo, posteriores R96..191/G32..95/B192..255 sin colisiones, «patron_indice=0 para ordinal<=8» y «1+floor((ordinal-9)/8)» desde9; agotamiento409/no repetición/no reciclar ordinal.
-- [ ] T068 [US4] Implementar creación/reutilización/vínculo en `src/Modules/Vecinas/ProjectNeighborService.php`; FOR UPDATE proyecto/incrementar vecina_secuencia/color único/herencia/rol E/audit/rollback completo sin identidad huérfana.
-- [ ] T069 [US4] Implementar identidad global en `src/Modules/Vecinas/NeighborService.php`; existente solo Administrador/version/eliminar sin vínculos; Geólogo solo notas de su vínculo, no identidad ajena.
-- [ ] T070 [US4] Exponer listado/resolver/crear/editar/desvincular de proyecto en `src/Modules/Vecinas/ProjectNeighborController.php` y `src/Http/routes/project-neighbors.php`; exactamente identidad existente o nueva, CSRF/404/409 y no color/ordinal del cliente.
-- [ ] T071 [US4] Exponer GET/GETid/PUT/DELETE catálogo global en `src/Modules/Vecinas/NeighborController.php` y `src/Http/routes/neighbors.php`; solo Administrador/auditoría global, sin edición geográfica oficial.
-- [ ] T072 [P] [US4] Implementar vecinos/asociadorVECINO en `views/vecinas/project.php` y `public/assets/js/modules/project-neighbors.js`; reutilizaciónNIT/notas/estilo automático/RN-12 con propio o vecino previo, después de T070.
-- [ ] T073 [P] [US4] Implementar catálogo global en `views/vecinas/catalog.php` y `public/assets/js/modules/neighbors.js`; solo Administrador, distinguir identidad/vínculo e informar alcance compartido de cambio nombre/NIT, después de T071.
-- [ ] T074 [US4] Probar carreras de color/ordinal/vínculo en `tests/integration/NeighborConcurrencyTest.php`; unicidad/no reciclado/herencia y ediciónA no modificaB.
-- [ ] T075 [US4] Ejecutar Q4/Q6 con9/17vecinas/reutilización/exclusividad y guardar `ops/evidence/us4.md`; filiación verificada contra restricciones reales, no soloUI.
+- [X] T065 [P] [US4] Implementar identidad compartida en `src/Modules/Vecinas/NeighborRepository.php`; NIT conocido único/desconocido NULL, no deduplicar nombre y resolver NIT exacto con DTO mínimo sin proyectos ajenos, después de T064.
+- [X] T066 [P] [US4] Implementar vínculos en `src/Modules/Vecinas/ProjectNeighborRepository.php`; ámbito/version/notas/color/ordinal/patrón y bloqueo de proyecto para asignación, eliminación no afecta otros vínculos, después de T064.
+- [X] T067 [US4] Implementar `src/Modules/Vecinas/NeighborStylePolicy.php`: ocho tonos literales del modelo, posteriores R96..191/G32..95/B192..255 sin colisiones, «patron_indice=0 para ordinal<=8» y «1+floor((ordinal-9)/8)» desde9; agotamiento409/no repetición/no reciclar ordinal.
+- [X] T068 [US4] Implementar creación/reutilización/vínculo en `src/Modules/Vecinas/ProjectNeighborService.php`; FOR UPDATE proyecto/incrementar vecina_secuencia/color único/herencia/rol E/audit/rollback completo sin identidad huérfana.
+- [X] T069 [US4] Implementar identidad global en `src/Modules/Vecinas/NeighborService.php`; existente solo Administrador/version/eliminar sin vínculos; Geólogo solo notas de su vínculo, no identidad ajena.
+- [X] T070 [US4] Exponer listado/resolver/crear/editar/desvincular de proyecto en `src/Modules/Vecinas/ProjectNeighborController.php` y `src/Http/routes/project-neighbors.php`; exactamente identidad existente o nueva, CSRF/404/409 y no color/ordinal del cliente.
+- [X] T071 [US4] Exponer GET/GETid/PUT/DELETE catálogo global en `src/Modules/Vecinas/NeighborController.php` y `src/Http/routes/neighbors.php`; solo Administrador/auditoría global, sin edición geográfica oficial.
+- [X] T072 [P] [US4] Implementar vecinos/asociadorVECINO en `views/vecinas/project.php` y `public/assets/js/modules/project-neighbors.js`; reutilizaciónNIT/notas/estilo automático/RN-12 con propio o vecino previo, después de T070.
+- [X] T073 [P] [US4] Implementar catálogo global en `views/vecinas/catalog.php` y `public/assets/js/modules/neighbors.js`; solo Administrador, distinguir identidad/vínculo e informar alcance compartido de cambio nombre/NIT, después de T071.
+- [X] T074 [US4] Probar carreras de color/ordinal/vínculo en `tests/integration/NeighborConcurrencyTest.php`; unicidad/no reciclado/herencia y ediciónA no modificaB.
+- [X] T075 [US4] Ejecutar Q4/Q6 con9/17vecinas/reutilización/exclusividad y guardar `ops/evidence/us4.md`; filiación verificada contra restricciones reales, no soloUI.
 
 **Checkpoint**: Competencia y estilo estables por proyecto; RN-12 cubre propio y vecino.
 
@@ -190,25 +190,25 @@ no necesita visor/reportes. Captura activa desde T014.
 
 ### Tests for User Story 5
 
-- [ ] T076 [US5] Preparar contratos mapa/Identify/importación en `tests/contract/MapContractTest.php`; GeoJSON autorizado,30 atributos/área_origen/bbox inválido400/fuente ausente/empresa ajena404.
+- [X] T076 [US5] Preparar contratos mapa/Identify/importación en `tests/contract/MapContractTest.php`; GeoJSON autorizado,30 atributos/área_origen/bbox inválido400/fuente ausente/empresa ajena404.
 
 ### Implementation for User Story 5
 
-- [ ] T077 [US5] Fijar versiones/checksums/licencias y verificar distribuciones ES2015 de draw1.0.4/Control.Measure/GoogleMutant/esri-leaflet/Turf en `public/assets/vendor/manifest.json` y `ops/map-providers.md`; sin build/transpilación productivos, claves navegador restringidas por origen, no secretos corporativos.
-- [ ] T078 [US5] Implementar mapa/bbox en `src/Modules/Visor/MapRepository.php`; geometrías originales/propiedades de vínculo-color y patrón, continuaciones explícitas/fuentes_no_disponibles/filtro empresarial, sin omitir/simplificar silenciosamente.
-- [ ] T079 [US5] Implementar Identify/área en `src/Modules/Visor/IdentifyService.php` y `src/Modules/Visor/AreaService.php`;30 atributos+filiación, AREA_HA o ST_Area(the_geom::geography)/10000.0, cero distintoNULL y no topología redundante.
-- [ ] T080 [US5] Implementar importación/temporales en `src/Modules/Visor/ImportService.php` y `src/Infrastructure/TemporaryFiles.php`;20MiB entrada/100MiB expandidos/5000 objetos/500000 vértices, ZIP sin traversal/symlinks/ejecutables, límites antes de extraer y limpieza éxito/error.
-- [ ] T081 [P] [US5] Implementar parsers en `src/Modules/Visor/GeoJsonReader.php` y `src/Modules/Visor/KmlReader.php`; estructura/formato/WGS84, XML sinDTD/entidades/red, sin datos ficticios ni validación topológica/traslapes oficiales, después de T080.
-- [ ] T082 [P] [US5] Implementar `src/Modules/Visor/ShapefileReader.php`; ZIP .shp/.shx/.dbf/.prj4326 y .cpgUTF-8 si existe, CRSotro/.prjausente rechazados, Readerauditado sin DBalterno, después de T080.
-- [ ] T083 [US5] Exponer mapa/Identify/importar en `src/Modules/Visor/MapController.php`, `src/Modules/Visor/ImportController.php` y `src/Http/routes/map.php`; rol C/CSRF, respuesta temporal sin persistir fuente/proyecto y400/413/415.
-- [ ] T084 [US5] Implementar inicialización/selectorOSM-Google4-ESRI2 en `public/assets/js/modules/map.js` y `public/assets/js/modules/map-baselayers.js`; atribución, recuperación proveedor caído y atributos consultables sin tiles.
-- [ ] T085 [P] [US5] Implementar `public/assets/js/modules/map-styles.js`: propioTITULO azul#007bff/SOLICITUD verde#28a745/vecino violeta heredado, patrónSVG desde9 y tooltipRN-09/10<200ms local sin petición en hover/HTML inseguro, después de T084.
-- [ ] T086 [P] [US5] Implementar Identify accesible en `public/assets/js/modules/map-identify.js` y `views/visor/identify.php`;30 atributos/filiación/fechas/NULL/fuente no disponible y escape, después de T084.
-- [ ] T087 [P] [US5] Implementar `public/assets/js/modules/map-tools.js`; medidasm/km/m²/ha/km², trazos/marcadores de trabajo y Turf, centroide visual separado del persistido, ninguna edición de polígonos oficiales, después de T084.
-- [ ] T088 [P] [US5] Implementar `public/assets/js/modules/map-imports.js`; tres formatos/capas temporales, color/opacidad0..1 y errores sin borrar capas previas ni escribir catastro, después de T084.
-- [ ] T089 [US5] Integrar mapa/leyenda/paneles en `views/visor/map.php` y `public/assets/css/map.css`; responsive/lotes/SVGpatrones-Canvasotrascapas y estado completo solo al dibujar última geometría.
-- [ ] T090 [US5] Implementar/ejecutar guion bases-tooltip-Identify-medidas-teclado en `tests/browser/map-scenarios.md`; guardar `ops/evidence/us5-browser.md` con latencias/capturas saneadas, no afirmar proveedores reales verificados con dobles.
-- [ ] T091 [US5] Verificar archivos válidos/corruptos/traversal/bomba/CRS/XMLexterno en `tests/integration/ImportSecurityTest.php` y `tests/fixtures/imports/manifest.json`; límites y ausencia de cambiosDB/temporales abandonados.
+- [X] T077 [US5] Fijar versiones/checksums/licencias y verificar distribuciones ES2015 de draw1.0.4/Control.Measure/GoogleMutant/esri-leaflet/Turf en `public/assets/vendor/manifest.json` y `ops/map-providers.md`; sin build/transpilación productivos, claves navegador restringidas por origen, no secretos corporativos.
+- [X] T078 [US5] Implementar mapa/bbox en `src/Modules/Visor/MapRepository.php`; geometrías originales/propiedades de vínculo-color y patrón, continuaciones explícitas/fuentes_no_disponibles/filtro empresarial, sin omitir/simplificar silenciosamente.
+- [X] T079 [US5] Implementar Identify/área en `src/Modules/Visor/IdentifyService.php` y `src/Modules/Visor/AreaService.php`;30 atributos+filiación, AREA_HA o ST_Area(the_geom::geography)/10000.0, cero distintoNULL y no topología redundante.
+- [X] T080 [US5] Implementar importación/temporales en `src/Modules/Visor/ImportService.php` y `src/Infrastructure/TemporaryFiles.php`;20MiB entrada/100MiB expandidos/5000 objetos/500000 vértices, ZIP sin traversal/symlinks/ejecutables, límites antes de extraer y limpieza éxito/error.
+- [X] T081 [P] [US5] Implementar parsers en `src/Modules/Visor/GeoJsonReader.php` y `src/Modules/Visor/KmlReader.php`; estructura/formato/WGS84, XML sinDTD/entidades/red, sin datos ficticios ni validación topológica/traslapes oficiales, después de T080.
+- [X] T082 [P] [US5] Implementar `src/Modules/Visor/ShapefileReader.php`; ZIP .shp/.shx/.dbf/.prj4326 y .cpgUTF-8 si existe, CRSotro/.prjausente rechazados, Readerauditado sin DBalterno, después de T080.
+- [X] T083 [US5] Exponer mapa/Identify/importar en `src/Modules/Visor/MapController.php`, `src/Modules/Visor/ImportController.php` y `src/Http/routes/map.php`; rol C/CSRF, respuesta temporal sin persistir fuente/proyecto y400/413/415.
+- [X] T084 [US5] Implementar inicialización/selectorOSM-Google4-ESRI2 en `public/assets/js/modules/map.js` y `public/assets/js/modules/map-baselayers.js`; atribución, recuperación proveedor caído y atributos consultables sin tiles.
+- [X] T085 [P] [US5] Implementar `public/assets/js/modules/map-styles.js`: propioTITULO azul#007bff/SOLICITUD verde#28a745/vecino violeta heredado, patrónSVG desde9 y tooltipRN-09/10<200ms local sin petición en hover/HTML inseguro, después de T084.
+- [X] T086 [P] [US5] Implementar Identify accesible en `public/assets/js/modules/map-identify.js` y `views/visor/identify.php`;30 atributos/filiación/fechas/NULL/fuente no disponible y escape, después de T084.
+- [X] T087 [P] [US5] Implementar `public/assets/js/modules/map-tools.js`; medidasm/km/m²/ha/km², trazos/marcadores de trabajo y Turf, centroide visual separado del persistido, ninguna edición de polígonos oficiales, después de T084.
+- [X] T088 [P] [US5] Implementar `public/assets/js/modules/map-imports.js`; tres formatos/capas temporales, color/opacidad0..1 y errores sin borrar capas previas ni escribir catastro, después de T084.
+- [X] T089 [US5] Integrar mapa/leyenda/paneles en `views/visor/map.php` y `public/assets/css/map.css`; responsive/lotes/SVGpatrones-Canvasotrascapas y estado completo solo al dibujar última geometría.
+- [X] T090 [US5] Implementar/ejecutar guion bases-tooltip-Identify-medidas-teclado en `tests/browser/map-scenarios.md`; guardar `ops/evidence/us5-browser.md` con latencias/capturas saneadas, no afirmar proveedores reales verificados con dobles.
+- [X] T091 [US5] Verificar archivos válidos/corruptos/traversal/bomba/CRS/XMLexterno en `tests/integration/ImportSecurityTest.php` y `tests/fixtures/imports/manifest.json`; límites y ausencia de cambiosDB/temporales abandonados.
 - [ ] T092 [US5] Ejecutar Q5/Q6 con fixture y claves autorizadas disponibles, contrastar área/centroide y guardar `ops/evidence/us5.md`; proveedor no probado queda pendiente, no conforme sin evidencia.
 
 **Checkpoint**: Visor y trabajo geográfico disponibles sin editar límites oficiales.
@@ -220,26 +220,26 @@ no necesita visor/reportes. Captura activa desde T014.
 
 ### Tests for User Story 6
 
-- [ ] T093 [US6] Preparar contratos exportación/programación en `tests/contract/ExportsContractTest.php`;202/estado/LISTO/410, Geólogo 403/ajeno404, solicitanteX oA y revocación impide archivo.
+- [X] T093 [US6] Preparar contratos exportación/programación en `tests/contract/ExportsContractTest.php`;202/estado/LISTO/410, Geólogo 403/ajeno404, solicitanteX oA y revocación impide archivo.
 
 ### Implementation for User Story 6
 
-- [ ] T094 [US6] Crear exportacion_job/programacion_reportes/programacion_destinatarios/índices en `migrations/007_exports_schedules.sql`; enums/JSONB/filtros/archivo privado, «Archivo24h por defecto.», diario09:00 America/Bogota inicialINACTIVO, destinatariosPK/FKsRESTRICT; triggers de programación maestra con funciónT014/ámbito empresarial. Contrato literal de campos (campo | tipo | nulo/regla; las concreciones del modelo resuelven alternativas): «| id | SERIAL PK | Identificador de trabajo. |»; «| usuario_id | INTEGER FK NOT NULL | Solicitante, RESTRICT. |»; «| empresa_id | INTEGER NOT NULL | Ámbito único, revalidado. |»; «| proyecto_id | INTEGER NULL | Filtro opcional del mismo ámbito. |»; «| formato | VARCHAR(20) NOT NULL | PDF, XLSX, CSV, GEOJSON, KML, SHAPEFILE. |»; «| filtros | JSONB NOT NULL | Filtros normalizados y cerrados. |»; «| estado | VARCHAR(20) NOT NULL | PENDIENTE, PROCESANDO, LISTO, FALLIDO, EXPIRADO. |»; «| archivo_relativo | VARCHAR(255) NULL | Ruta generada por servidor, nunca del cliente. |»; «| creado_en, expira_en | TIMESTAMP NOT NULL | Archivo24h por defecto. |»; «| error_codigo | VARCHAR(50) NULL | Mensaje técnico saneado. |». Contrato literal adicional de programación: «programacion_reportes(id SERIAL PK, empresa_id INTEGER FK NOT NULL, creado_por INTEGER FK NOT NULL, formato VARCHAR(20) NOT NULL, filtros JSONB NOT NULL, hora_local TIME NOT NULL DEFAULT09:00, zona VARCHAR(50) NOT NULL DEFAULT America/Bogota, estado VARCHAR(20) NOT NULL DEFAULT INACTIVO, version INTEGER NOT NULL DEFAULT1). programacion_destinatarios(programacion_id INTEGER FK, usuario_id INTEGER FK), PK compuesta, ambos NOT NULL/RESTRICT.».
-- [ ] T095 [US6] Implementar jobs/conjunto exportable en `src/Modules/Reportes/ExportRepository.php`; filtros por whitelist empresa/proyecto/códigos/atributos/filiación, fuentes ausentes declaradas, solo PDO/estados del modelo y sin path físico expuesto.
-- [ ] T096 [P] [US6] Implementar `src/Modules/Reportes/CsvExporter.php` y `src/Modules/Reportes/XlsxExporter.php`; UTF-8/fórmulasCSV neutralizadas, OOXMLreal/ZipArchive/XMLWriter/texto explícito/número-fecha controlados, no HTML renombrado, después de T095.
-- [ ] T097 [P] [US6] Implementar `src/Modules/Reportes/PdfExporter.php`; tFPDFv1.33/fuente UTF-8 licenciada auditada, tabular paginado empresa/proyecto/filtros/fecha/leyenda/acentos, sin tiles no licenciados, después de T095.
-- [ ] T098 [P] [US6] Implementar `src/Modules/Reportes/GeoJsonExporter.php` y `src/Modules/Reportes/KmlExporter.php`;4326original/atributos, Polygon-MultiGeometry/ExtendedData, KMLsinZ clampToGround+aviso/no altitud ficticia, después de T095.
-- [ ] T099 [P] [US6] Implementar `src/Modules/Reportes/ShapefileExporter.php`; Writer desde PDO/ZIPshp-shx-dbf-prj-cpg/manifiesto/mapeo, DBF<=10 caracteres/aliasesEXP_CODE-TITULARES-Fnn, texto largo en sidecar attributes.json sin truncamiento silencioso, después de T095.
-- [ ] T100 [US6] Implementar jobs/publicaciónatómica en `src/Jobs/ExportWorker.php` y registrar en `bin/worker.php`; reautorizar antes de consultar/publicar, no parciales, ruta privada aleatoria/errores saneados y ninguna conexiónDBalternativa.
-- [ ] T101 [US6] Implementar programación/destinatarios/deduplicación fecha-programa-usuario en `src/Modules/Reportes/ScheduleService.php`, `src/Jobs/ReportScheduler.php` y `bin/scheduler.php`; habilitar solo destinatarios activos X, diario09:00Bogota/revalidar cada ejecución, integrar productoralertasT059 y no correos arbitrarios.
-- [ ] T102 [US6] Exponer solicitar/estado/descarga en `src/Modules/Reportes/ExportController.php` y `src/Http/routes/exports.php`; CSRF/revalidación, Content-Disposition seguro/MIME,409noLISTO/410expirado, sin URL pública/path interno.
-- [ ] T103 [US6] Exponer GET/POST/PUT/DELETEprogramación solo Administrador en `src/Modules/Reportes/ScheduleController.php`, `src/Http/routes/schedules.php` y `views/reportes/schedules.php`; version/hora/destinatarios/auditoría, desactivar si dependenciasRESTRICT.
-- [ ] T104 [US6] Implementar reportes/programación en `views/reportes/index.php` y `public/assets/js/modules/reports.js`; conjuntofiltrado, controles por rol, pollingestado/descarga/caducidad/errores, sin exposición aGeólogo.
-- [ ] T105 [US6] Implementar mantenimiento/cron en `src/Jobs/MaintenanceWorker.php` y `ops/cron/sgpm`; archivos24h, payloads borrados al terminar/expirar, metadatos outbox30d, jobs huérfanos controlados y entorno seguro sin cron HTTP.
-- [ ] T106 [US6] Integrar correo reportes en `src/Modules/Reportes/ReportNotifications.php`; enlaceautenticado/cinco parámetros/sin adjuntos no contratados/destinatario autorizado/deduplicación, nunca prometer entrega porHTTP 200.
-- [ ] T107 [US6] Verificar seisformatos/DBFsidecars en `tests/integration/ExportFormatsTest.php` y `tests/fixtures/exports/manifest.json`; filas/códigos/geometría/UTF-8/fórmulas, fuentes ausentes documentadas sin polígonos fabricados.
-- [ ] T108 [US6] Verificar revocación/generación/descarga/envío/caducidad/scheduler doble en `tests/integration/ExportAuthorizationTest.php` y `tests/integration/ScheduleDeduplicationTest.php`; sin filtraciones/archivo parcial, un envío local por destinatario-intervalo.
-- [ ] T109 [US6] Ejecutar Q7/Q8 con worker/doble y guardar `ops/evidence/us6.md` por formato/ámbito; conformidad de correo real se exige enT118 y no se infiere del doble.
+- [X] T094 [US6] Crear exportacion_job/programacion_reportes/programacion_destinatarios/índices en `migrations/007_exports_schedules.sql`; enums/JSONB/filtros/archivo privado, «Archivo24h por defecto.», diario09:00 America/Bogota inicialINACTIVO, destinatariosPK/FKsRESTRICT; triggers de programación maestra con funciónT014/ámbito empresarial. Contrato literal de campos (campo | tipo | nulo/regla; las concreciones del modelo resuelven alternativas): «| id | SERIAL PK | Identificador de trabajo. |»; «| usuario_id | INTEGER FK NOT NULL | Solicitante, RESTRICT. |»; «| empresa_id | INTEGER NOT NULL | Ámbito único, revalidado. |»; «| proyecto_id | INTEGER NULL | Filtro opcional del mismo ámbito. |»; «| formato | VARCHAR(20) NOT NULL | PDF, XLSX, CSV, GEOJSON, KML, SHAPEFILE. |»; «| filtros | JSONB NOT NULL | Filtros normalizados y cerrados. |»; «| estado | VARCHAR(20) NOT NULL | PENDIENTE, PROCESANDO, LISTO, FALLIDO, EXPIRADO. |»; «| archivo_relativo | VARCHAR(255) NULL | Ruta generada por servidor, nunca del cliente. |»; «| creado_en, expira_en | TIMESTAMP NOT NULL | Archivo24h por defecto. |»; «| error_codigo | VARCHAR(50) NULL | Mensaje técnico saneado. |». Contrato literal adicional de programación: «programacion_reportes(id SERIAL PK, empresa_id INTEGER FK NOT NULL, creado_por INTEGER FK NOT NULL, formato VARCHAR(20) NOT NULL, filtros JSONB NOT NULL, hora_local TIME NOT NULL DEFAULT09:00, zona VARCHAR(50) NOT NULL DEFAULT America/Bogota, estado VARCHAR(20) NOT NULL DEFAULT INACTIVO, version INTEGER NOT NULL DEFAULT1). programacion_destinatarios(programacion_id INTEGER FK, usuario_id INTEGER FK), PK compuesta, ambos NOT NULL/RESTRICT.».
+- [X] T095 [US6] Implementar jobs/conjunto exportable en `src/Modules/Reportes/ExportRepository.php`; filtros por whitelist empresa/proyecto/códigos/atributos/filiación, fuentes ausentes declaradas, solo PDO/estados del modelo y sin path físico expuesto.
+- [X] T096 [P] [US6] Implementar `src/Modules/Reportes/CsvExporter.php` y `src/Modules/Reportes/XlsxExporter.php`; UTF-8/fórmulasCSV neutralizadas, OOXMLreal/ZipArchive/XMLWriter/texto explícito/número-fecha controlados, no HTML renombrado, después de T095.
+- [X] T097 [P] [US6] Implementar `src/Modules/Reportes/PdfExporter.php`; tFPDFv1.33/fuente UTF-8 licenciada auditada, tabular paginado empresa/proyecto/filtros/fecha/leyenda/acentos, sin tiles no licenciados, después de T095.
+- [X] T098 [P] [US6] Implementar `src/Modules/Reportes/GeoJsonExporter.php` y `src/Modules/Reportes/KmlExporter.php`;4326original/atributos, Polygon-MultiGeometry/ExtendedData, KMLsinZ clampToGround+aviso/no altitud ficticia, después de T095.
+- [X] T099 [P] [US6] Implementar `src/Modules/Reportes/ShapefileExporter.php`; Writer desde PDO/ZIPshp-shx-dbf-prj-cpg/manifiesto/mapeo, DBF<=10 caracteres/aliasesEXP_CODE-TITULARES-Fnn, texto largo en sidecar attributes.json sin truncamiento silencioso, después de T095.
+- [X] T100 [US6] Implementar jobs/publicaciónatómica en `src/Jobs/ExportWorker.php` y registrar en `bin/worker.php`; reautorizar antes de consultar/publicar, no parciales, ruta privada aleatoria/errores saneados y ninguna conexiónDBalternativa.
+- [X] T101 [US6] Implementar programación/destinatarios/deduplicación fecha-programa-usuario en `src/Modules/Reportes/ScheduleService.php`, `src/Jobs/ReportScheduler.php` y `bin/scheduler.php`; habilitar solo destinatarios activos X, diario09:00Bogota/revalidar cada ejecución, integrar productoralertasT059 y no correos arbitrarios.
+- [X] T102 [US6] Exponer solicitar/estado/descarga en `src/Modules/Reportes/ExportController.php` y `src/Http/routes/exports.php`; CSRF/revalidación, Content-Disposition seguro/MIME,409noLISTO/410expirado, sin URL pública/path interno.
+- [X] T103 [US6] Exponer GET/POST/PUT/DELETEprogramación solo Administrador en `src/Modules/Reportes/ScheduleController.php`, `src/Http/routes/schedules.php` y `views/reportes/schedules.php`; version/hora/destinatarios/auditoría, desactivar si dependenciasRESTRICT.
+- [X] T104 [US6] Implementar reportes/programación en `views/reportes/index.php` y `public/assets/js/modules/reports.js`; conjuntofiltrado, controles por rol, pollingestado/descarga/caducidad/errores, sin exposición aGeólogo.
+- [X] T105 [US6] Implementar mantenimiento/cron en `src/Jobs/MaintenanceWorker.php` y `ops/cron/sgpm`; archivos24h, payloads borrados al terminar/expirar, metadatos outbox30d, jobs huérfanos controlados y entorno seguro sin cron HTTP.
+- [X] T106 [US6] Integrar correo reportes en `src/Modules/Reportes/ReportNotifications.php`; enlaceautenticado/cinco parámetros/sin adjuntos no contratados/destinatario autorizado/deduplicación, nunca prometer entrega porHTTP 200.
+- [X] T107 [US6] Verificar seisformatos/DBFsidecars en `tests/integration/ExportFormatsTest.php` y `tests/fixtures/exports/manifest.json`; filas/códigos/geometría/UTF-8/fórmulas, fuentes ausentes documentadas sin polígonos fabricados.
+- [X] T108 [US6] Verificar revocación/generación/descarga/envío/caducidad/scheduler doble en `tests/integration/ExportAuthorizationTest.php` y `tests/integration/ScheduleDeduplicationTest.php`; sin filtraciones/archivo parcial, un envío local por destinatario-intervalo.
+- [X] T109 [US6] Ejecutar Q7/Q8 con worker/doble y guardar `ops/evidence/us6.md` por formato/ámbito; conformidad de correo real se exige enT118 y no se infiere del doble.
 
 **Checkpoint**: Exportación/programación cumplen contrato local; descarga denegada tras revocar acceso.
 
@@ -247,17 +247,17 @@ no necesita visor/reportes. Captura activa desde T014.
 
 **Purpose**: Validación integral/paquete revisable, sin despliegue automático.
 
-- [ ] T110 Ejecutar compatibilidad todoPHP7.0.33/strict_types/SQL9.5.25-PostGIS2.5.5/JS≤ES2015 con `bin/check-compatibility.php` y guardar `ops/evidence/compatibility.md`; rechazar features posteriores y vendor no auditado.
-- [ ] T111 Completar censo de rutas/RBAC en `tests/contract/RouteAuthorizationMatrixTest.php` y `ops/evidence/authorization.md`; cada endpoint/objeto/lista/mapa/Identify/job/descarga/auditoría con cuatro roles,A/B/inactivo/revocado, no soloUI.
-- [ ] T112 Ejecutar CSRF/XSS/SQLi/archivos privados/transporte en `tests/contract/WebSecurityTest.php` y `ops/evidence/security.md`; HTTPS/301/HSTS/certificado/headers y no config-storage-logs-bin-vendorporHTTP, errores sin trazas/secretos.
-- [ ] T113 Ejecutar teclado/errores/vacíos/UTF-8 a360/768/1440 en `tests/browser/responsive-scenarios.md` y `ops/evidence/responsive.md`; corregir solo fallos observados de vistas/módulos correspondientes.
-- [ ] T114 Crear fixture de carga en `tests/fixtures/performance/manifest.json` y ampliar `bin/seed-fixtures.php`;100000 filas,500 polígonos/50000 vértices y5000/500000, huecos/multiparte/distribución/checksums, guardiatest y ninguna simplificación para aprobar.
-- [ ] T115 Implementar runner50 sesiones/instrumentacióncliente en `tests/performance/run.php` y `tests/browser/performance-scenarios.md`;120swarmup/600smedición/mezcla60-20-10-5-5/pausas1–3s/tresfrías-trescalientes/máximo-p95, no ocultar incumplimientos conp95.
-- [ ] T116 Ejecutar Q11 en entorno4vCPU/8GiB/SSD y cliente/red documentados, guardar `ops/evidence/performance.md`; consultas<3s/500 polígonos<5s/5000<8s/tooltip<200ms/50 usuarios; optimizar solo fallos sin omitir geometrías ni alterar umbrales, repetir casos afectados y no marcar cumplido sin medición conforme.
-- [ ] T117 Cerrar paquete reproducible en `ops/dependencies-php.json`, `public/assets/vendor/manifest.json` y `ops/evidence/dependencies.md`; cada tag-commit-checksum-licencia-parche, smokePHP7.0 dePDF/Shapefile y Leaflet/plugins, sin resolver/compilar en producción.
+- [X] T110 Ejecutar compatibilidad todoPHP7.0.33/strict_types/SQL9.5.25-PostGIS2.5.5/JS≤ES2015 con `bin/check-compatibility.php` y guardar `ops/evidence/compatibility.md`; rechazar features posteriores y vendor no auditado.
+- [X] T111 Completar censo de rutas/RBAC en `tests/contract/RouteAuthorizationMatrixTest.php` y `ops/evidence/authorization.md`; cada endpoint/objeto/lista/mapa/Identify/job/descarga/auditoría con cuatro roles,A/B/inactivo/revocado, no soloUI.
+- [X] T112 Ejecutar CSRF/XSS/SQLi/archivos privados/transporte en `tests/contract/WebSecurityTest.php` y `ops/evidence/security.md`; HTTPS/301/HSTS/certificado/headers y no config-storage-logs-bin-vendorporHTTP, errores sin trazas/secretos.
+- [X] T113 Ejecutar teclado/errores/vacíos/UTF-8 a360/768/1440 en `tests/browser/responsive-scenarios.md` y `ops/evidence/responsive.md`; corregir solo fallos observados de vistas/módulos correspondientes.
+- [X] T114 Crear fixture de carga en `tests/fixtures/performance/manifest.json` y ampliar `bin/seed-fixtures.php`;100000 filas,500 polígonos/50000 vértices y5000/500000, huecos/multiparte/distribución/checksums, guardiatest y ninguna simplificación para aprobar.
+- [X] T115 Implementar runner50 sesiones/instrumentacióncliente en `tests/performance/run.php` y `tests/browser/performance-scenarios.md`;120swarmup/600smedición/mezcla60-20-10-5-5/pausas1–3s/tresfrías-trescalientes/máximo-p95, no ocultar incumplimientos conp95.
+- [X] T116 Ejecutar Q11 en entorno4vCPU/8GiB/SSD y cliente/red documentados, guardar `ops/evidence/performance.md`; consultas<3s/500 polígonos<5s/5000<8s/tooltip<200ms/50 usuarios; optimizar solo fallos sin omitir geometrías ni alterar umbrales, repetir casos afectados y no marcar cumplido sin medición conforme.
+- [X] T117 Cerrar paquete reproducible en `ops/dependencies-php.json`, `public/assets/vendor/manifest.json` y `ops/evidence/dependencies.md`; cada tag-commit-checksum-licencia-parche, smokePHP7.0 dePDF/Shapefile y Leaflet/plugins, sin resolver/compilar en producción.
 - [ ] T118 Incorporar perfil de respuesta real verificado en `config/email-response.example.php` y evidencia anonimizada en `ops/evidence/email-conformance.md`; obtener documentación/muestras autorizadas, no inventarJSON; validar despacho solo con instrucción explícita de envío/destinatario autorizado. Si falta contrato o autorización, mantener double/puerta productiva pendiente y no cerrar esta tarea como cumplida.
 - [ ] T119 Ejecutar Q0–Q11/suites con `tests/run.php`, consolidar `ops/evidence/acceptance.md` y sincronizar `specs/001-sgpm-integral/quickstart.md` a interfaces implementadas; distinguir resultados reales/no ejecutados/dependencias sin inventarlos ni cambiar requisitos.
-- [ ] T120 Preparar paquete/guía revisables en `ops/release-checklist.md`, `ops/deployment.md` y `README.md`; roles/configuración sin secretos/cron/HTTPS/migraciones internas/catastro/restauración y permisos, sin desplegar/publicar ni migrar producción por generar tareas.
+- [X] T120 Preparar paquete/guía revisables en `ops/release-checklist.md`, `ops/deployment.md` y `README.md`; roles/configuración sin secretos/cron/HTTPS/migraciones internas/catastro/restauración y permisos, sin desplegar/publicar ni migrar producción por generar tareas.
 
 **Checkpoint**: Cierre solo con evidencia real. T118 no se completa mediante doble de correo.
 
@@ -453,3 +453,13 @@ Runner: tests/browser/us1-playwright.py. Las 14 suites PHP y el doble TLS/HTTP
 previamente aprobados completan el alcance US1 de T036. Los estados pendientes
 anteriores son históricos. T037–T120 siguen sin ejecutar; T118 no se certifica
 con dobles ni con esta revisión. No se desplegó ni se envió correo real.
+
+## Implementacion US2 — 2026-10-13
+
+T037–T048 completadas: empresas/logos, proyectos y asociaciones propios,
+RBAC/CSRF/versiones/autores/centroide PostGIS y RN-06/RN-12.
+18 suites PHP PASS, 0 FAIL; 103 PHP compatibles con 7.0.33. Playwright US2:
+30 comprobaciones PASS, 0 FAIL, 14 capturas, TLS verificado con certificado
+aceptado por el usuario; correccion observada de reset de id/version en formularios.
+Evidencia: ops/evidence/us2.md. Ambiente exclusivamente temporal, retirado.
+Continua implementacion desde T049; T118 conserva su dependencia externa.

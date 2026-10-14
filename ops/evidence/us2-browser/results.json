@@ -1,0 +1,122 @@
+[
+  {
+    "check": "Admin company editor visible",
+    "pass": true
+  },
+  {
+    "check": "Create company in UI",
+    "pass": true
+  },
+  {
+    "check": "Company search UTF-8",
+    "pass": true
+  },
+  {
+    "check": "Company duplicate friendly 409",
+    "pass": true
+  },
+  {
+    "check": "Logo uploaded through UI",
+    "pass": true
+  },
+  {
+    "check": "Company document fits 360",
+    "pass": true
+  },
+  {
+    "check": "Company keyboard focus 360",
+    "pass": true
+  },
+  {
+    "check": "Company document fits 768",
+    "pass": true
+  },
+  {
+    "check": "Company keyboard focus 768",
+    "pass": true
+  },
+  {
+    "check": "Company document fits 1440",
+    "pass": true
+  },
+  {
+    "check": "Company keyboard focus 1440",
+    "pass": true
+  },
+  {
+    "check": "Invalid date range 400",
+    "pass": true
+  },
+  {
+    "check": "Create project through UI",
+    "pass": true
+  },
+  {
+    "check": "Project document fits 360",
+    "pass": true
+  },
+  {
+    "check": "Project document fits 768",
+    "pass": true
+  },
+  {
+    "check": "Project document fits 1440",
+    "pass": true
+  },
+  {
+    "check": "Unknown source 400 in UI",
+    "pass": true
+  },
+  {
+    "check": "Associate existing source in UI",
+    "pass": true
+  },
+  {
+    "check": "Duplicate source 409 and one row",
+    "pass": true
+  },
+  {
+    "check": "Files document fits 360",
+    "pass": true
+  },
+  {
+    "check": "Files document fits 768",
+    "pass": true
+  },
+  {
+    "check": "Files document fits 1440",
+    "pass": true
+  },
+  {
+    "check": "Unlink source and show empty state",
+    "pass": true
+  },
+  {
+    "check": "gerente cannot see company editor",
+    "pass": true
+  },
+  {
+    "check": "gerente project edit controls follow role",
+    "pass": true
+  },
+  {
+    "check": "gerente cannot access unrelated project",
+    "pass": true
+  },
+  {
+    "check": "geologo cannot see company editor",
+    "pass": true
+  },
+  {
+    "check": "geologo project edit controls follow role",
+    "pass": true
+  },
+  {
+    "check": "geologo cannot access unrelated project",
+    "pass": true
+  },
+  {
+    "check": "No uncaught JavaScript errors",
+    "pass": true
+  }
+]

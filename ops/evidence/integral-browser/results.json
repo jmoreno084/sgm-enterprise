@@ -1,0 +1,339 @@
+{
+  "checks": [
+    {
+      "check": "Create neighbor 17 in UI",
+      "pass": true
+    },
+    {
+      "check": "Neighbor 17 hatch assigned",
+      "pass": true
+    },
+    {
+      "check": "Associate neighboring source in UI",
+      "pass": true
+    },
+    {
+      "check": "neighbors fits 360",
+      "pass": true
+    },
+    {
+      "check": "neighbors keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "neighbors fits 768",
+      "pass": true
+    },
+    {
+      "check": "neighbors keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "neighbors fits 1440",
+      "pass": true
+    },
+    {
+      "check": "neighbors keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "Cadastre search UI",
+      "pass": true
+    },
+    {
+      "check": "cadastre fits 360",
+      "pass": true
+    },
+    {
+      "check": "cadastre keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "cadastre fits 768",
+      "pass": true
+    },
+    {
+      "check": "cadastre keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "cadastre fits 1440",
+      "pass": true
+    },
+    {
+      "check": "cadastre keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "Cadastre 30 attribute detail",
+      "pass": true
+    },
+    {
+      "check": "cadastre-detail fits 360",
+      "pass": true
+    },
+    {
+      "check": "cadastre-detail keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "cadastre-detail fits 768",
+      "pass": true
+    },
+    {
+      "check": "cadastre-detail keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "cadastre-detail fits 1440",
+      "pass": true
+    },
+    {
+      "check": "cadastre-detail keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "audit fits 360",
+      "pass": true
+    },
+    {
+      "check": "audit keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "audit fits 768",
+      "pass": true
+    },
+    {
+      "check": "audit keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "audit fits 1440",
+      "pass": true
+    },
+    {
+      "check": "audit keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "Audit detail without credential fields",
+      "pass": true
+    },
+    {
+      "check": "audit-detail fits 360",
+      "pass": true
+    },
+    {
+      "check": "audit-detail keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "audit-detail fits 768",
+      "pass": true
+    },
+    {
+      "check": "audit-detail keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "audit-detail fits 1440",
+      "pass": true
+    },
+    {
+      "check": "audit-detail keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "Map complete with all features",
+      "pass": true
+    },
+    {
+      "check": "Google 4 unavailable without key",
+      "pass": true
+    },
+    {
+      "check": "Own title blue rendered",
+      "pass": true
+    },
+    {
+      "check": "Neighbor SVG hatch rendered",
+      "pass": true
+    },
+    {
+      "check": "Identify keyboard 30 attributes",
+      "pass": true
+    },
+    {
+      "check": "XSS properties remain text",
+      "pass": true
+    },
+    {
+      "check": "Local tooltip without HTTP",
+      "pass": true
+    },
+    {
+      "check": "Tooltip samples below 200ms",
+      "pass": true
+    },
+    {
+      "check": "Visual centroid needs work trace",
+      "pass": true
+    },
+    {
+      "check": "Work line measured in m/km",
+      "pass": true
+    },
+    {
+      "check": "Work polygon measured in m²/ha/km²",
+      "pass": true
+    },
+    {
+      "check": "Visual centroid keeps official centroid",
+      "pass": true
+    },
+    {
+      "check": "Work marker added",
+      "pass": true
+    },
+    {
+      "check": "GeoJSON import UI",
+      "pass": true
+    },
+    {
+      "check": "KML import UI",
+      "pass": true
+    },
+    {
+      "check": "Shapefile ZIP import UI",
+      "pass": true
+    },
+    {
+      "check": "Invalid import preserves old layers",
+      "pass": true
+    },
+    {
+      "check": "map fits 360",
+      "pass": true
+    },
+    {
+      "check": "map keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "map fits 768",
+      "pass": true
+    },
+    {
+      "check": "map keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "map fits 1440",
+      "pass": true
+    },
+    {
+      "check": "map keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "Temporary layer removed",
+      "pass": true
+    },
+    {
+      "check": "Report UI creates asynchronous job",
+      "pass": true
+    },
+    {
+      "check": "Authenticated report downloads",
+      "pass": true
+    },
+    {
+      "check": "reports fits 360",
+      "pass": true
+    },
+    {
+      "check": "reports keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "reports fits 768",
+      "pass": true
+    },
+    {
+      "check": "reports keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "reports fits 1440",
+      "pass": true
+    },
+    {
+      "check": "reports keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "Schedule UI default inactive",
+      "pass": true
+    },
+    {
+      "check": "Schedule create in UI HTTP 201",
+      "pass": true
+    },
+    {
+      "check": "schedules fits 360",
+      "pass": true
+    },
+    {
+      "check": "schedules keyboard 360",
+      "pass": true
+    },
+    {
+      "check": "schedules fits 768",
+      "pass": true
+    },
+    {
+      "check": "schedules keyboard 768",
+      "pass": true
+    },
+    {
+      "check": "schedules fits 1440",
+      "pass": true
+    },
+    {
+      "check": "schedules keyboard 1440",
+      "pass": true
+    },
+    {
+      "check": "No uncaught JavaScript errors",
+      "pass": true
+    },
+    {
+      "check": "gerente report controls match role",
+      "pass": true
+    },
+    {
+      "check": "gerente scoped map B404",
+      "pass": true
+    },
+    {
+      "check": "inversionista report controls match role",
+      "pass": true
+    },
+    {
+      "check": "inversionista scoped map B404",
+      "pass": true
+    },
+    {
+      "check": "geologo report controls match role",
+      "pass": true
+    },
+    {
+      "check": "geologo scoped map B404",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "tls_bypass": false,
+  "external_tiles": "deliberately blocked; providers not certified"
+}

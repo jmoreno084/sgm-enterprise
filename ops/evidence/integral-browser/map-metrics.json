@@ -1,0 +1,17 @@
+{
+  "metrics": {
+    "complete": true,
+    "rendered": 2,
+    "vertices": 10,
+    "source_total": 2,
+    "tooltip_ms": [],
+    "load_ms": 146.5,
+    "first_hover_point": {
+      "x": 471,
+      "y": 534
+    }
+  },
+  "tooltip_ms": [
+    1.2000000029802322
+  ]
+}

@@ -16,15 +16,21 @@ class Response
         $this->headers = $headers;
     }
 
-    public static function json(array $data, string $requestId, int $status = 200): Response
+    public static function json(array $data, string $requestId, int $status = 200,array $meta=array()): Response
     {
-        return self::encoded(array('data' => $data, 'meta' => array('request_id' => $requestId)), $status);
+        return self::encoded(array('data' => $data, 'meta' => array_merge($meta,array('request_id' => $requestId))), $status);
     }
 
     public static function error(string $code, string $message, string $requestId, int $status): Response
     {
         return self::encoded(array('error' => array('code' => $code, 'message' => $message),
             'meta' => array('request_id' => $requestId)), $status);
+    }
+
+    public static function created(array $data,string $requestId,string $location): Response
+    {
+        $response=self::json($data,$requestId,201);
+        return new self($response->body(),201,array('Content-Type'=>'application/json; charset=utf-8','Cache-Control'=>'no-store','X-Content-Type-Options'=>'nosniff','Location'=>$location));
     }
 
     private static function encoded(array $value, int $status): Response

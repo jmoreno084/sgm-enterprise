@@ -27,14 +27,27 @@ class SgpmLocalApache
         if (!mkdir($this->directory,0755)) { throw new RuntimeException('Directorio temporal no disponible.'); }
         $this->httpPort=self::port(); $this->httpsPort=self::port();
         while ($this->httpPort===$this->httpsPort) { $this->httpsPort=self::port(); }
-        if ($expose) { $this->httpPort=18080; $this->httpsPort=18443; }
+        if ($expose) {
+            $this->httpPort=getenv('SGPM_ACCEPTANCE_HTTP_PORT')?(int)getenv('SGPM_ACCEPTANCE_HTTP_PORT'):18080;
+            $this->httpsPort=getenv('SGPM_ACCEPTANCE_HTTPS_PORT')?(int)getenv('SGPM_ACCEPTANCE_HTTPS_PORT'):18443;
+            if ($this->httpPort<1024 || $this->httpsPort<1024 || $this->httpPort>65535 || $this->httpsPort>65535 || $this->httpPort===$this->httpsPort) { throw new RuntimeException('Puertos fixture inválidos.'); }
+        }
         mkdir($this->directory.'/sessions',0700);
         if (!chown($this->directory.'/sessions','www-data')) { throw new RuntimeException('Cuenta Apache de pruebas no disponible.'); }
         $certificateConfig="[req]\ndistinguished_name=dn\nx509_extensions=server\nprompt=no\n[dn]\nCN=localhost\n[server]\nsubjectAltName=DNS:localhost\nbasicConstraints=critical,CA:TRUE\nkeyUsage=critical,digitalSignature,keyEncipherment,keyCertSign\nextendedKeyUsage=serverAuth\n";
         file_put_contents($this->directory.'/openssl.cnf',$certificateConfig);
-        $command='openssl req -x509 -nodes -newkey rsa:2048 -sha256 -days 1 -config '.escapeshellarg($this->directory.'/openssl.cnf').' -keyout '.escapeshellarg($this->directory.'/server.key').' -out '.escapeshellarg($this->ca()).' 2>/dev/null';
-        exec($command,$output,$status);
-        if ($status!==0) { throw new RuntimeException('No se pudo generar el certificado local de prueba.'); }
+        if ($expose && getenv('SGPM_ACCEPTANCE_CERT') && getenv('SGPM_ACCEPTANCE_KEY')) {
+            $certificate=realpath(getenv('SGPM_ACCEPTANCE_CERT')); $key=realpath(getenv('SGPM_ACCEPTANCE_KEY'));
+            if ($certificate!=='/tmp/sgpm-reused-server.crt' || $key!=='/tmp/sgpm-reused-server.key') { throw new RuntimeException('Rutas de certificado fixture inválidas.'); }
+            chmod($key,0600);
+            if (!openssl_x509_check_private_key(file_get_contents($certificate),file_get_contents($key))) { throw new RuntimeException('Par de certificado fixture inválido.'); }
+            copy($certificate,$this->ca()); copy($key,$this->directory.'/server.key');
+            unlink($certificate); unlink($key);
+        } else {
+            $command='openssl req -x509 -nodes -newkey rsa:2048 -sha256 -days 1 -config '.escapeshellarg($this->directory.'/openssl.cnf').' -keyout '.escapeshellarg($this->directory.'/server.key').' -out '.escapeshellarg($this->ca()).' 2>/dev/null';
+            exec($command,$output,$status);
+            if ($status!==0) { throw new RuntimeException('No se pudo generar el certificado local de prueba.'); }
+        }
         chmod($this->directory.'/server.key',0600);
         $root=dirname(__DIR__,2);
         $dir=$this->directory; $https=$this->httpsPort; $http=$this->httpPort;
@@ -74,8 +87,15 @@ PassEnv SGPM_ENV SGPM_DSN SGPM_DB_USER SGPM_DB_PASSWORD SGPM_BASE_URL SGPM_EMAIL
  SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
  Header always set Strict-Transport-Security "max-age=31536000"
  Header always set X-Content-Type-Options "nosniff"
+ Header always set X-Frame-Options "DENY"
+ Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://*.arcgisonline.com https://*.google.com https://*.googleapis.com https://*.gstatic.com; connect-src 'self' https://*.tile.openstreetmap.org https://*.arcgisonline.com https://*.googleapis.com https://*.gstatic.com; font-src 'self' data:; worker-src 'self' blob:; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
  Header always set Referrer-Policy "same-origin"
+ <IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/json application/geo+json text/html text/css application/javascript text/javascript
+ </IfModule>
  php_flag display_errors Off
+ php_value upload_max_filesize 20M
+ php_value post_max_size 21M
  php_value session.save_path $dir/sessions
  <Directory $root/public>
   Require all granted
@@ -98,7 +118,9 @@ CONF;
         file_put_contents($dir.'/apache.conf',$apache);
         $environment=array('PATH'=>getenv('PATH')?:'/usr/bin:/bin');
         foreach (array('SGPM_ENV','SGPM_DSN','SGPM_DB_USER','SGPM_DB_PASSWORD','SGPM_BASE_URL','SGPM_EMAIL_MODE','SGPM_ENCRYPTION_KEY','SGPM_MAC_KEY','SGPM_TEST_DATABASE') as $key) { $environment[$key]=getenv($key)?:''; }
-        $command='exec /usr/sbin/apache2 -f '.escapeshellarg($dir.'/apache.conf').' -DFOREGROUND';
+        // Apache's foreground shutdown signals its process group. Isolate it so
+        // a CLI test invoked via docker exec survives closing the fixture server.
+        $command='exec /usr/bin/setsid /usr/sbin/apache2 -f '.escapeshellarg($dir.'/apache.conf').' -DFOREGROUND';
         $this->process=proc_open($command,array(0=>array('pipe','r'),1=>array('file',$dir.'/stdout.log','a'),2=>array('file',$dir.'/stderr.log','a')),$pipes,$root,$environment);
         if (!is_resource($this->process)) { throw new RuntimeException('Apache local no disponible.'); }
         fclose($pipes[0]);

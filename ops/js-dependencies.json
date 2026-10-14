@@ -1,0 +1,62 @@
+[
+  {
+    "name": "leaflet-draw",
+    "version": "1.0.4",
+    "git_commit": "65d7866b14e926b72465d0077809683a77344019",
+    "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+    "license": "MIT",
+    "archive": "ops/dependency-sources/leaflet-draw-1.0.4.tgz",
+    "sha256": "b3ec161a931ad88b3f008283b824ceac5af98b5ec603877f294834d1edcc3aa6",
+    "integrity": "sha512-rsQ6saQO5ST5Aj6XRFylr5zvarWgzWnrg46zQ1MEOEIHsppdC/8hnN8qMoFvACsPvTioAuysya/TVtog15tyAQ=="
+  },
+  {
+    "name": "leaflet-measure",
+    "version": "3.1.0",
+    "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce",
+    "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+    "license": "MIT",
+    "archive": "ops/dependency-sources/leaflet-measure-3.1.0.tgz",
+    "sha256": "c1223aba2c2a824b69c5f60de0f39f5308468c45a8ee6c8fabf465a722a3ac62",
+    "integrity": "sha512-ln5c9UNaWDEd24tIzDt9hwnpb8OaCPBfSWNBg2H8rb9SA3cbXW9+NqohA6/8TdsNDGJZr36woXMrqRq07Pcl3w=="
+  },
+  {
+    "name": "leaflet.gridlayer.googlemutant",
+    "version": "0.13.5",
+    "git_commit": "2e6ae62cec3d0d66d93b24ee934e5626b796b4b4",
+    "origin": "https://registry.npmjs.org/leaflet.gridlayer.googlemutant/-/leaflet.gridlayer.googlemutant-0.13.5.tgz",
+    "license": "Beerware",
+    "archive": "ops/dependency-sources/leaflet.gridlayer.googlemutant-0.13.5.tgz",
+    "sha256": "533fd4895f76885fa888a707e7dcbdfd0ae7397a1249fdaf483420cb7f6eb3e9",
+    "integrity": "sha512-DHUEXpo1t0WZ9tpdLUHHkrTK7LldCXr/gqkV5E/4hHidDJB2srceLLCZj4PV/pl0jPdTkVBT+Lr8nL9EZDB5hw=="
+  },
+  {
+    "name": "esri-leaflet",
+    "version": "2.5.3",
+    "git_commit": "a6a7e355382c15d1e80ca2b56871a731526c552b",
+    "origin": "https://registry.npmjs.org/esri-leaflet/-/esri-leaflet-2.5.3.tgz",
+    "license": "Apache-2.0",
+    "archive": "ops/dependency-sources/esri-leaflet-2.5.3.tgz",
+    "sha256": "db4e50cdb1ef080c3537e28a97c9c8506216aa7cec19cc0d4bf123db8de456e0",
+    "integrity": "sha512-zapunrhhhKyiVP5NCSfFjD7YqWYYYD3OONVjBFWZgX2KbD6ssUQ3KnXVo2U0hswWfJDIoHF7g9PLZ4rDNuQnvA=="
+  },
+  {
+    "name": "@turf/turf",
+    "version": "6.5.0",
+    "git_commit": "5375941072b90d489389db22b43bfe809d5e451e",
+    "origin": "https://registry.npmjs.org/@turf/turf/-/turf-6.5.0.tgz",
+    "license": "MIT",
+    "archive": "ops/dependency-sources/turf-turf-6.5.0.tgz",
+    "sha256": "cc4699d2eaeb61a69b1ea60fa208478e000222b0fe6f1f1695f87af3e8420ae5",
+    "integrity": "sha512-ipMCPnhu59bh92MNt8+pr1VZQhHVuTMHklciQURo54heoxRzt1neNYZOBR6jdL+hNsbDGAECMuIpAutX+a3Y+w=="
+  },
+  {
+    "name": "acorn",
+    "version": "8.15.0",
+    "git_commit": "6dc537416ad628b3959b3ff963fbdcfdb380e0a3",
+    "origin": "https://registry.npmjs.org/acorn/-/acorn-8.15.0.tgz",
+    "license": "MIT",
+    "archive": "ops/dependency-sources/acorn-8.15.0.tgz",
+    "sha256": "e46eae89bd9761f16d1d25563b837b55b4b78f3ece06ee0b9789cb2644f523b3",
+    "integrity": "sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg=="
+  }
+]

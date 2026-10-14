@@ -1,0 +1,594 @@
+{
+  "runs": [
+    {
+      "cache": "cold-controlled",
+      "round": 1,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 4334.869800004526,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "vertices": 50000,
+        "source_total": 500,
+        "tooltip_ms": [
+          1.7999999970197678
+        ],
+        "load_ms": 2212.2000000029802,
+        "first_hover_point": {
+          "x": 306,
+          "y": 320
+        }
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 366.40000000596046,
+          "encoded_bytes": 339,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 2084.9000000059605,
+          "encoded_bytes": 194918,
+          "decoded_bytes": 1842636
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 1,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 6992.706999997608,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "vertices": 500000,
+        "source_total": 5000,
+        "tooltip_ms": [
+          0.6000000089406967
+        ],
+        "load_ms": 5829.79999999702,
+        "first_hover_point": {
+          "x": 306,
+          "y": 505
+        }
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 221.29999999701977,
+          "encoded_bytes": 340,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 1709.5999999940395,
+          "encoded_bytes": 389277,
+          "decoded_bytes": 3689902
+        },
+        {
+          "duration_ms": 2915.5,
+          "encoded_bytes": 389428,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 3441.5,
+          "encoded_bytes": 389465,
+          "decoded_bytes": 3690775
+        },
+        {
+          "duration_ms": 3245.0999999940395,
+          "encoded_bytes": 389312,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 2589.0999999940395,
+          "encoded_bytes": 389582,
+          "decoded_bytes": 3690801
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 2,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 4008.389399998123,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "vertices": 50000,
+        "source_total": 500,
+        "tooltip_ms": [
+          2.7999999970197678
+        ],
+        "load_ms": 1918.4000000059605,
+        "first_hover_point": {
+          "x": 306,
+          "y": 320
+        }
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 311.29999999701977,
+          "encoded_bytes": 339,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 1800.1000000089407,
+          "encoded_bytes": 194914,
+          "decoded_bytes": 1842636
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 2,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 8285.73889999825,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "vertices": 500000,
+        "source_total": 5000,
+        "tooltip_ms": [
+          2.5999999940395355
+        ],
+        "load_ms": 6576,
+        "first_hover_point": {
+          "x": 306,
+          "y": 505
+        }
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 178.69999998807907,
+          "encoded_bytes": 338,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 2423.7999999970198,
+          "encoded_bytes": 389281,
+          "decoded_bytes": 3689902
+        },
+        {
+          "duration_ms": 2674,
+          "encoded_bytes": 389425,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 3391.5,
+          "encoded_bytes": 389465,
+          "decoded_bytes": 3690775
+        },
+        {
+          "duration_ms": 3013.7000000029802,
+          "encoded_bytes": 389311,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 3469.7999999970198,
+          "encoded_bytes": 389582,
+          "decoded_bytes": 3690801
+        }
+      ],
+      "pass": false
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 3,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 3380.9041999920737,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "vertices": 50000,
+        "source_total": 500,
+        "tooltip_ms": [
+          3
+        ],
+        "load_ms": 1413.2999999970198,
+        "first_hover_point": {
+          "x": 306,
+          "y": 320
+        }
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 304.80000001192093,
+          "encoded_bytes": 339,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 1288.6000000089407,
+          "encoded_bytes": 194917,
+          "decoded_bytes": 1842636
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "cold-controlled",
+      "round": 3,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 5903.594100003829,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "vertices": 500000,
+        "source_total": 5000,
+        "tooltip_ms": [
+          0.6000000089406967
+        ],
+        "load_ms": 4802.29999999702,
+        "first_hover_point": {
+          "x": 306,
+          "y": 505
+        }
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 70.69999998807907,
+          "encoded_bytes": 340,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 871.3000000119209,
+          "encoded_bytes": 389275,
+          "decoded_bytes": 3689902
+        },
+        {
+          "duration_ms": 2349.0999999940395,
+          "encoded_bytes": 389427,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 3173.199999988079,
+          "encoded_bytes": 389461,
+          "decoded_bytes": 3690775
+        },
+        {
+          "duration_ms": 2496.9000000059605,
+          "encoded_bytes": 389309,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 3343.5,
+          "encoded_bytes": 389583,
+          "decoded_bytes": 3690801
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 1,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 2961.2331000098493,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "vertices": 50000,
+        "source_total": 500,
+        "tooltip_ms": [
+          1.5999999940395355
+        ],
+        "load_ms": 1983.2999999970198,
+        "first_hover_point": {
+          "x": 306,
+          "y": 320
+        }
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 260.90000000596046,
+          "encoded_bytes": 340,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 1872.5,
+          "encoded_bytes": 194918,
+          "decoded_bytes": 1842636
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 1,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 6784.591899995576,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "vertices": 500000,
+        "source_total": 5000,
+        "tooltip_ms": [
+          0.5
+        ],
+        "load_ms": 5973.70000000298,
+        "first_hover_point": {
+          "x": 306,
+          "y": 505
+        }
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 116.90000000596046,
+          "encoded_bytes": 339,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 1142.7999999970198,
+          "encoded_bytes": 389280,
+          "decoded_bytes": 3689902
+        },
+        {
+          "duration_ms": 2838.1000000089407,
+          "encoded_bytes": 389426,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 4092.7000000029802,
+          "encoded_bytes": 389463,
+          "decoded_bytes": 3690775
+        },
+        {
+          "duration_ms": 3841.2000000029802,
+          "encoded_bytes": 389310,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 4279.399999991059,
+          "encoded_bytes": 389577,
+          "decoded_bytes": 3690801
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 2,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 2092.3888999968767,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "vertices": 50000,
+        "source_total": 500,
+        "tooltip_ms": [
+          1.7000000029802322
+        ],
+        "load_ms": 1390.8999999910593,
+        "first_hover_point": {
+          "x": 306,
+          "y": 320
+        }
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 137.09999999403954,
+          "encoded_bytes": 339,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 1283,
+          "encoded_bytes": 194921,
+          "decoded_bytes": 1842636
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 2,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 8836.482099999557,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "vertices": 500000,
+        "source_total": 5000,
+        "tooltip_ms": [
+          0.5
+        ],
+        "load_ms": 7528.0999999940395,
+        "first_hover_point": {
+          "x": 306,
+          "y": 505
+        }
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 259.80000001192093,
+          "encoded_bytes": 340,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 2666.5999999940395,
+          "encoded_bytes": 389279,
+          "decoded_bytes": 3689902
+        },
+        {
+          "duration_ms": 3043.2999999970198,
+          "encoded_bytes": 389428,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 4180.4000000059605,
+          "encoded_bytes": 389461,
+          "decoded_bytes": 3690775
+        },
+        {
+          "duration_ms": 3843.2000000029802,
+          "encoded_bytes": 389312,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 3871.2999999970198,
+          "encoded_bytes": 389587,
+          "decoded_bytes": 3690801
+        }
+      ],
+      "pass": false
+    },
+    {
+      "cache": "warm",
+      "round": 3,
+      "polygons": 500,
+      "expected_vertices": 50000,
+      "navigation_to_complete_ms": 2419.38669999945,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 500,
+        "vertices": 50000,
+        "source_total": 500,
+        "tooltip_ms": [
+          1.5999999940395355
+        ],
+        "load_ms": 1283.7000000029802,
+        "first_hover_point": {
+          "x": 306,
+          "y": 320
+        }
+      },
+      "threshold_ms": 5000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 153.70000000298023,
+          "encoded_bytes": 339,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 1172.7999999970198,
+          "encoded_bytes": 194914,
+          "decoded_bytes": 1842636
+        }
+      ],
+      "pass": true
+    },
+    {
+      "cache": "warm",
+      "round": 3,
+      "polygons": 5000,
+      "expected_vertices": 500000,
+      "navigation_to_complete_ms": 5903.595699986909,
+      "map_metrics": {
+        "complete": true,
+        "rendered": 5000,
+        "vertices": 500000,
+        "source_total": 5000,
+        "tooltip_ms": [
+          0.5999999940395355
+        ],
+        "load_ms": 5178.20000000298,
+        "first_hover_point": {
+          "x": 306,
+          "y": 505
+        }
+      },
+      "threshold_ms": 8000,
+      "complete": true,
+      "tooltip_pass": true,
+      "network_verified": true,
+      "resources": [
+        {
+          "duration_ms": 69.70000000298023,
+          "encoded_bytes": 339,
+          "decoded_bytes": 433
+        },
+        {
+          "duration_ms": 955.9000000059605,
+          "encoded_bytes": 389281,
+          "decoded_bytes": 3689902
+        },
+        {
+          "duration_ms": 1732.0999999940395,
+          "encoded_bytes": 389427,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 3488.2000000029802,
+          "encoded_bytes": 389465,
+          "decoded_bytes": 3690775
+        },
+        {
+          "duration_ms": 3291.8999999910593,
+          "encoded_bytes": 389314,
+          "decoded_bytes": 3691579
+        },
+        {
+          "duration_ms": 2882.9000000059605,
+          "encoded_bytes": 389583,
+          "decoded_bytes": 3690801
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "tls_verified": true,
+  "network": {
+    "mbps": 20,
+    "rtt_ms": 50,
+    "method": "target netem 25ms/20Mbps plus browser CDP25ms"
+  },
+  "client_limits": {
+    "cpus": 4,
+    "memory_bytes": 8589934592,
+    "method": "Windows process affinity and nested Job Object",
+    "applied": true
+  },
+  "database_cache": "retained; cold-controlled refers to browser only"
+}

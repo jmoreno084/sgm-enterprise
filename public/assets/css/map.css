@@ -1,0 +1,10 @@
+#map { height: 60vh; min-height: 320px; width: 100%; background: #e9ecef; }
+#map:focus, #identify-title:focus { outline: 3px solid #6840b5; outline-offset: 2px; }
+#identify-attributes dd, #identify-attributes dt { overflow-wrap: anywhere; }
+#identify-attributes pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+#map-filters { gap: .4rem; }
+#imported-layers li { margin: .75rem 0; }
+#imported-layers input { margin: 0 .5rem; }
+#map-files li { margin-bottom: .4rem; }
+.map-color { display: inline-block; width: 1.25rem; height: 1.25rem; border: 1px solid #343a40; margin-right: .5rem; vertical-align: middle; }
+@media (max-width: 575px) { #map { height: 50vh; } .leaflet-control-measure .leaflet-control-measure-interaction { max-width: 260px; } }

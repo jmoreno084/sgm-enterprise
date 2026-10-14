@@ -1,0 +1,117 @@
+--- php-shapefile/src/Shapefile/Geometry/Geometry.php
++++ php-shapefile/src/Shapefile/Geometry/Geometry.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Geometry/GeometryCollection.php
++++ php-shapefile/src/Shapefile/Geometry/GeometryCollection.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Geometry/Linestring.php
++++ php-shapefile/src/Shapefile/Geometry/Linestring.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Geometry/MultiLinestring.php
++++ php-shapefile/src/Shapefile/Geometry/MultiLinestring.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Geometry/MultiPoint.php
++++ php-shapefile/src/Shapefile/Geometry/MultiPoint.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Geometry/MultiPolygon.php
++++ php-shapefile/src/Shapefile/Geometry/MultiPolygon.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Geometry/Point.php
++++ php-shapefile/src/Shapefile/Geometry/Point.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Geometry/Polygon.php
++++ php-shapefile/src/Shapefile/Geometry/Polygon.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/Shapefile.php
++++ php-shapefile/src/Shapefile/Shapefile.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/ShapefileAutoloader.php
++++ php-shapefile/src/Shapefile/ShapefileAutoloader.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/ShapefileException.php
++++ php-shapefile/src/Shapefile/ShapefileException.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/ShapefileReader.php
++++ php-shapefile/src/Shapefile/ShapefileReader.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *
+--- php-shapefile/src/Shapefile/ShapefileWriter.php
++++ php-shapefile/src/Shapefile/ShapefileWriter.php
+@@ -1,5 +1,5 @@
+ <?php
+-
++declare(strict_types=1);
+ /**
+  * PHP Shapefile - PHP library to read and write ESRI Shapefiles, compatible with WKT and GeoJSON
+  *

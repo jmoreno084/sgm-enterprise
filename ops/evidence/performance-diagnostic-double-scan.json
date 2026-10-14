@@ -1,0 +1,2064 @@
+{
+    "php": "7.0.33-0ubuntu0.16.04.16",
+    "users": 50,
+    "warmup_seconds": 10,
+    "measurement_seconds": 20,
+    "round": "diagnostic-shaped",
+    "diagnostic": true,
+    "network_profile": "netem-20Mbps-RTT50ms",
+    "operations": {
+        "export": 6,
+        "identify": 16,
+        "search": 101,
+        "map": 30,
+        "edit": 7
+    },
+    "summary": {
+        "map": {
+            "valid": 150,
+            "failed": 0,
+            "maximum_seconds": 2.9971480369568,
+            "p95_seconds": 2.428731918335
+        },
+        "export": {
+            "valid": 6,
+            "failed": 0,
+            "maximum_seconds": 1.0093860626221,
+            "p95_seconds": 1.0093860626221
+        },
+        "identify": {
+            "valid": 16,
+            "failed": 0,
+            "maximum_seconds": 1.775337934494,
+            "p95_seconds": 1.775337934494
+        },
+        "search": {
+            "valid": 101,
+            "failed": 0,
+            "maximum_seconds": 5.2691309452057,
+            "p95_seconds": 4.5262110233307
+        },
+        "edit": {
+            "valid": 14,
+            "failed": 0,
+            "maximum_seconds": 1.5975258350372,
+            "p95_seconds": 1.5975258350372
+        }
+    },
+    "failures": [],
+    "samples": [
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2209811210632,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.1069228649139,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.1259369850159,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "export",
+            "phase": "request",
+            "seconds": 0.88345813751221,
+            "http": 202,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.0531439781189,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.0315361022949,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.3716349601746,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 0.92389106750488,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.4947650432587,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "export",
+            "phase": "request",
+            "seconds": 1.0093860626221,
+            "http": 202,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.7789430618286,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.732568025589,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9227409362793,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6403090953827,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5867068767548,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.1168520450592,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.7451119422913,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.3832049369812,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.8161861896515,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9246549606323,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.3499081134796,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.4243550300598,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.4730730056763,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.4629640579224,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9019620418549,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.2077848911285,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.3839559555054,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.230810880661,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.3373820781708,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.5213100910187,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.6687619686127,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.5262110233307,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.6196630001068,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2351720333099,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9862010478973,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.0412051677704,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.9971480369568,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.4423599243164,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.3510499000549,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.4615168571472,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.0142080783844,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.026134967804,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9254848957062,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.9845011234283,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.4587309360504,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6079511642456,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6559090614319,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.4191210269928,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1652770042419,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.3253571987152,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.643944978714,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "export",
+            "phase": "request",
+            "seconds": 0.81609082221985,
+            "http": 202,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.18705701828,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1489150524139,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.6214950084686,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9494788646698,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 5.2691309452057,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "export",
+            "phase": "request",
+            "seconds": 0.94500708580017,
+            "http": 202,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8057780265808,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6519830226898,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.320543050766,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8008549213409,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.8692100048065,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7241199016571,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.0938560962677,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1909010410309,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.6754250526428,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.8958740234375,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 0.91807389259338,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.0907599925995,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2961568832397,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.4015369415283,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.4647610187531,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.3407278060913,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.3564221858978,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.0753722190857,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.7129728794098,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9922378063202,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.428731918335,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.4707219600677,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.6018979549408,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1265950202942,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9194021224976,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7335829734802,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.9169120788574,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.9006609916687,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1261999607086,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.5679659843445,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.2707118988037,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.4527359008789,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6676278114319,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8700349330902,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.0081760883331,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.4515480995178,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.0716259479523,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.88685321807861,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9028000831604,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.5559730529785,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6238088607788,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.651654958725,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9720931053162,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.0088431835175,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.4602239131927,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2041220664978,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.3977649211884,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.0292060375214,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.0263810157776,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9230771064758,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.4509930610657,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.4243009090424,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.051038980484,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.7541489601135,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7234528064728,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.8706200122833,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8460628986359,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.2275211811066,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6094260215759,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9170088768005,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.6057770252228,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2679119110107,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.5669209957123,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.793151140213,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.4295289516449,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9540438652039,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.923397064209,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6292629241943,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8512830734253,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2550899982452,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.8042199611664,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.834009885788,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.3186089992523,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8975419998169,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2306959629059,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9651670455933,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2106289863586,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.4914410114288,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2031311988831,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8024590015411,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.3486289978027,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6587119102478,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.079824924469,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9126579761505,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8488669395447,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.3201072216034,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8354799747467,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.775337934494,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.4173860549927,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.107381105423,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.9874999523163,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2031967639923,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7442760467529,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "read",
+            "seconds": 1.4301569461823,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1332008838654,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.0167648792267,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1912610530853,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.6808071136475,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.7014329433441,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.6174108982086,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1495609283447,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.1224689483643,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9469470977783,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6398110389709,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7460939884186,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.5721771717072,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.9123351573944,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.6071898937225,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.5859959125519,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.2663400173187,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.3716681003571,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.4752888679504,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7272529602051,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "request",
+            "seconds": 1.3977990150452,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1095240116119,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2899541854858,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6365430355072,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.1174499988556,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8505861759186,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.3722660541534,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.0697951316833,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "read",
+            "seconds": 1.0789289474487,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7147510051727,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "read",
+            "seconds": 1.1335680484772,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.2117748260498,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.6819570064545,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.0525710582733,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5144009590149,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9103901386261,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.3273968696594,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "read",
+            "seconds": 1.0808181762695,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2226591110229,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9580910205841,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.0833261013031,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6919770240784,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.645327091217,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2545580863953,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9295890331268,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.8226010799408,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5057678222656,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.1371059417725,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5271470546722,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "request",
+            "seconds": 1.2997589111328,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "request",
+            "seconds": 1.2987179756165,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.6171391010284,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.615571975708,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.674252986908,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.8272008895874,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8994410037994,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.6207439899445,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.6439199447632,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "request",
+            "seconds": 1.5975258350372,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5319440364838,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5461761951447,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.7082190513611,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2609119415283,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9280469417572,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5325558185577,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.2990918159485,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.9178099632263,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9953579902649,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5969939231873,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.0072550773621,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "export",
+            "phase": "request",
+            "seconds": 0.89727807044983,
+            "http": 202,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 2.0953359603882,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.3095231056213,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.4740660190582,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.8474190235138,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 0.88178181648254,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 0.82768797874451,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "read",
+            "seconds": 0.78307390213013,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2979481220245,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.5003869533539,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.9704451560974,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.1225061416626,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.3880150318146,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.3400039672852,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 1.2811708450317,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8009428977966,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.4217519760132,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.191367149353,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.7124400138855,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.5875551700592,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "export",
+            "phase": "request",
+            "seconds": 0.52817988395691,
+            "http": 202,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 0.90531802177429,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "read",
+            "seconds": 1.0620679855347,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.5577960014343,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "request",
+            "seconds": 0.89791488647461,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "identify",
+            "phase": "request",
+            "seconds": 0.83292818069458,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8956320285797,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.8541719913483,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.0397808551788,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.948737859726,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.1036839485168,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2790460586548,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 4.292799949646,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "read",
+            "seconds": 0.99945497512817,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.5252690315247,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.2279539108276,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.7111840248108,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.405914068222,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.0964720249176,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 3.3992919921875,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "request",
+            "seconds": 0.79329180717468,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.0974280834198,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 1.4614531993866,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.6703989505768,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "edit",
+            "phase": "request",
+            "seconds": 0.49809193611145,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.4768769741058,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.74289202690125,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.70000600814819,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.0938091278076,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.3613531589508,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.50663089752197,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 2.1243588924408,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "search",
+            "phase": "request",
+            "seconds": 1.656907081604,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.70992207527161,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.48335003852844,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.25499582290649,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.60306191444397,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.41399598121643,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.31799697875977,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.1694769859314,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.25195384025574,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.21766591072083,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.16227006912231,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.20756411552429,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.15810108184814,
+            "http": 200,
+            "valid": true
+        },
+        {
+            "kind": "map",
+            "phase": "request",
+            "seconds": 0.2100088596344,
+            "http": 200,
+            "valid": true
+        }
+    ],
+    "all_standard_samples_under_3s": false,
+    "browser_rendering_measured": false,
+    "generation_measured": false,
+    "tls_verified": true
+}

@@ -9,12 +9,138 @@
       "sha256": "05a2629821eac4d7548d5aba84892c5a1c5dc03a1147e475085cd4d152861e67",
       "license": "LGPL-2.1",
       "license_files": [
-        "tFPDF-1.33/font/unifont/DejaVu_LICENSE.txt"
+        "vendor/tfpdf/LICENSE-LGPL-2.1.txt",
+        "vendor/tfpdf/font/unifont/DejaVu_LICENSE.txt"
       ],
       "php_requirement": null,
-      "runtime_verified": false,
-      "installed": false,
-      "patches": []
+      "runtime_verified": true,
+      "installed": true,
+      "patches": [
+        {
+          "path": "ops/patches/tfpdf-strict-types.patch",
+          "sha256": "1d08de9e73df25431a94c615bc354e39bf9d3165e5b2abffb5620068e7ee1bde"
+        }
+      ],
+      "files": [
+        {
+          "path": "vendor/tfpdf/README.md",
+          "original_sha256": "3f73a26ca213f577c1952681193955e0719a5d66dec544fc9eb68411f3e412aa",
+          "sha256": "3f73a26ca213f577c1952681193955e0719a5d66dec544fc9eb68411f3e412aa"
+        },
+        {
+          "path": "vendor/tfpdf/README.txt",
+          "original_sha256": "978cdadb55a99835feee4d35ce4afe00896b03a92b27320a2f8ba5a3d1665d49",
+          "sha256": "978cdadb55a99835feee4d35ce4afe00896b03a92b27320a2f8ba5a3d1665d49"
+        },
+        {
+          "path": "vendor/tfpdf/composer.json",
+          "original_sha256": "56fc10d107736d19e6cc2283c25ef32153f128df4b55819120d7806a80205392",
+          "sha256": "56fc10d107736d19e6cc2283c25ef32153f128df4b55819120d7806a80205392"
+        },
+        {
+          "path": "vendor/tfpdf/font/courier.php",
+          "original_sha256": "91202ba0db8f7712dbfc9ce656ffe672548d9c2dc5fa28c842165fb319405dd0",
+          "sha256": "95e07c08985b2d7d05b3698edd2947151f831fc1c790a1e32b23d07224f502bf"
+        },
+        {
+          "path": "vendor/tfpdf/font/courierb.php",
+          "original_sha256": "ad94c3f7c93889b03c09b27342c86e273106c4fcfdeb4e1683746add9a8f3f58",
+          "sha256": "edf0444fa69e5dd488066e16419e348809a4a4a200d8fb7221f5c181d0d3ee58"
+        },
+        {
+          "path": "vendor/tfpdf/font/courierbi.php",
+          "original_sha256": "b706e7e71a12c85fdb92c3b6f7f4f99c5b69824eda6c56ff8c957b646ab08a96",
+          "sha256": "eafb239e3c6eeb7feb52fba3e80f9d9ee7e511f0955f00bf6ff6aa1fb9dc0ddf"
+        },
+        {
+          "path": "vendor/tfpdf/font/courieri.php",
+          "original_sha256": "a776856151d4a3fbea1142935149384426b38729c241ae399f2d8f97e0bc65ab",
+          "sha256": "5e36eb4e56024f72475dacfc144aef3493eda9048ada0007b79c22b2f2fbe59a"
+        },
+        {
+          "path": "vendor/tfpdf/font/helvetica.php",
+          "original_sha256": "c429ad8890fd830cd6817742d504069b542a5602696c623113a883096857d0ef",
+          "sha256": "33c53747516f488a5ceee57001d389e494964f833695eb5e5d03bd7f51b974b7"
+        },
+        {
+          "path": "vendor/tfpdf/font/helveticab.php",
+          "original_sha256": "160db5ebfbe6b887fda4b36b4d3a842fe9a5ed936f7f34c47524c76942c62c24",
+          "sha256": "498e2823428ce5c59675047fa70f534a08e8c1266911f7d92463526432f5c87c"
+        },
+        {
+          "path": "vendor/tfpdf/font/helveticabi.php",
+          "original_sha256": "5abe573db3d7072e56536df7deebbe131e95d8f1e640846edb15b1ce6ecfed9d",
+          "sha256": "b04e48ba2199a1787686ab6c0b3661accf0a783c44d10bd2ccebe20009658c76"
+        },
+        {
+          "path": "vendor/tfpdf/font/helveticai.php",
+          "original_sha256": "31f72350a39f08ae009398043491726b4d256ee0831e8b022d826c0647da9957",
+          "sha256": "27d5642a1b0c4879d19fde2c485ad7f57f46f38ad8f184773cd74337249bb52d"
+        },
+        {
+          "path": "vendor/tfpdf/font/symbol.php",
+          "original_sha256": "5edc7cb7bfc6917a01443f18b926b6890dd3a1f158a6deaf17af7eeaa04975e3",
+          "sha256": "5facdfd271caebfa47491841d5128e5a652212442c6c9098fbf1fc6bde4b7419"
+        },
+        {
+          "path": "vendor/tfpdf/font/times.php",
+          "original_sha256": "f370d2b21bb17e5f31c94540ec2098abcfe86a6f86719ea427655eb3dfa232f7",
+          "sha256": "bc478c062152aa397b91ac7be69cdf1050d18bd46612e652532e71655070dd8e"
+        },
+        {
+          "path": "vendor/tfpdf/font/timesb.php",
+          "original_sha256": "1f69b8b2ef889a5d6b79afae11f45c7a82a8e9c6c23b96f4a039888fcbecfc87",
+          "sha256": "4c2cea5cca45e9a61592b2dcf2af7adc7ab07c4d0ee0a0836f17e6071fc5c1a5"
+        },
+        {
+          "path": "vendor/tfpdf/font/timesbi.php",
+          "original_sha256": "2bdc804d97915c095877c242ca6026910b9f2f6c0537e0815280187a5631a7d0",
+          "sha256": "adeefad1697c02c30288ebe6e58e325f0480030d344b81225ba48ff50512f169"
+        },
+        {
+          "path": "vendor/tfpdf/font/timesi.php",
+          "original_sha256": "991be3aae5760e95667b8497cc7ab98990a72a43c9a18b6e767b06dc1a58c13d",
+          "sha256": "d975864bb51d12e045262b0f7cf57cd8788a31a44b925e6b06121b957af49388"
+        },
+        {
+          "path": "vendor/tfpdf/font/unifont/DejaVuSans-Bold.ttf",
+          "original_sha256": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724",
+          "sha256": "e6476c1b80502924294eed40894c5b18e06c181444ca953e5334262df9c27724"
+        },
+        {
+          "path": "vendor/tfpdf/font/unifont/DejaVuSans.ttf",
+          "original_sha256": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954",
+          "sha256": "7da195a74c55bef988d0d48f9508bd5d849425c1770dba5d7bfc6ce9ed848954"
+        },
+        {
+          "path": "vendor/tfpdf/font/unifont/DejaVu_LICENSE.txt",
+          "original_sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e",
+          "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+        },
+        {
+          "path": "vendor/tfpdf/font/unifont/ttfonts.php",
+          "original_sha256": "113790ec67ad76f084fdb6dc244d420c6fc1e0769139d70396977278d1d6ef36",
+          "sha256": "3d2861950f1f7a913cee6a9360de53dfcc94dbeed065e2a95cb2944d1cf168a0"
+        },
+        {
+          "path": "vendor/tfpdf/font/zapfdingbats.php",
+          "original_sha256": "04005b58fb13ab096889331171765501860ef7f2361178f55452cec322ffb314",
+          "sha256": "fc7455100503054a2f103f9a6a2d787e4a09803e49700f789f155010423f4e4a"
+        },
+        {
+          "path": "vendor/tfpdf/tfpdf.php",
+          "original_sha256": "8d8d6e2480aed99c454654077aca49fb2dbfd0fc73e73646774d671094f1539c",
+          "sha256": "5c7f8160fd236fd3a7a43fb0e878477b13216e8bd4dca16f17b9e83528e6adba"
+        },
+        {
+          "path": "vendor/tfpdf/LICENSE-LGPL-2.1.txt",
+          "original_sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95",
+          "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        }
+      ],
+      "runtime_evidence": "tests/integration/VendorSmokeTest.php; ExportFormatsTest.php sobre PHP7.0.33",
+      "commit": "050de12ab5359ce475dab49bae5cedbcf455f708",
+      "commit_evidence": "GitHub archive ZIP comment; archive SHA256 verified"
     },
     {
       "name": "gasparesganga/php-shapefile",
@@ -24,12 +150,107 @@
       "sha256": "6f73a91be958df5eb126ed9bc196ff43651f3ea4811d3a9525d622bb3a682672",
       "license": "MIT",
       "license_files": [
-        "php-shapefile-3.4.1/LICENSE"
+        "vendor/php-shapefile/LICENSE"
       ],
       "php_requirement": ">=5.4.0",
-      "runtime_verified": false,
-      "installed": false,
-      "patches": []
+      "runtime_verified": true,
+      "installed": true,
+      "patches": [
+        {
+          "path": "ops/patches/php-shapefile-strict-types.patch",
+          "sha256": "7717cc31677b9fac3eda4c4346015a5e1c503f1beabcede65b2a84d1e0ae72c6"
+        }
+      ],
+      "files": [
+        {
+          "path": "vendor/php-shapefile/LICENSE",
+          "original_sha256": "86e0d97992a07e43454d5307ac21636db2bcf3af4f918e3eaeec585f68a7f49e",
+          "sha256": "86e0d97992a07e43454d5307ac21636db2bcf3af4f918e3eaeec585f68a7f49e"
+        },
+        {
+          "path": "vendor/php-shapefile/README.md",
+          "original_sha256": "ab6feb25dfe4e271e72e58ceb594b5ff6a9890717797f7df003dc9c9e4c2aff2",
+          "sha256": "ab6feb25dfe4e271e72e58ceb594b5ff6a9890717797f7df003dc9c9e4c2aff2"
+        },
+        {
+          "path": "vendor/php-shapefile/VERSION",
+          "original_sha256": "da90bdc8938f7cc9e454422bf9a9f9e5a6de1ff168b63477cabd02d31d001be7",
+          "sha256": "da90bdc8938f7cc9e454422bf9a9f9e5a6de1ff168b63477cabd02d31d001be7"
+        },
+        {
+          "path": "vendor/php-shapefile/composer.json",
+          "original_sha256": "acd016588db425063d8da5642359a5fe408165beb5c43d7b967ad6d25b463c27",
+          "sha256": "acd016588db425063d8da5642359a5fe408165beb5c43d7b967ad6d25b463c27"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/Geometry.php",
+          "original_sha256": "5279d4e9dc6bb9f4248ecc7fa41e12453b2ef159280b02c9a073d0c50b44dec5",
+          "sha256": "fdc5160dad11d1a0fa563e0351e396e85f16bb08785dbce461b004b5fa4bcb54"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/GeometryCollection.php",
+          "original_sha256": "06b4b2116997321898afa65d6716cd43ba1182b860029fdd58b9183c0f7e1a35",
+          "sha256": "3f9e0f18f326375541a0af7c0f59a144cca18056969ba502adca78364c8fb889"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/Linestring.php",
+          "original_sha256": "cc2d413c32a3c590388ff13fef86c66bda8293241e72c5126980ff4f2a802960",
+          "sha256": "3879332918db5c47b506ce20cec04b08cd96e8a7bbf4bcf2fe3e46e1ac66d7f6"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/MultiLinestring.php",
+          "original_sha256": "a050833580df3c0cd68e89284681ebcf676ed78fdc1e1f7f81599c470f189424",
+          "sha256": "ea58c268ab9f3502d58a3df0d8a017f6e640d2f1f490b21f7ef585192748a635"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/MultiPoint.php",
+          "original_sha256": "0777fda9b8af43b602d256d9260ac1e5be1ce1b0fb4fe010e3c14791764d6da2",
+          "sha256": "256b82057d38d936ca3f95e26e613b52b083cb7acaa0e1849c10bf215b974451"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/MultiPolygon.php",
+          "original_sha256": "56b9c9593c217745403a09a84735b44343a97aa8629de59ea9c0d8d358cd4881",
+          "sha256": "a72b0b9750d98e9575a299a0c4ccfa80a815efffd7552638749c46b313e65aae"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/Point.php",
+          "original_sha256": "b9725a4acf1504cce5df198d4adce0c4bc0b5f882e6a7055ed014fbf70c778f8",
+          "sha256": "f3aec9159f882de616566dd34f479458a5184999ff23d1834d26022cd842990e"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Geometry/Polygon.php",
+          "original_sha256": "9ce70423083e0e019a6894b586b83c132968b80c1d5a7cfffa57a8ab3e6b1919",
+          "sha256": "f41d62f73b27f0b4e24c52eb63b8440795c97192764f84d8b1677776288f434b"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/Shapefile.php",
+          "original_sha256": "3785f879bd0657f2c011e395bd4dffbd4c2bfc5997d1181b8799f00036a83a71",
+          "sha256": "14888ee08938954fc1618ff5f427fb89daf24f97356b3a609839d6cee2a6753c"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/ShapefileAutoloader.php",
+          "original_sha256": "0e1595218fb70ae6e0165acc5196e500038cf82501aafa160b258f240509c107",
+          "sha256": "4b6a0fa396c338b1cfc8407dde0ae290dc9060e5305cea6da9bf7162b2bfe9c1"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/ShapefileException.php",
+          "original_sha256": "48361ac8eb431f010fda07b49e1ce492a3057b11fef1bb63f2ebfe3cc7595e4a",
+          "sha256": "19310fa8a6f4ac287f380c8ace0ff13f950a44eefbb57e20e4080fc8261d096e"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/ShapefileReader.php",
+          "original_sha256": "3ebf2f5dbd7eecdd961b240e48a3aa4f4a1c24c3b9136beab56af07da1ee1370",
+          "sha256": "2f2570da99147ab2917661a0ccbf1d4bf3749b268024b3c9f048d14fa0c4f8bf"
+        },
+        {
+          "path": "vendor/php-shapefile/src/Shapefile/ShapefileWriter.php",
+          "original_sha256": "b97c1cd07763377b019b74d1d00a4ae674b25d78ae6e15616afcf6869cca4fb7",
+          "sha256": "c3a84e81227c9aaf39c9a7647ec6cdf7327d55de24738cd602144caf266b98de"
+        }
+      ],
+      "runtime_evidence": "tests/integration/VendorSmokeTest.php; ExportFormatsTest.php sobre PHP7.0.33",
+      "commit": "7285fdb3302655f421ff39b690514f884788ebdc",
+      "commit_evidence": "GitHub archive ZIP comment; archive SHA256 verified"
     }
   ]
 }

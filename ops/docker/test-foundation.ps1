@@ -58,12 +58,13 @@ $keepReady = $false
 function Invoke-TestPhp([string[]]$PhpArguments) {
     $dockerArguments = @('run', '--rm', '--pull=never', '--network', "container:$testContainer",
         '--mount', "type=bind,source=$repoRoot,target=/workspace,readonly",
+        '--tmpfs', '/workspace/storage:rw,mode=1777', '--tmpfs', '/workspace/logs:rw,mode=1777',
         '--workdir', '/workspace', '--entrypoint', 'php')
     foreach ($key in $environment.Keys) {
         if ($key -like 'SGPM_*') { $dockerArguments += @('--env', $key) }
     }
     $dockerArguments += @($phpImage) + $PhpArguments
-    Invoke-DockerChecked $dockerArguments
+    Invoke-DockerChecked -DockerArguments $dockerArguments
 }
 try {
     Copy-Item -LiteralPath (Join-Path $repoRoot 'config/config.example.php') -Destination $configPath
@@ -72,7 +73,7 @@ try {
         '--env', 'POSTGRES_PASSWORD', '--env', 'POSTGRES_DB=sgpm_acceptance',
         '--tmpfs', '/var/lib/postgresql/data:rw', $dbImage)
     if ($KeepAcceptance) { $dbArguments = @('run', '-d', '--publish', '127.0.0.1:18080:18080', '--publish', '127.0.0.1:18443:18443') + $dbArguments[2..($dbArguments.Length-1)] }
-    Invoke-DockerChecked $dbArguments
+    Invoke-DockerChecked -DockerArguments $dbArguments
     $createdContainer = $true
     $ready = $false
     for ($attempt = 0; $attempt -lt 30; $attempt++) {
@@ -87,7 +88,7 @@ try {
 CREATE ROLE sgpm_fixture LOGIN PASSWORD '$($environment.SGPM_FIXTURE_DB_PASSWORD)';
 GRANT sgpm_fixture_owner TO sgpm_fixture;
 "@
-    Invoke-TestPhp @('bin/seed-fixtures.php', '--external')
+    Invoke-TestPhp -PhpArguments @('bin/seed-fixtures.php', '--external')
     Invoke-TestSql ([System.IO.File]::ReadAllText((Join-Path $repoRoot 'ops/database/roles.sql')))
     Invoke-TestSql @"
 ALTER ROLE sgpm_user PASSWORD '$($environment.SGPM_DB_PASSWORD)';
@@ -95,18 +96,20 @@ CREATE ROLE sgpm_migrator LOGIN PASSWORD '$($environment.SGPM_MIGRATION_DB_PASSW
 GRANT sgpm_owner TO sgpm_migrator;
 GRANT CREATE ON DATABASE sgpm_acceptance TO sgpm_owner;
 "@
-    Invoke-TestPhp @('bin/migrate.php', '--env=test')
+    Invoke-TestPhp -PhpArguments @('bin/migrate.php', '--env=test')
     Invoke-TestSql ([System.IO.File]::ReadAllText((Join-Path $repoRoot 'ops/database/grants-runtime.sql')))
-    Invoke-TestPhp @('bin/seed-fixtures.php', '--profile=sgpm-acceptance')
-    Invoke-TestPhp @('tests/run.php', '--integration', '--contract')
-    Invoke-TestPhp @('bin/check-compatibility.php')
+    Invoke-TestPhp -PhpArguments @('bin/seed-fixtures.php', '--profile=sgpm-acceptance')
+    Invoke-TestPhp -PhpArguments @('tests/run.php', '--integration', '--contract')
+    Invoke-TestPhp -PhpArguments @('bin/check-compatibility.php')
     if ($KeepAcceptance) {
+        Invoke-TestPhp -PhpArguments @('tests/fixtures/prepare-browser.php')
         $webArguments = @('run', '-d', '--pull=never', '--name', $webContainer, '--label', 'sgpm.acceptance=true',
             '--network', "container:$testContainer", '--mount', "type=bind,source=$repoRoot,target=/workspace,readonly",
+            '--tmpfs', '/workspace/storage:rw,mode=1777', '--tmpfs', '/workspace/logs:rw,mode=1777',
             '--workdir', '/workspace', '--entrypoint', 'php')
         foreach ($key in @('SGPM_ENV','SGPM_DSN','SGPM_DB_USER','SGPM_DB_PASSWORD','SGPM_EMAIL_MODE','SGPM_ENCRYPTION_KEY','SGPM_MAC_KEY','SGPM_TEST_DATABASE')) { $webArguments += @('--env', $key) }
         $webArguments += @('--env', 'SGPM_BASE_URL=https://localhost:18443', $phpImage, 'tests/fixtures/serve-acceptance.php')
-        Invoke-DockerChecked $webArguments
+        Invoke-DockerChecked -DockerArguments $webArguments
         $createdWeb = $true
         $webReady = $false
         for ($attempt = 0; $attempt -lt 30; $attempt++) {
@@ -119,7 +122,7 @@ GRANT CREATE ON DATABASE sgpm_acceptance TO sgpm_owner;
         if ($LASTEXITCODE -ne 0) { throw 'No se pudo leer el estado del entorno HTTPS.' }
         $metadataDirectory = Split-Path $metadataPath
         New-Item -ItemType Directory -Path $metadataDirectory -Force | Out-Null
-        Invoke-DockerChecked @('cp', "${webContainer}:$($serverMetadata.ca)", (Join-Path $metadataDirectory 'server.crt'))
+        Invoke-DockerChecked -DockerArguments @('cp', "${webContainer}:$($serverMetadata.ca)", (Join-Path $metadataDirectory 'server.crt'))
         $metadata = @{database_container=$testContainer;web_container=$webContainer;url='https://localhost:18443';
             config_sha256=(Get-FileHash -LiteralPath $configPath -Algorithm SHA256).Hash;
             fixture_email='admin@example.invalid';fixture_password=$environment.SGPM_FIXTURE_PASSWORD}

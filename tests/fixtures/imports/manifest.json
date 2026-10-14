@@ -1,0 +1,34 @@
+{
+  "valid_fixtures": [
+    {
+      "path": "point.geojson",
+      "sha256": "39e94f1d1de228a461739f2934e3ea2e20b238555ff4e8a0dc7873109add0100",
+      "crs": "EPSG:4326"
+    },
+    {
+      "path": "polygon.kml",
+      "sha256": "405595f985461f668d8e6deb98c948b395282d86f3475e57d89d3b0715e1ab7f",
+      "crs": "EPSG:4326"
+    }
+  ],
+  "generated_cases": "tests/integration/ImportSecurityTest.php y tests/integration/VendorSmokeTest.php",
+  "cases": [
+    "JSON corrupto",
+    "5001 objetos",
+    "coordenadas fuera de rango",
+    "CRS EPSG3857",
+    "KML DTD/entidad externa",
+    "ZIP traversal",
+    "ZIP ejecutable",
+    "ZIP expansión 101MiB",
+    "entrada mayor20MiB",
+    "extensión inválida",
+    "Shapefile UTF8 válido",
+    "Shapefile EPSG3857 rechazado",
+    "Shapefile sin PRJ rechazado",
+    "Shapefile CPG no UTF-8 rechazado",
+    "ZIP con enlace simbólico rechazado",
+    "500001 vértices rechazados antes de leer registros"
+  ],
+  "database_mutations": 0
+}

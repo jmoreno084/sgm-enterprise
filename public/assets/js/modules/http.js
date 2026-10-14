@@ -1,7 +1,16 @@
 let csrfToken = '';
+let csrfInitialization = null;
 export function setCsrf(token) { csrfToken = token; }
 export function request(path, options) {
     const settings = Object.assign({method: 'GET', credentials: 'same-origin'}, options || {});
+    if (settings.method !== 'GET' && settings.method !== 'HEAD' && !csrfToken) {
+        if (!csrfInitialization) {
+            csrfInitialization = request('/api/v1/sesion').then(function () {
+                if (!csrfToken) { throw new Error('No fue posible preparar la sesión del formulario. Actualiza la página.'); }
+            }).catch(function (error) { csrfInitialization = null; throw error; });
+        }
+        return csrfInitialization.then(function () { return request(path, options); });
+    }
     settings.headers = Object.assign({'Accept': 'application/json'}, settings.headers || {});
     if (settings.method !== 'GET' && settings.method !== 'HEAD') {
         settings.headers['X-CSRF-Token'] = csrfToken;

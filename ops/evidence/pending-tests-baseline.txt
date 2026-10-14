@@ -1,0 +1,49 @@
+ef906691fa3519f7cd680489516214beb629ba3fa73c526738f1db28d602bb1c
+CREATE EXTENSION
+DO
+GRANT
+CREATE ROLE
+GRANT ROLE
+Fuentes fixture creadas en base aislada.
+DO
+REVOKE ROLE
+REVOKE
+GRANT
+REVOKE
+GRANT
+ALTER ROLE
+CREATE ROLE
+GRANT ROLE
+GRANT
+001_identity_companies.sql: aplicada
+002_projects.sql: aplicada
+003_neighbors.sql: aplicada
+004_project_files.sql: aplicada
+005_audit.sql: aplicada
+006_auth_notifications.sql: aplicada
+GRANT
+GRANT
+GRANT
+REVOKE
+GRANT
+GRANT
+REVOKE
+REVOKE
+Fixtures internas A/B creadas; no se modificaron fuentes.
+PASS AuthorizationTest.php
+PASS ConfigurationTest.php
+PASS HttpSecurityTest.php
+PASS SqlScriptTest.php
+PASS AuthRbacTest.php
+PASS FoundationIntegrityTest.php
+PASS NotificationWorkerTest.php
+PASS RecoveryTest.php
+PASS UserConcurrencyTest.php
+PASS AuthContractTest.php
+PASS AuthHttpTest.php
+PASS AuthHttpsTest.php
+PASS EmailContractTest.php
+PASS EmailHttpContractTest.php
+14 passed; 0 failed; PHP 7.0.33-0ubuntu0.16.04.16
+VERIFICACION PHP7.0.33
+74 archivos PHP revisados.

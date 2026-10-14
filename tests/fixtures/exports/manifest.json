@@ -1,0 +1,25 @@
+{
+  "generator": "tests/integration/ExportFormatsTest.php",
+  "formats": [
+    "PDF",
+    "XLSX",
+    "CSV",
+    "GEOJSON",
+    "KML",
+    "SHAPEFILE"
+  ],
+  "codes": [
+    "EXP-Ñ",
+    "AUSENTE"
+  ],
+  "features": 1,
+  "missing_sources": 1,
+  "checks": [
+    "fórmula CSV neutralizada",
+    "UTF8 embebido PDF",
+    "OOXML texto sin fórmula",
+    "KML clampToGround",
+    "GeoJSON geometría original",
+    "DBF mapping y sidecar íntegro"
+  ]
+}

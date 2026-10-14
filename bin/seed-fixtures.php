@@ -6,6 +6,7 @@ try {
     if ((PHP_MAJOR_VERSION !== 7 || PHP_MINOR_VERSION !== 0 || PHP_RELEASE_VERSION !== 33)) { throw new RuntimeException('Se requiere PHP7.0.33.'); }
     $values = require dirname(__DIR__) . '/config/config.php';
     $external = in_array('--external', $argv, true);
+    $performance = in_array('--profile=sgpm-performance',$argv,true);
     if ($external) {
         $values['db_user'] = getenv('SGPM_FIXTURE_DB_USER') ?: '';
         $values['db_password'] = getenv('SGPM_FIXTURE_DB_PASSWORD') ?: '';
@@ -18,7 +19,8 @@ try {
         $db->execute('SET ROLE sgpm_fixture_owner');
         $db->pdo()->beginTransaction();
         try {
-            Sgpm\Infrastructure\SqlScript::run($db, file_get_contents(dirname(__DIR__) . '/tests/fixtures/external-cadastre.sql'));
+            Sgpm\Infrastructure\SqlScript::run($db, file_get_contents(dirname(__DIR__) . ($performance?'/tests/fixtures/performance/cadastre.sql':'/tests/fixtures/external-cadastre.sql')));
+            if ($performance) { Sgpm\Infrastructure\SqlScript::run($db,file_get_contents(dirname(__DIR__).'/ops/database/cadastre-search-indexes.sql')); }
             $db->pdo()->commit();
         } catch (Throwable $error) {
             $db->pdo()->rollBack();
@@ -29,6 +31,14 @@ try {
     }
     if ($config->get('db_user') !== 'sgpm_user') { throw new RuntimeException('Las fixtures internas usan runtime.'); }
     $database = new Sgpm\Infrastructure\Database($config);
+    if ($performance) {
+        $seed=require dirname(__DIR__).'/tests/fixtures/performance/seed.php';
+        $metadata=$seed($database,getenv('SGPM_FIXTURE_PASSWORD')?:'');
+        $directory=dirname(__DIR__).'/storage/acceptance'; if (!is_dir($directory)) { mkdir($directory,0700,true); }
+        file_put_contents($directory.'/performance.json',json_encode($metadata,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
+        chmod($directory.'/performance.json',0600);
+        echo "Fixture de carga preparada; metadata privada en storage/acceptance/performance.json.\n"; exit(0);
+    }
     $fixtures = require dirname(__DIR__) . '/tests/fixtures/acceptance.php';
     $password = getenv('SGPM_FIXTURE_PASSWORD') ?: '';
     if (mb_strlen($password,'UTF-8') < 12 || strlen($password) > 72) { throw new RuntimeException('Configura clave fixture temporal.'); }

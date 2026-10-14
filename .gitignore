@@ -5,6 +5,8 @@
 !.env.example
 /vendor/*
 !/vendor/.gitkeep
+!/vendor/tfpdf/
+!/vendor/php-shapefile/
 /storage/**
 !/storage/**/
 !/storage/**/.gitkeep

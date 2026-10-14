@@ -1,0 +1,38 @@
+{
+  "profile": "performance",
+  "purpose": "Datos exclusivamente sintéticos en base desechable; se agregan sin sustituir las dos filas fuente iniciales.",
+  "sha256": {
+    "tests/fixtures/performance/cadastre.sql": "bffad7254f248d343b53cdc4656513ba93a10f26eee4f4079a41a69a45954c0a",
+    "tests/fixtures/performance/seed.php": "63453704d330bc48261e918dee8bb16c506ee92b9332fe5f22be93e7c06754a2"
+  },
+  "source_rows": {
+    "geo_titulos_mineros": 50000,
+    "geo_solicitudes_mineras": 50000,
+    "total": 100000
+  },
+  "projects": {
+    "small": 500,
+    "large": 5000
+  },
+  "geometry": {
+    "small_vertices": 50000,
+    "large_vertices": 500000,
+    "first_5000": {
+      "outer_ring_vertices": 41,
+      "hole_vertices": 9,
+      "second_polygon_outer_vertices": 50,
+      "vertices_per_feature": 100
+    },
+    "remaining": "Rectangles with 5 vertices each; all source geometries retained."
+  },
+  "roles": {
+    "users": 50,
+    "geologists": 10,
+    "managers_and_investors": 40
+  },
+  "constraints": [
+    "Fixture runner requires isolated sgpm_*test or acceptance DB and fixture owner.",
+    "No real-source rows are deleted or replaced.",
+    "Performance qualification does not simplify geometries."
+  ]
+}

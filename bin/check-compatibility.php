@@ -50,6 +50,25 @@ foreach ($manifest['files'] as $asset) {
     if (!is_file($path) || !hash_equals($asset['sha256'], hash_file('sha256', $path))) {
         $failures[] = 'Checksum de activo inválido: ' . $asset['path'];
     }
+    if (isset($asset['patch'])) {
+        $patch=$asset['patch']; $patchPath=$root.'/'.$patch['path'];
+        if (!is_file($patchPath) || !hash_equals($patch['sha256'],hash_file('sha256',$patchPath))) { $failures[]='Parche JS inválido: '.$patch['path']; }
+    }
+}
+$phpDependencies=json_decode(file_get_contents($root.'/ops/dependencies-php.json'),true);
+foreach ($phpDependencies['dependencies'] as $dependency) {
+    if (empty($dependency['installed']) || !isset($dependency['commit']) || !preg_match('/^[a-f0-9]{40}$/D',$dependency['commit']) || empty($dependency['license'])) { $failures[]='Dependencia PHP sin trazabilidad: '.$dependency['name']; }
+    $archive=$root.'/'.$dependency['archive'];
+    if (!is_file($archive) || !hash_equals($dependency['sha256'],hash_file('sha256',$archive))) { $failures[]='Archivo original PHP inválido: '.$dependency['name']; }
+    foreach (array_merge($dependency['files'],$dependency['patches']) as $entry) {
+        $path=$root.'/'.$entry['path'];
+        if (!is_file($path) || !hash_equals($entry['sha256'],hash_file('sha256',$path))) { $failures[]='Vendor/parche PHP inválido: '.$entry['path']; }
+    }
+}
+$jsDependencies=json_decode(file_get_contents($root.'/ops/js-dependencies.json'),true);
+foreach ($jsDependencies as $dependency) {
+    $archive=$root.'/'.$dependency['archive'];
+    if (!is_file($archive) || !hash_equals($dependency['sha256'],hash_file('sha256',$archive)) || empty($dependency['license']) || empty($dependency['git_commit'])) { $failures[]='Dependencia JS sin trazabilidad: '.$dependency['name']; }
 }
 echo ($sourceOnly ? 'DIAGNOSTICO ESTATICO; NO CERTIFICA PHP7.0.33' : 'VERIFICACION PHP7.0.33') . "\n";
 echo $count . " archivos PHP revisados.\n";

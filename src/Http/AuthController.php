@@ -19,8 +19,8 @@ class AuthController
                 $user=$request->user();
                 $result['autenticado']=true;
                 $result['usuario']=(new \Sgpm\Modules\Usuarios\UserRepository($this->db))->find((int)$user['id']);
-                $params=array();
-                $sql="SELECT e.id,e.razon_social FROM sgpm.empresa e WHERE e.estado='ACTIVO'";
+                $params=array('rol_usuario'=>(int)$user['id']);
+                $sql="SELECT e.id,e.razon_social,(SELECT m.rol FROM sgpm.empresa_usuarios m WHERE m.empresa_id=e.id AND m.usuario_id=:rol_usuario AND m.estado='ACTIVO') AS rol FROM sgpm.empresa e WHERE e.estado='ACTIVO'";
                 if (!\Sgpm\Auth\Authorization::permits($user,'admin')) {
                     $sql.=" AND EXISTS (SELECT 1 FROM sgpm.empresa_usuarios m WHERE m.empresa_id=e.id AND m.usuario_id=:usuario AND m.estado='ACTIVO')"; $params['usuario']=(int)$user['id'];
                 }

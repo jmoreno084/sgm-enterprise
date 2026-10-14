@@ -7,11 +7,18 @@ class Router
 {
     private $routes = array();
 
-    public function add(string $method, string $path, callable $handler)
+    public function add(string $method, string $path, callable $handler,array $constraints=array())
     {
         $pattern = preg_quote($path, '~');
-        $pattern = preg_replace('/\\\\\{([a-zA-Z_]+)\\\\\}/', '(?P<$1>[1-9][0-9]*)', $pattern);
-        $this->routes[] = array(strtoupper($method), '~^' . $pattern . '$~D', $handler);
+        $pattern = preg_replace_callback('/\\\\\{([a-zA-Z_]+)\\\\\}/',function ($match) use ($constraints) {
+            return '(?P<'.$match[1].'>'.(isset($constraints[$match[1]])?$constraints[$match[1]]:'[1-9][0-9]*').')';
+        },$pattern);
+        $this->routes[] = array(strtoupper($method), '~^' . $pattern . '$~D', $handler, $path);
+    }
+
+    public function definitions(): array
+    {
+        return array_map(function ($route) { return array('method'=>$route[0],'path'=>$route[3]); },$this->routes);
     }
 
     public function dispatch(string $method, string $uri): Response

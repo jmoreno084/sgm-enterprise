@@ -71,6 +71,314 @@
       "origin": "https://github.com/Leaflet/Leaflet/tree/v1.9.4",
       "version": "1.9.4",
       "license": "BSD-2-Clause"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/package.json",
+      "sha256": "5091a50892bd0a0f3e0fa61aee5382264a795209e9def37d6ab53cfacec1a47d",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/README.md",
+      "sha256": "b81a198bf647a1066abcb19e954f093cef894d8f686e22efaaf5a673598198ca",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/layers-2x.png",
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/layers.png",
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/marker-icon-2x.png",
+      "sha256": "2d77a2e4c2f08bbac41808324ef946b9a2fe61b6150480d011b72b379c3b238d",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/marker-icon.png",
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/marker-shadow.png",
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/spritesheet-2x.png",
+      "sha256": "fa2c95e0610f3787c879645e42b86ad010c305f8312e116841730d00d4ab72b7",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/spritesheet.png",
+      "sha256": "a8978a1d3d21d8ee6f16cce342ff67fc47c4241f52161f05baf88f15e1058199",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/images/spritesheet.svg",
+      "sha256": "7077bae968047180921324df351d95fe2f021cdaefa01e20645162402f767da4",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/leaflet.draw-src.css",
+      "sha256": "241943ccd5079eab136ab4e3752ee0e6a9bb43f2a9c62cf2a7a4c19f3d8d0212",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/leaflet.draw-src.js",
+      "sha256": "e0079727865cae85c7517864cef7cbbb42a3f10f754ac0131653a666f0a49e57",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/leaflet.draw.css",
+      "sha256": "5f30f74696873efee5cd7f6ab7eda7d63e5c5a3e3c3b6e0ab2068662928df31f",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/dist/leaflet.draw.js",
+      "sha256": "b22a1f7385308e5adadd85a4c2d84e9fc523ebd70d37868cba0fe2387362460b",
+      "origin": "https://registry.npmjs.org/leaflet-draw/-/leaflet-draw-1.0.4.tgz",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/LICENSE",
+      "sha256": "2488a024ae07a6968ee690ac1d4d6be0444680aae757a153330628ee3cf71106",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/cancel_@2X.png",
+      "sha256": "a59c1612e89468ce9d272d2e0d086c0f13029234ee1cce322237e9038a756ef3",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/cancel.png",
+      "sha256": "2972e9515ff9b486d358ffe03777ebdf2dd35a2c8ccf52424fda8a8d02c0fa85",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/check_@2X.png",
+      "sha256": "948a01a00a8ffcf9f9f1aa35a47432d8ae28bcc26d531b8fb7e14cd52d693893",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/check.png",
+      "sha256": "7970eeda1c1d647da160b406bd0b6d336e2fddebc4f74431c306d7262a380043",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/focus_@2X.png",
+      "sha256": "a7914120026f40f5da0d6f20c62222547795affd21382558dabc0f53511a8624",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/focus.png",
+      "sha256": "40bb0aff173baa6b3e8dba04ac23ada71909e09a4ca7f28fc24fd49bd360ca7d",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/leaflet-measure.png",
+      "sha256": "f626b9ddcaedb86050a2039495e3636f6680bd585473bf05126b18df5fff41f2",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/rulers_@2X.png",
+      "sha256": "558233345e005b15b6b81bfa0c75877b3e7e17c90641b92e72cb1faed7bbbf27",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/rulers.png",
+      "sha256": "dc7ae401048e6ad3c8f56d991cbc83a775f59937f10f6e62f087d288aa4d7137",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/start_@2X.png",
+      "sha256": "f001d4f02102a672b95fa57d279869fabee53a27356a4e4efd0d1e3a99c22db9",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/start.png",
+      "sha256": "0194f340b27a4c5be35b83516c891c618016df39a7dab79f371b4cca0430e60a",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/trash_@2X.png",
+      "sha256": "1755d22b1ffb0e8589b26ac562330047366ed15c9d075b85d0426065714fc2bc",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/assets/trash.png",
+      "sha256": "7107fd0636a571de720766fd9bcd6cb5c952488987a858dd902608130fca19dc",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/leaflet-measure.css",
+      "sha256": "bf2e362d3c92d872b8291455fc36b0a07a54600491772408c50c1b3f0025ecbf",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-measure/dist/leaflet-measure.es.js",
+      "sha256": "70bbb79e81c289c98ddf284e5a7bb5cca2f1217d036b3f8463a39d75b77d5825",
+      "origin": "https://registry.npmjs.org/leaflet-measure/-/leaflet-measure-3.1.0.tgz",
+      "version": "3.1.0",
+      "license": "MIT",
+      "git_commit": "756dff840e42a884e7a41bc512e5fd5be130f1ce",
+      "original_sha256": "4ff310a12193a27b2f622eb507b64afcd6227752276abb0c18d253bcd1c4da9b",
+      "patch": {
+        "path": "ops/patches/measure-csp.patch",
+        "sha256": "041791c5ccce600caf620748456a655c084e0e0dc8d775d7b91c3f16ee3a4cc8"
+      },
+      "csp_profile": "five precompiled Spanish templates"
+    },
+    {
+      "path": "public/assets/vendor/leaflet.gridlayer.googlemutant/LICENSE",
+      "sha256": "f50a1a9a6ba3d2ea051ea127c5c8b33901421f90eba175cae7d0d3ea72815eb8",
+      "origin": "https://registry.npmjs.org/leaflet.gridlayer.googlemutant/-/leaflet.gridlayer.googlemutant-0.13.5.tgz",
+      "version": "0.13.5",
+      "license": "Beerware",
+      "git_commit": "2e6ae62cec3d0d66d93b24ee934e5626b796b4b4"
+    },
+    {
+      "path": "public/assets/vendor/leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant.js",
+      "sha256": "705e1bd0e923efaeb1bf7798458eff5b846031522266806f789270221499d2ef",
+      "origin": "https://registry.npmjs.org/leaflet.gridlayer.googlemutant/-/leaflet.gridlayer.googlemutant-0.13.5.tgz",
+      "version": "0.13.5",
+      "license": "Beerware",
+      "git_commit": "2e6ae62cec3d0d66d93b24ee934e5626b796b4b4"
+    },
+    {
+      "path": "public/assets/vendor/esri-leaflet/LICENSE",
+      "sha256": "ca64ae38a8d7f5d7785f2c1440c009ebe19b9d368b63408a96dc2c4855b8bd28",
+      "origin": "https://registry.npmjs.org/esri-leaflet/-/esri-leaflet-2.5.3.tgz",
+      "version": "2.5.3",
+      "license": "Apache-2.0",
+      "git_commit": "a6a7e355382c15d1e80ca2b56871a731526c552b"
+    },
+    {
+      "path": "public/assets/vendor/esri-leaflet/dist/esri-leaflet.js",
+      "sha256": "c00eb1dc3e5a7d54e81060f1e7b17b432751e7bb2a701bed1f229587372b4271",
+      "origin": "https://registry.npmjs.org/esri-leaflet/-/esri-leaflet-2.5.3.tgz",
+      "version": "2.5.3",
+      "license": "Apache-2.0",
+      "git_commit": "a6a7e355382c15d1e80ca2b56871a731526c552b"
+    },
+    {
+      "path": "public/assets/vendor/turf-turf/LICENSE",
+      "sha256": "f9b32b82fd5a1d3a990526d86da97f42fb805d9f4d9f978125c4679b674fce44",
+      "origin": "https://registry.npmjs.org/@turf/turf/-/turf-6.5.0.tgz",
+      "version": "6.5.0",
+      "license": "MIT",
+      "git_commit": "5375941072b90d489389db22b43bfe809d5e451e"
+    },
+    {
+      "path": "public/assets/vendor/turf-turf/turf.min.js",
+      "sha256": "d0f1a2e9724cb8111d43ea9a994df1b5052ede63cf82ee47b8577ab174d5fbcb",
+      "origin": "https://registry.npmjs.org/@turf/turf/-/turf-6.5.0.tgz",
+      "version": "6.5.0",
+      "license": "MIT",
+      "git_commit": "5375941072b90d489389db22b43bfe809d5e451e",
+      "original_sha256": "d00f3e8ff8a8f9c103dad61c2fd4bb58143e1404aadfdf09e29b6db1a2de0a3f",
+      "patch": {
+        "path": "ops/patches/turf-csp.patch",
+        "sha256": "0d82282d52f3e64e6edfcacdc6d93d5d59955cb6655d355fe406b9a811067f0f"
+      },
+      "csp_profile": "area/length/centroid and pinned initialization"
+    },
+    {
+      "path": "public/assets/vendor/leaflet-draw/MIT-LICENSE.md",
+      "sha256": "320f2c68ac27b7f7f2a78c490470a273d297e753ab37ba026944616bf0a62f47",
+      "origin": "https://raw.githubusercontent.com/Leaflet/Leaflet.draw/65d7866b14e926b72465d0077809683a77344019/MIT-LICENSE.md",
+      "version": "1.0.4",
+      "license": "MIT",
+      "git_commit": "65d7866b14e926b72465d0077809683a77344019"
     }
   ]
 }
